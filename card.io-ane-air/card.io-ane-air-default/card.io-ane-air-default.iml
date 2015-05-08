@@ -2,9 +2,9 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="card.io-ane-air-default">
     <configurations>
-      <configuration name="card.io-ane-air-default" pure-as="true" output-type="Library" output-file="card_io-ane-air-default.swc" output-folder="$MODULE_DIR$/../out/production/card.io-ane-air-default">
+      <configuration name="card.io-ane-air-default" pure-as="true" output-type="Library" output-file="card.io-ane-default.swc" output-folder="$MODULE_DIR$/../../build/default">
         <dependencies target-player="12.0">
-          <sdk name="18.0.0.96" />
+          <sdk name="4.0.0" />
         </dependencies>
         <compiler-options />
         <packaging-air-desktop />
@@ -19,7 +19,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="18.0.0.96" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="4.0.0" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
