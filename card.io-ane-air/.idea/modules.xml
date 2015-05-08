@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/card.io-ane-air/card.io-ane-air.iml" filepath="$PROJECT_DIR$/card.io-ane-air/card.io-ane-air.iml" />
+      <module fileurl="file://$PROJECT_DIR$/card.io-ane-air-debug/card.io-ane-air-debug.iml" filepath="$PROJECT_DIR$/card.io-ane-air-debug/card.io-ane-air-debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/card.io-ane-air-default/card.io-ane-air-default.iml" filepath="$PROJECT_DIR$/card.io-ane-air-default/card.io-ane-air-default.iml" />
+    </modules>
+  </component>
+</project>
