@@ -38,3 +38,5 @@ bin-release/
 # AirExt
 #
 build/launch/*
+
+card.io-ane-air/card.io-ane-debug/ane/card.io.ane
