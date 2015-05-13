@@ -9,17 +9,25 @@
 #import "ANXCardIO.h"
 
 @implementation ANXCardIO
+{
+    ANXCardIOScanForPaymentCompletion scanForPaymentCallback;
+}
 
-#pragma mark Properties
+#pragma mark Shared Instance
 
-static FREContext context;
+static ANXCardIO* _sharedInstance = nil;
 
-+(FREContext) context
-{ @synchronized(self) { return context; } }
-+(void) setContext:(FREContext)val
-{ @synchronized(self) { context = val; } }
++(ANXCardIO*) sharedInstance
+{
+    if (_sharedInstance == nil)
+    {
+        _sharedInstance = [[super alloc] init];
+    }
+    
+    return _sharedInstance;
+}
 
-#pragma mark Methods
+#pragma mark Class Methods
 
 +(BOOL) isSupported
 {
@@ -30,5 +38,49 @@ static FREContext context;
 {
     return [CardIOUtilities libraryVersion];
 }
+
+-(void) scanForPayment: (FREObject) object completion: (ANXCardIOScanForPaymentCompletion) completion
+{
+    CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
+    
+    scanViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    UIViewController *currentRootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    
+    [currentRootViewController presentViewController:scanViewController animated:YES completion:nil];
+    
+    scanForPaymentCallback = completion;
+}
+
+#pragma mark - CardIOPaymentViewControllerDelegate
+
+- (void)userDidProvideCreditCardInfo:(CardIOCreditCardInfo *)info inPaymentViewController:(CardIOPaymentViewController *)paymentViewController
+{
+    NSLog(@"Scan succeeded with info: %@", info);
+    
+    [paymentViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    if (scanForPaymentCallback != nil)
+    {
+        scanForPaymentCallback(info, nil);
+        
+        scanForPaymentCallback = nil;
+    }
+}
+
+- (void)userDidCancelPaymentViewController:(CardIOPaymentViewController *)paymentViewController
+{
+    NSLog(@"User cancelled scan");
+    
+    [paymentViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    if (scanForPaymentCallback != nil)
+    {
+        scanForPaymentCallback(nil, nil);
+        
+        scanForPaymentCallback = nil;
+    }
+}
+
 
 @end

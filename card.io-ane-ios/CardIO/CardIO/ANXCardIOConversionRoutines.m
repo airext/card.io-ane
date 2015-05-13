@@ -44,4 +44,38 @@
     return [NSString stringWithUTF8String: (char*) tempValue];
 }
 
++(FREObject) convertNSUIntegerToFREObject:(NSUInteger) integer
+{
+    FREResult result;
+    
+    FREObject value;
+    
+    result = FRENewObjectFromUint32((uint32_t) integer, &value);
+    
+    if (result != FRE_OK)
+        return NULL;
+    
+    return value;
+}
+
++(NSString*) convertCreditCardInfoToJSON: (CardIOCreditCardInfo*) info error: (NSError**) error
+{
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    
+    [dictionary setValue:info.cardNumber forKey:@"cardNumber"];
+    [dictionary setValue:info.cardNumber forKey:@"cardNumber"];
+    [dictionary setValue:info.redactedCardNumber forKey:@"redactedCardNumber"];
+    [dictionary setValue:[NSNumber numberWithInteger:info.expiryMonth] forKey:@"expiryMonth"];
+    [dictionary setValue:[NSNumber numberWithInteger:info.expiryYear] forKey:@"expiryYear"];
+    
+    NSData* json = [NSJSONSerialization dataWithJSONObject:dictionary options:0 error:error];
+    
+    if (*error != nil)
+    {
+        return nil;
+    }
+    
+    return [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
+}
+
 @end

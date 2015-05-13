@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CardIO/CardIO.h>
 
 #import "FlashRuntimeExtensions.h"
 
@@ -16,5 +17,9 @@
 
 +(FREObject) convertNSStringToFREObject:(NSString*) string;
 +(NSString*) convertFREObjectToNSString: (FREObject) string;
+
++(FREObject) convertNSUIntegerToFREObject:(NSUInteger) integer;
+
++(NSString*) convertCreditCardInfoToJSON: (CardIOCreditCardInfo*) info error: (NSError**) error;
 
 @end

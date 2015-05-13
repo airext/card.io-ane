@@ -11,17 +11,24 @@
 
 #import "FlashRuntimeExtensions.h"
 
-@interface ANXCardIO : NSObject
+#pragma mark Callbacks
 
-#pragma mark Properties
+typedef void (^ANXCardIOScanForPaymentCompletion)(CardIOCreditCardInfo* info, NSError *error);
 
-+(FREContext) context;
-+(void) setContext: (FREContext) value;
+#pragma mark Interface
 
-#pragma mark Methods
+@interface ANXCardIO : NSObject <CardIOPaymentViewControllerDelegate>
+
+#pragma mark Shared Instance
+
++(ANXCardIO*) sharedInstance;
+
+#pragma mark Class Methods
 
 +(BOOL) isSupported;
 
 +(NSString*) libraryVersion;
+
+-(void) scanForPayment: (FREObject) object completion: (ANXCardIOScanForPaymentCompletion) completion;
 
 @end

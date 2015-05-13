@@ -9,9 +9,17 @@
 #import <Foundation/Foundation.h>
 
 #import "FlashRuntimeExtensions.h"
-
 #import "ANXCardIO.h"
 #import "ANXCardIOConversionRoutines.h"
+
+FREContext context;
+
+#pragma mark Internal methods
+
+void dispatchEvent(NSString* code, NSString* level)
+{
+    FREDispatchStatusEventAsync(context, (const uint8_t *) [code UTF8String], (const uint8_t *) [level UTF8String]);
+}
 
 #pragma mark API
 
@@ -29,11 +37,43 @@ FREObject ANXCardIOLibraryVersion(FREContext context, void* functionData, uint32
     return [ANXCardIOConversionRoutines convertNSStringToFREObject:[ANXCardIO libraryVersion]];
 }
 
+FREObject ANXCardIOScanForPayment(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
+{
+    [[ANXCardIO sharedInstance] scanForPayment:NULL completion:^(CardIOCreditCardInfo *info, NSError *error)
+    {
+        if (info != nil)
+        {
+            NSError* serializationError = nil;
+            
+            NSString* json = [ANXCardIOConversionRoutines convertCreditCardInfoToJSON:info error:&serializationError];
+
+            if (serializationError != nil)
+            {
+                dispatchEvent(@"CardIO.ScanForPayment.Failed", [serializationError localizedDescription]);
+            }
+            else
+            {
+                dispatchEvent(@"CardIO.ScanForPayment.Complete", json);
+            }
+        }
+        else if (error != nil)
+        {
+            dispatchEvent(@"CardIO.ScanForPayment.Failed", [error localizedDescription]);
+        }
+        else
+        {
+            dispatchEvent(@"CardIO.ScanForPayment.Canceled", @"status");
+        }
+    }];
+    
+    return NULL;
+}
+
 #pragma mark ContextInitialize/ContextFinalizer
 
 void ANXCardIOContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
-    *numFunctionsToTest = 2;
+    *numFunctionsToTest = 3;
     
     FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * (*numFunctionsToTest));
     
@@ -44,15 +84,19 @@ void ANXCardIOContextInitializer(void* extData, const uint8_t* ctxType, FREConte
     func[1].name = (const uint8_t*) "libraryVersion";
     func[1].functionData = NULL;
     func[1].function = &ANXCardIOLibraryVersion;
+
+    func[2].name = (const uint8_t*) "scanForPayment";
+    func[2].functionData = NULL;
+    func[2].function = &ANXCardIOScanForPayment;
     
     *functionsToSet = func;
     
-    ANXCardIO.context = ctx;
+    context = ctx;
 }
 
 void ANXCardIOContextFinalizer(FREContext ctx)
 {
-    ANXCardIO.context = nil;
+    context = NULL;
 }
 
 #pragma mark Initializer/Finalizer

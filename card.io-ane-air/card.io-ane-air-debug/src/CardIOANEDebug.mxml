@@ -4,6 +4,7 @@
     <fx:Script>
         <![CDATA[
         import org.bitbucket.rozd.CardIO;
+        import org.bitbucket.rozd.events.CardIOEvent;
 
         import spark.components.Alert;
 
@@ -16,6 +17,23 @@
         {
             Alert.show(String(CardIO.libraryVersion));
         }
+
+        private function scanForPayment():void
+        {
+            CardIO.getInstance().addEventListener(CardIOEvent.SCAN_COMPLETE,
+                function(event:CardIOEvent):void
+                {
+                    trace(event.info);
+                });
+            CardIO.getInstance().addEventListener(Event.CANCEL,
+                function(event:Event):void
+                {
+                    trace("cancelled");
+                });
+
+            CardIO.getInstance().scanForPayment(null);
+        }
+
         ]]>
     </fx:Script>
 
@@ -29,5 +47,6 @@
 
     <s:Button label="Is Supported" click="isSupported();" />
     <s:Button label="Card.IO version" click="libraryVersion();" />
+    <s:Button label="Scan for Payment" click="scanForPayment();" />
 
 </s:Application>
