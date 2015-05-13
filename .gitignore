@@ -40,3 +40,5 @@ bin-release/
 build/launch/*
 
 card.io-ane-air/card.io-ane-debug/ane/card.io.ane
+
+card.io-ane-air/.idea/workspace.xml
