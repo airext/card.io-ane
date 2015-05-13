@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension xmlns="http://ns.adobe.com/air/extension/4.0">
+  <id>org.bitbucket.rozd.CardIO</id>
+  <versionNumber>0.0.1</versionNumber>
+  <platforms>
+    <platform name="iPhone-ARM">
+      <applicationDeployment>
+        <nativeLibrary>libANXCardIO.a</nativeLibrary>
+        <initializer>ANXCardIOInitializer</initializer>
+        <finalizer>ANXCardIOFinalizer</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="default">
+      <applicationDeployment />
+    </platform>
+  </platforms>
+</extension>

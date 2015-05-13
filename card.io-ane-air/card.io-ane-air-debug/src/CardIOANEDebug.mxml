@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:ViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
-    <s:navigationContent>
-        <s:Button label="Home" click="navigator.popToFirstView()"/>
-    </s:navigationContent>
-</s:ViewNavigatorApplication>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+
+    <fx:Script>
+        <![CDATA[
+        import org.bitbucket.rozd.CardIO;
+        import org.bitbucket.rozd.events.CardIOEvent;
+
+        import spark.components.Alert;
+
+        private function isSupported():void
+        {
+            Alert.show(String(CardIO.isSupported()));
+        }
+
+        private function libraryVersion():void
+        {
+            Alert.show(String(CardIO.libraryVersion));
+        }
+
+        private function scanForPayment():void
+        {
+            CardIO.getInstance().addEventListener(CardIOEvent.SCAN_COMPLETE,
+                function(event:CardIOEvent):void
+                {
+                    trace(event.info);
+                });
+            CardIO.getInstance().addEventListener(Event.CANCEL,
+                function(event:Event):void
+                {
+                    trace("cancelled");
+                });
+
+            CardIO.getInstance().scanForPayment(null);
+        }
+
+        ]]>
+    </fx:Script>
+
+    <fx:Declarations>
+
+    </fx:Declarations>
+
+    <s:layout>
+        <s:VerticalLayout horizontalAlign="justify" gap="30" paddingTop="30" />
+    </s:layout>
+
+    <s:Button label="Is Supported" click="isSupported();" />
+    <s:Button label="Card.IO version" click="libraryVersion();" />
+    <s:Button label="Scan for Payment" click="scanForPayment();" />
+
+</s:Application>

@@ -1,0 +1,21 @@
+<platform xmlns="http://ns.adobe.com/air/extension/4.0">
+    <description></description> 
+    <sdkVersion>6.1</sdkVersion> 
+    <linkerOptions>
+        <option>-weak_framework AudioToolbox</option>
+        <option>-weak_framework AVFoundation</option>
+        <option>-weak_framework CoreGraphics</option>
+        <option>-weak_framework CoreMedia</option>
+        <option>-weak_framework CoreVideo</option>
+        <option>-weak_framework Foundation</option>
+        <option>-weak_framework MobileCoreServices</option>
+        <option>-weak_framework OpenGLES</option>
+        <option>-weak_framework QuartzCore</option>
+        <option>-weak_framework Security</option>
+        <option>-weak_framework UIKit</option>
+        <option>-lc++</option>
+    </linkerOptions> 
+    <packagedDependencies> 
+        <packagedDependency>libCardIO.a</packagedDependency>
+    </packagedDependencies> 
+</platform>

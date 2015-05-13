@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E69FD0F1AFCF820009BA544 /* ANXCardIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E69FD0E1AFCF820009BA544 /* ANXCardIO.m */; };
+		0E69FD261AFCFC8C009BA544 /* ANXCardIOFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E69FD251AFCFC8C009BA544 /* ANXCardIOFacade.m */; };
+		0E69FD291AFD00C5009BA544 /* ANXCardIOConversionRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E69FD281AFD00C5009BA544 /* ANXCardIOConversionRoutines.m */; };
+		0E69FD2A1AFD0224009BA544 /* libANXCardIO.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E69FD091AFCF820009BA544 /* libANXCardIO.a */; };
+		BC1F8055C9C574051B8ECCC8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 461EA3174CA01E23EC63D32F /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0E69FD071AFCF820009BA544 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${PROJECT_DIR}/../../build/ios";
+			dstSubfolderSpec = 0;
+			files = (
+				0E69FD2A1AFD0224009BA544 /* libANXCardIO.a in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0E69FD091AFCF820009BA544 /* libANXCardIO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libANXCardIO.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E69FD0C1AFCF820009BA544 /* ANXCardIO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXCardIO.h; sourceTree = "<group>"; };
+		0E69FD0E1AFCF820009BA544 /* ANXCardIO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXCardIO.m; sourceTree = "<group>"; };
+		0E69FD241AFCFBF8009BA544 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		0E69FD251AFCFC8C009BA544 /* ANXCardIOFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANXCardIOFacade.m; sourceTree = "<group>"; };
+		0E69FD271AFD00C5009BA544 /* ANXCardIOConversionRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANXCardIOConversionRoutines.h; sourceTree = "<group>"; };
+		0E69FD281AFD00C5009BA544 /* ANXCardIOConversionRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANXCardIOConversionRoutines.m; sourceTree = "<group>"; };
+		461EA3174CA01E23EC63D32F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		824B19A8BC45FE7908411BCA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AC609EB4C165B6B2259F96E8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0E69FD061AFCF820009BA544 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC1F8055C9C574051B8ECCC8 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05D8C7B1D9B630438694E74A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				824B19A8BC45FE7908411BCA /* Pods.debug.xcconfig */,
+				AC609EB4C165B6B2259F96E8 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0E69FD001AFCF820009BA544 = {
+			isa = PBXGroup;
+			children = (
+				0E69FD0B1AFCF820009BA544 /* CardIO */,
+				0E69FD0A1AFCF820009BA544 /* Products */,
+				05D8C7B1D9B630438694E74A /* Pods */,
+				EF0BA1A38118BC11E5FECBDB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0E69FD0A1AFCF820009BA544 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0E69FD091AFCF820009BA544 /* libANXCardIO.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0E69FD0B1AFCF820009BA544 /* CardIO */ = {
+			isa = PBXGroup;
+			children = (
+				0E69FD231AFCFBC9009BA544 /* Supporting Files */,
+				0E69FD0C1AFCF820009BA544 /* ANXCardIO.h */,
+				0E69FD0E1AFCF820009BA544 /* ANXCardIO.m */,
+				0E69FD251AFCFC8C009BA544 /* ANXCardIOFacade.m */,
+				0E69FD271AFD00C5009BA544 /* ANXCardIOConversionRoutines.h */,
+				0E69FD281AFD00C5009BA544 /* ANXCardIOConversionRoutines.m */,
+			);
+			path = CardIO;
+			sourceTree = "<group>";
+		};
+		0E69FD231AFCFBC9009BA544 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E69FD241AFCFBF8009BA544 /* FlashRuntimeExtensions.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF0BA1A38118BC11E5FECBDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				461EA3174CA01E23EC63D32F /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0E69FD081AFCF820009BA544 /* ANXCardIO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E69FD1D1AFCF820009BA544 /* Build configuration list for PBXNativeTarget "ANXCardIO" */;
+			buildPhases = (
+				5C5D12596D1AFCC73E78DDA9 /* Check Pods Manifest.lock */,
+				0E69FD051AFCF820009BA544 /* Sources */,
+				0E69FD061AFCF820009BA544 /* Frameworks */,
+				0E69FD071AFCF820009BA544 /* CopyFiles */,
+				E5C2E5096FBD1B3DD90E8627 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ANXCardIO;
+			productName = CardIO;
+			productReference = 0E69FD091AFCF820009BA544 /* libANXCardIO.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0E69FD011AFCF820009BA544 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = igamebank;
+				TargetAttributes = {
+					0E69FD081AFCF820009BA544 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 0E69FD041AFCF820009BA544 /* Build configuration list for PBXProject "CardIO" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0E69FD001AFCF820009BA544;
+			productRefGroup = 0E69FD0A1AFCF820009BA544 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0E69FD081AFCF820009BA544 /* ANXCardIO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C5D12596D1AFCC73E78DDA9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E5C2E5096FBD1B3DD90E8627 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0E69FD051AFCF820009BA544 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E69FD291AFD00C5009BA544 /* ANXCardIOConversionRoutines.m in Sources */,
+				0E69FD0F1AFCF820009BA544 /* ANXCardIO.m in Sources */,
+				0E69FD261AFCFC8C009BA544 /* ANXCardIOFacade.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0E69FD1B1AFCF820009BA544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0E69FD1C1AFCF820009BA544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0E69FD1E1AFCF820009BA544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 824B19A8BC45FE7908411BCA /* Pods.debug.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0E69FD1F1AFCF820009BA544 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC609EB4C165B6B2259F96E8 /* Pods.release.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0E69FD041AFCF820009BA544 /* Build configuration list for PBXProject "CardIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E69FD1B1AFCF820009BA544 /* Debug */,
+				0E69FD1C1AFCF820009BA544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E69FD1D1AFCF820009BA544 /* Build configuration list for PBXNativeTarget "ANXCardIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E69FD1E1AFCF820009BA544 /* Debug */,
+				0E69FD1F1AFCF820009BA544 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0E69FD011AFCF820009BA544 /* Project object */;
+}
