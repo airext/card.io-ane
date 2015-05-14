@@ -3,12 +3,12 @@
 //  CardIO
 //
 //  Created by Max Rozdobudko on 5/8/15.
-//  Copyright (c) 2015 igamebank. All rights reserved.
+//  Copyright (c) 2015 yeaply.com. All rights reserved.
 //
 
-#import "ANXCardIOConversionRoutines.h"
+#import "YPLCardScanConversionRoutines.h"
 
-@implementation ANXCardIOConversionRoutines
+@implementation YPLCardScanConversionRoutines
 
 #pragma mark Conversion methods
 
@@ -153,8 +153,6 @@
 +(FREObject) convertUIImageToFREObject: (UIImage*) image
 {
     // drawing UIImage to BitmapData http://tyleregeto.com/article/drawing-ios-uiviews-to-as3-bitmapdata-via-air
-    
-    
     
     // Now we'll pull the raw pixels values out of the image data
     

@@ -3,21 +3,21 @@
 //  CardIO
 //
 //  Created by Max Rozdobudko on 5/8/15.
-//  Copyright (c) 2015 igamebank. All rights reserved.
+//  Copyright (c) 2015 yeaply.com. All rights reserved.
 //
 
-#import "ANXCardIO.h"
+#import "YPLCardScan.h"
 
-@implementation ANXCardIO
+@implementation YPLCardScan
 {
     ANXCardIOScanForPaymentCompletion scanForPaymentCallback;
 }
 
 #pragma mark Shared Instance
 
-static ANXCardIO* _sharedInstance = nil;
+static YPLCardScan* _sharedInstance = nil;
 
-+(ANXCardIO*) sharedInstance
++(YPLCardScan*) sharedInstance
 {
     if (_sharedInstance == nil)
     {
@@ -39,19 +39,20 @@ static ANXCardIO* _sharedInstance = nil;
     return [CardIOUtilities libraryVersion];
 }
 
-
 +(UIImage*) getLogoForCardType: (CardIOCreditCardType) cardType
 {
     return [CardIOCreditCardInfo logoForCardType:cardType];
 }
 
-+(NSString*) getDisplayNameForCardType: (CardIOCreditCardType) cardType usingLanguageOrLocale: (NSString*) languageOrLocale
++(NSString*) getDisplayNameForCardType: (CardIOCreditCardType) cardType singLanguageOrLocale: (NSString*) languageOrLocale
 {
     return [CardIOCreditCardInfo displayStringForCardType:cardType usingLanguageOrLocale:languageOrLocale];
 }
 
 -(void) scanForPayment: (FREObject) object completion: (ANXCardIOScanForPaymentCompletion) completion
 {
+    NSLog(@"Start scan for payment.");
+    
     CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
     
     scanViewController.modalPresentationStyle = UIModalPresentationFormSheet;

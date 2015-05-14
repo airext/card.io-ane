@@ -1,16 +1,16 @@
 //
-//  ANXCardIOFacade.m
+//  YPLCardScanFacade.m
 //  CardIO
 //
 //  Created by Max Rozdobudko on 5/8/15.
-//  Copyright (c) 2015 igamebank. All rights reserved.
+//  Copyright (c) 2015 yeaply.com. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 #import "FlashRuntimeExtensions.h"
-#import "ANXCardIO.h"
-#import "ANXCardIOConversionRoutines.h"
+#import "YPLCardScan.h"
+#import "YPLCardScanConversionRoutines.h"
 
 FREContext context;
 
@@ -23,29 +23,29 @@ void dispatchEvent(NSString* code, NSString* level)
 
 #pragma mark API
 
-FREObject ANXCardIOIsSupported(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
+FREObject YPLCardScanIsSupported(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
     FREObject result;
     
-    FRENewObjectFromBool([ANXCardIO isSupported], &result);
+    FRENewObjectFromBool([YPLCardScan isSupported], &result);
     
     return result;
 }
 
-FREObject ANXCardIOLibraryVersion(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
+FREObject YPLCardScanLibraryVersion(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
-    return [ANXCardIOConversionRoutines convertNSStringToFREObject:[ANXCardIO libraryVersion]];
+    return [YPLCardScanConversionRoutines convertNSStringToFREObject:[YPLCardScan libraryVersion]];
 }
 
-FREObject ANXCardIOGetLogoForCardType(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
+FREObject YPLCardScanGetLogoForCardType(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
     if (argc > 0)
     {
-        CardIOCreditCardType cardType = [ANXCardIOConversionRoutines convertFREObjectToCreditCardType:argv[0]];
+        CardIOCreditCardType cardType = [YPLCardScanConversionRoutines convertFREObjectToCreditCardType:argv[0]];
         
-        UIImage* logo = [ANXCardIO getLogoForCardType: cardType];
+        UIImage* logo = [YPLCardScan getLogoForCardType: cardType];
         
-        return [ANXCardIOConversionRoutines convertUIImageToFREObject:logo];
+        return [YPLCardScanConversionRoutines convertUIImageToFREObject:logo];
     }
     else
     {
@@ -53,16 +53,16 @@ FREObject ANXCardIOGetLogoForCardType(FREContext context, void* functionData, ui
     }
 }
 
-FREObject ANXCardIOGetDisplayNameForCardType(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
+FREObject YPLCardScanGetDisplayNameForCardType(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
     if (argc > 1)
     {
-        CardIOCreditCardType cardType = [ANXCardIOConversionRoutines convertFREObjectToCreditCardType:argv[0]];
-        NSString* languageOrLocale = [ANXCardIOConversionRoutines convertFREObjectToNSString:argv[1]];
+        CardIOCreditCardType cardType = [YPLCardScanConversionRoutines convertFREObjectToCreditCardType:argv[0]];
+        NSString* languageOrLocale = [YPLCardScanConversionRoutines convertFREObjectToNSString:argv[1]];
         
-        NSString* displayName = [ANXCardIO getDisplayNameForCardType:cardType singLanguageOrLocale:languageOrLocale];
+        NSString* displayName = [YPLCardScan getDisplayNameForCardType:cardType singLanguageOrLocale:languageOrLocale];
         
-        return [ANXCardIOConversionRoutines convertNSStringToFREObject:displayName];
+        return [YPLCardScanConversionRoutines convertNSStringToFREObject:displayName];
     }
     else
     {
@@ -70,32 +70,36 @@ FREObject ANXCardIOGetDisplayNameForCardType(FREContext context, void* functionD
     }
 }
 
-FREObject ANXCardIOScanForPayment(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
+FREObject YPLCardScanScanForPayment(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
-    [[ANXCardIO sharedInstance] scanForPayment:NULL completion:^(CardIOCreditCardInfo *info, NSError *error)
+    NSLog(@"YPLCardScanScanForPayment");
+    
+    [[YPLCardScan sharedInstance] scanForPayment:NULL completion:^(CardIOCreditCardInfo *info, NSError *error)
     {
+        NSLog(@"YPLCardScanScanForPayment.callback()");
+        
         if (info != nil)
         {
             NSError* serializationError = nil;
             
-            NSString* json = [ANXCardIOConversionRoutines convertCreditCardInfoToJSON:info error:&serializationError];
+            NSString* json = [YPLCardScanConversionRoutines convertCreditCardInfoToJSON:info error:&serializationError];
 
             if (serializationError != nil)
             {
-                dispatchEvent(@"CardIO.ScanForPayment.Failed", [serializationError localizedDescription]);
+                dispatchEvent(@"CardScan.ScanForPayment.Failed", [serializationError localizedDescription]);
             }
             else
             {
-                dispatchEvent(@"CardIO.ScanForPayment.Complete", json);
+                dispatchEvent(@"CardScan.ScanForPayment.Complete", json);
             }
         }
         else if (error != nil)
         {
-            dispatchEvent(@"CardIO.ScanForPayment.Failed", [error localizedDescription]);
+            dispatchEvent(@"CardScan.ScanForPayment.Failed", [error localizedDescription]);
         }
         else
         {
-            dispatchEvent(@"CardIO.ScanForPayment.Canceled", @"status");
+            dispatchEvent(@"CardScan.ScanForPayment.Canceled", @"status");
         }
     }];
     
@@ -104,7 +108,7 @@ FREObject ANXCardIOScanForPayment(FREContext context, void* functionData, uint32
 
 #pragma mark ContextInitialize/ContextFinalizer
 
-void ANXCardIOContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
+void YPLCardScanContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
     *numFunctionsToTest = 5;
     
@@ -112,47 +116,47 @@ void ANXCardIOContextInitializer(void* extData, const uint8_t* ctxType, FREConte
     
     func[0].name = (const uint8_t*) "isSupported";
     func[0].functionData = NULL;
-    func[0].function = &ANXCardIOIsSupported;
+    func[0].function = &YPLCardScanIsSupported;
     
     func[1].name = (const uint8_t*) "libraryVersion";
     func[1].functionData = NULL;
-    func[1].function = &ANXCardIOLibraryVersion;
+    func[1].function = &YPLCardScanLibraryVersion;
 
     func[2].name = (const uint8_t*) "scanForPayment";
     func[2].functionData = NULL;
-    func[2].function = &ANXCardIOScanForPayment;
+    func[2].function = &YPLCardScanScanForPayment;
     
     func[3].name = (const uint8_t*) "getLogoForCardType";
     func[3].functionData = NULL;
-    func[3].function = &ANXCardIOGetLogoForCardType;
+    func[3].function = &YPLCardScanGetLogoForCardType;
     
     func[4].name = (const uint8_t*) "getDisplayNameForCardType";
     func[4].functionData = NULL;
-    func[4].function = &ANXCardIOScanForPayment;
+    func[4].function = &YPLCardScanGetDisplayNameForCardType;
     
     *functionsToSet = func;
     
     context = ctx;
 }
 
-void ANXCardIOContextFinalizer(FREContext ctx)
+void YPLCardScanContextFinalizer(FREContext ctx)
 {
     context = NULL;
 }
 
 #pragma mark Initializer/Finalizer
 
-void ANXCardIOInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet)
+void YPLCardScanInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet)
 {
-    NSLog(@"ANXCardIOInitializer");
+    NSLog(@"YPLCardScanInitializer");
     
     *extDataToSet = NULL;
     
-    *ctxInitializerToSet = &ANXCardIOContextInitializer;
-    *ctxFinalizerToSet = &ANXCardIOContextFinalizer;
+    *ctxInitializerToSet = &YPLCardScanContextInitializer;
+    *ctxFinalizerToSet = &YPLCardScanContextFinalizer;
 }
 
-void ANXCardIOFinalizer(void* extData)
+void YPLCardScanFinalizer(void* extData)
 {
-    NSLog(@"ANXCardIOFinalizer");
+    NSLog(@"YPLCardScanFinalizer");
 }
