@@ -3,9 +3,9 @@
 
     <fx:Script>
         <![CDATA[
-        import org.bitbucket.rozd.CardIO;
-        import org.bitbucket.rozd.data.CreditCard;
-        import org.bitbucket.rozd.events.CardIOEvent;
+        import com.yuppablee.cardscan.CardScan;
+        import com.yuppablee.cardscan.data.CreditCard;
+        import com.yuppablee.cardscan.events.CardScanEvent;
 
         import spark.components.Alert;
 
@@ -14,30 +14,31 @@
 
         private function isSupported():void
         {
-            Alert.show(String(CardIO.isSupported()));
+            Alert.show(String(CardScan.isSupported()));
         }
 
         private function libraryVersion():void
         {
-            Alert.show(String(CardIO.libraryVersion));
+            Alert.show(String(CardScan.libraryVersion));
         }
 
         private function scanForPayment():void
         {
-            CardIO.getInstance().addEventListener(CardIOEvent.SCAN_COMPLETE,
-                function(event:CardIOEvent):void
+            CardScan.getInstance().addEventListener(CardScanEvent.SCAN_COMPLETE,
+                function(event:CardScanEvent):void
                 {
                     card = event.info;
 
                     trace(event.info);
                 });
-            CardIO.getInstance().addEventListener(Event.CANCEL,
+
+            CardScan.getInstance().addEventListener(Event.CANCEL,
                 function(event:Event):void
                 {
                     trace("cancelled");
                 });
 
-            CardIO.getInstance().scanForPayment(null);
+            CardScan.getInstance().scanForPayment(null);
         }
 
         ]]>

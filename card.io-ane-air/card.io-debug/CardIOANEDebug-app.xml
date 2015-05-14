@@ -42,7 +42,7 @@
 
     <!-- Identifies the ActionScript extensions used by an application. -->
     <extensions>
-        <extensionID>org.bitbucket.rozd.CardIO</extensionID>
+        <extensionID>com.yuppablee.cardscan.CardScan</extensionID>
     </extensions>
 
     <!-- Settings for the application's initial window. Required. -->
