@@ -39,6 +39,17 @@ static ANXCardIO* _sharedInstance = nil;
     return [CardIOUtilities libraryVersion];
 }
 
+
++(UIImage*) getLogoForCardType: (CardIOCreditCardType) cardType
+{
+    return [CardIOCreditCardInfo logoForCardType:cardType];
+}
+
++(NSString*) getDisplayNameForCardType: (CardIOCreditCardType) cardType usingLanguageOrLocale: (NSString*) languageOrLocale
+{
+    return [CardIOCreditCardInfo displayStringForCardType:cardType usingLanguageOrLocale:languageOrLocale];
+}
+
 -(void) scanForPayment: (FREObject) object completion: (ANXCardIOScanForPaymentCompletion) completion
 {
     CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
@@ -51,6 +62,7 @@ static ANXCardIO* _sharedInstance = nil;
     
     scanForPaymentCallback = completion;
 }
+
 
 #pragma mark - CardIOPaymentViewControllerDelegate
 

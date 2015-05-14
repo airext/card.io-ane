@@ -1,6 +1,2 @@
 platform :ios, '6.1'
 pod 'CardIO'
-
-target 'CardIO' do
-
-end

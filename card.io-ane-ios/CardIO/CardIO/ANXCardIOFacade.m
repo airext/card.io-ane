@@ -37,6 +37,39 @@ FREObject ANXCardIOLibraryVersion(FREContext context, void* functionData, uint32
     return [ANXCardIOConversionRoutines convertNSStringToFREObject:[ANXCardIO libraryVersion]];
 }
 
+FREObject ANXCardIOGetLogoForCardType(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
+{
+    if (argc > 0)
+    {
+        CardIOCreditCardType cardType = [ANXCardIOConversionRoutines convertFREObjectToCreditCardType:argv[0]];
+        
+        UIImage* logo = [ANXCardIO getLogoForCardType: cardType];
+        
+        return [ANXCardIOConversionRoutines convertUIImageToFREObject:logo];
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+FREObject ANXCardIOGetDisplayNameForCardType(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
+{
+    if (argc > 1)
+    {
+        CardIOCreditCardType cardType = [ANXCardIOConversionRoutines convertFREObjectToCreditCardType:argv[0]];
+        NSString* languageOrLocale = [ANXCardIOConversionRoutines convertFREObjectToNSString:argv[1]];
+        
+        NSString* displayName = [ANXCardIO getDisplayNameForCardType:cardType singLanguageOrLocale:languageOrLocale];
+        
+        return [ANXCardIOConversionRoutines convertNSStringToFREObject:displayName];
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
 FREObject ANXCardIOScanForPayment(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
     [[ANXCardIO sharedInstance] scanForPayment:NULL completion:^(CardIOCreditCardInfo *info, NSError *error)
@@ -73,7 +106,7 @@ FREObject ANXCardIOScanForPayment(FREContext context, void* functionData, uint32
 
 void ANXCardIOContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
-    *numFunctionsToTest = 3;
+    *numFunctionsToTest = 5;
     
     FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * (*numFunctionsToTest));
     
@@ -88,6 +121,14 @@ void ANXCardIOContextInitializer(void* extData, const uint8_t* ctxType, FREConte
     func[2].name = (const uint8_t*) "scanForPayment";
     func[2].functionData = NULL;
     func[2].function = &ANXCardIOScanForPayment;
+    
+    func[3].name = (const uint8_t*) "getLogoForCardType";
+    func[3].functionData = NULL;
+    func[3].function = &ANXCardIOGetLogoForCardType;
+    
+    func[4].name = (const uint8_t*) "getDisplayNameForCardType";
+    func[4].functionData = NULL;
+    func[4].function = &ANXCardIOScanForPayment;
     
     *functionsToSet = func;
     

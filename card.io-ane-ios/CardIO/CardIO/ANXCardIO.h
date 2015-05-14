@@ -29,6 +29,10 @@ typedef void (^ANXCardIOScanForPaymentCompletion)(CardIOCreditCardInfo* info, NS
 
 +(NSString*) libraryVersion;
 
++(UIImage*) getLogoForCardType: (CardIOCreditCardType) cardType;
+
++(NSString*) getDisplayNameForCardType: (CardIOCreditCardType) cardType singLanguageOrLocale: (NSString*) languageOrLocale;
+
 -(void) scanForPayment: (FREObject) object completion: (ANXCardIOScanForPaymentCompletion) completion;
 
 @end

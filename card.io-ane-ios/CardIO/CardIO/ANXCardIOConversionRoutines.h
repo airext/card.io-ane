@@ -22,4 +22,9 @@
 
 +(NSString*) convertCreditCardInfoToJSON: (CardIOCreditCardInfo*) info error: (NSError**) error;
 
++(NSString*) convertCreditCardTypeToNSString: (CardIOCreditCardType) type;
++(CardIOCreditCardType) convertFREObjectToCreditCardType: (FREObject) object;
+
++(FREObject) convertUIImageToFREObject: (UIImage*) image;
+
 @end
