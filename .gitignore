@@ -35,10 +35,11 @@ DerivedData
 bin-debug/
 bin-release/
 
+# ANT
+#
+build.properties
+
 # AirExt
 #
 build/launch/*
-
-card.io-ane-air/card.io-ane-debug/ane/card.io.ane
-
-card.io-ane-air/.idea/workspace.xml
+build/build.config
