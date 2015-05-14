@@ -5,9 +5,9 @@
   <platforms>
     <platform name="iPhone-ARM">
       <applicationDeployment>
-        <nativeLibrary>libANXCardIO.a</nativeLibrary>
-        <initializer>ANXCardIOInitializer</initializer>
-        <finalizer>ANXCardIOFinalizer</finalizer>
+        <nativeLibrary>libCardScan.a</nativeLibrary>
+        <initializer>YPLCardScanInitializer</initializer>
+        <finalizer>YPLCardScanFinalizer</finalizer>
       </applicationDeployment>
     </platform>
     <platform name="default">
