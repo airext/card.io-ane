@@ -21,8 +21,8 @@
 
         <!-- Build iOS part of the extension -->
 		<exec executable="xcodebuild" failonerror="true" dir="../${project.name}-ios/CardIO">
-			<arg line='-workspace CardIO.xcworkspace'/>
-			<arg line='-scheme CardIO'/>
+			<arg line='-workspace CardScan.xcworkspace'/>
+			<arg line='-scheme CardScan'/>
 			<arg line='-sdk iphoneos' />
 			<arg line='-configuration Release'/>
 			<arg line='SYMROOT=$(PWD)/../build/temp/ios/build'/>
