@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="Flex" version="4">
+  <component name="FlexBuildConfigurationManager" active="card.io-ane-air-debug">
+    <configurations>
+      <configuration name="card.io-ane-air-debug" target-platform="Mobile" main-class="CardIOANEDebug" output-file="CardIOANEDebug.swf" output-folder="$MODULE_DIR$/../card.io-ane-air-debug/bin-debug">
+        <dependencies target-player="17.0">
+          <entries>
+            <entry library-id="db16b4a9-df22-42f2-bd75-8dde4897bf50">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="4.14.1" />
+        </dependencies>
+        <compiler-options />
+        <packaging-air-desktop />
+        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/CardIOANEDebug-app.xml" package-file-name="CardIOANEDebug" />
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/CardIOANEDebug-app.xml" package-file-name="CardIOANEDebug" />
+      </configuration>
+    </configurations>
+    <compiler-options />
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="4.14.1" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="db16b4a9-df22-42f2-bd75-8dde4897bf50" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/ane" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/ane" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>
