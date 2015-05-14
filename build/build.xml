@@ -29,7 +29,7 @@
 		</exec>
 
         <!-- Copy iOS build artifacts to temporary build folder -->
-		<copy file="temp/ios/build/Release-iphoneos/libANXCardIO.a" todir="temp/ios" overwrite="true"/>
+		<copy file="temp/ios/build/Release-iphoneos/libCardScan.a" todir="temp/ios" overwrite="true"/>
 
         <!-- Copy CardIO library from Pods -->
         <copy file="../${project.name}-ios/CardIO/Pods/CardIO/CardIO/libCardIO.a" todir="temp/ios" overwrite="true"/>
