@@ -14,9 +14,7 @@
         <compiler-options />
         <packaging-air-desktop />
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/CardScanDebug-app.xml" package-file-name="CardScanDebug" />
-        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/CardScanDebug-app.xml" package-file-name="CardScanDebug">
-          <AirSigningOptions keystore-path="$USER_HOME$/ios/certificate/ios_air_development.p12" provisioning-profile-path="$USER_HOME$/ios/provisioning/mobitile_unlimited_development.mobileprovision" />
-        </packaging-ios>
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/CardScanDebug-app.xml" package-file-name="CardScanDebug" />
       </configuration>
     </configurations>
     <compiler-options />
