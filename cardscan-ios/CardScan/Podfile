@@ -1,2 +1,2 @@
 platform :ios, '6.1'
-pod 'CardIO'
+pod 'CardIO' , '~> 5'

@@ -7,176 +7,234 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E69FD0F1AFCF820009BA544 /* YPLCardScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E69FD0E1AFCF820009BA544 /* YPLCardScan.m */; };
-		0E69FD261AFCFC8C009BA544 /* YPLCardScanFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E69FD251AFCFC8C009BA544 /* YPLCardScanFacade.m */; };
-		0E69FD291AFD00C5009BA544 /* YPLCardScanConversionRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E69FD281AFD00C5009BA544 /* YPLCardScanConversionRoutines.m */; };
-		BC1F8055C9C574051B8ECCC8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 461EA3174CA01E23EC63D32F /* libPods.a */; };
+		0E9BEBFB1B05E48900CC3F92 /* YPLCardScan.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E9BEBFA1B05E48900CC3F92 /* YPLCardScan.h */; };
+		0E9BEBFD1B05E48900CC3F92 /* YPLCardScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9BEBFC1B05E48900CC3F92 /* YPLCardScan.m */; };
+		0E9BEC031B05E48900CC3F92 /* libCardScan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9BEBF71B05E48900CC3F92 /* libCardScan.a */; };
+		0E9BEC121B05E5EB00CC3F92 /* YPLCardScanFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9BEC111B05E5EB00CC3F92 /* YPLCardScanFacade.m */; };
+		0E9BEC151B05E60500CC3F92 /* YPLCardScanConversionRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9BEC141B05E60500CC3F92 /* YPLCardScanConversionRoutines.m */; };
+		65ED74BACA51281D4660034F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74564E92EC161F7EDFAD24CF /* libPods.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0E9BEC041B05E48900CC3F92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E9BEBEF1B05E48800CC3F92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E9BEBF61B05E48900CC3F92;
+			remoteInfo = CardScan;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		0E69FD071AFCF820009BA544 /* CopyFiles */ = {
+		0E9BEBF51B05E48900CC3F92 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "${PROJECT_DIR}/../../build/ios";
-			dstSubfolderSpec = 0;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
 			files = (
+				0E9BEBFB1B05E48900CC3F92 /* YPLCardScan.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0E69FD091AFCF820009BA544 /* libCardScan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCardScan.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E69FD0C1AFCF820009BA544 /* YPLCardScan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YPLCardScan.h; sourceTree = "<group>"; };
-		0E69FD0E1AFCF820009BA544 /* YPLCardScan.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLCardScan.m; sourceTree = "<group>"; };
-		0E69FD241AFCFBF8009BA544 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
-		0E69FD251AFCFC8C009BA544 /* YPLCardScanFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPLCardScanFacade.m; sourceTree = "<group>"; };
-		0E69FD271AFD00C5009BA544 /* YPLCardScanConversionRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPLCardScanConversionRoutines.h; sourceTree = "<group>"; };
-		0E69FD281AFD00C5009BA544 /* YPLCardScanConversionRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPLCardScanConversionRoutines.m; sourceTree = "<group>"; };
-		461EA3174CA01E23EC63D32F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		824B19A8BC45FE7908411BCA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		AC609EB4C165B6B2259F96E8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		0E9BEBF71B05E48900CC3F92 /* libCardScan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCardScan.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E9BEBFA1B05E48900CC3F92 /* YPLCardScan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YPLCardScan.h; sourceTree = "<group>"; };
+		0E9BEBFC1B05E48900CC3F92 /* YPLCardScan.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLCardScan.m; sourceTree = "<group>"; };
+		0E9BEC021B05E48900CC3F92 /* CardScanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardScanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E9BEC081B05E48900CC3F92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E9BEC111B05E5EB00CC3F92 /* YPLCardScanFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPLCardScanFacade.m; sourceTree = "<group>"; };
+		0E9BEC131B05E60500CC3F92 /* YPLCardScanConversionRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPLCardScanConversionRoutines.h; sourceTree = "<group>"; };
+		0E9BEC141B05E60500CC3F92 /* YPLCardScanConversionRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPLCardScanConversionRoutines.m; sourceTree = "<group>"; };
+		0E9BEC161B05E63500CC3F92 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		6E589A0C2AF6827E5D6C1968 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		74564E92EC161F7EDFAD24CF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		83D93746B528F6DD79E32DC1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0E69FD061AFCF820009BA544 /* Frameworks */ = {
+		0E9BEBF41B05E48900CC3F92 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC1F8055C9C574051B8ECCC8 /* libPods.a in Frameworks */,
+				65ED74BACA51281D4660034F /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E9BEBFF1B05E48900CC3F92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E9BEC031B05E48900CC3F92 /* libCardScan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05D8C7B1D9B630438694E74A /* Pods */ = {
+		0E9BEBEE1B05E48800CC3F92 = {
 			isa = PBXGroup;
 			children = (
-				824B19A8BC45FE7908411BCA /* Pods.debug.xcconfig */,
-				AC609EB4C165B6B2259F96E8 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		0E69FD001AFCF820009BA544 = {
-			isa = PBXGroup;
-			children = (
-				0E69FD0B1AFCF820009BA544 /* CardScan */,
-				0E69FD0A1AFCF820009BA544 /* Products */,
-				05D8C7B1D9B630438694E74A /* Pods */,
-				EF0BA1A38118BC11E5FECBDB /* Frameworks */,
+				0E9BEBF91B05E48900CC3F92 /* CardScan */,
+				0E9BEC061B05E48900CC3F92 /* CardScanTests */,
+				0E9BEBF81B05E48900CC3F92 /* Products */,
+				65C047C0E6EFDC68D2D7A064 /* Pods */,
+				2DB2796C32954DEB7F389747 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		0E69FD0A1AFCF820009BA544 /* Products */ = {
+		0E9BEBF81B05E48900CC3F92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0E69FD091AFCF820009BA544 /* libCardScan.a */,
+				0E9BEBF71B05E48900CC3F92 /* libCardScan.a */,
+				0E9BEC021B05E48900CC3F92 /* CardScanTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0E69FD0B1AFCF820009BA544 /* CardScan */ = {
+		0E9BEBF91B05E48900CC3F92 /* CardScan */ = {
 			isa = PBXGroup;
 			children = (
-				0E69FD231AFCFBC9009BA544 /* Supporting Files */,
-				0E69FD0C1AFCF820009BA544 /* YPLCardScan.h */,
-				0E69FD0E1AFCF820009BA544 /* YPLCardScan.m */,
-				0E69FD251AFCFC8C009BA544 /* YPLCardScanFacade.m */,
-				0E69FD271AFD00C5009BA544 /* YPLCardScanConversionRoutines.h */,
-				0E69FD281AFD00C5009BA544 /* YPLCardScanConversionRoutines.m */,
+				0E9BEC171B05E63900CC3F92 /* Supporting Files */,
+				0E9BEBFA1B05E48900CC3F92 /* YPLCardScan.h */,
+				0E9BEBFC1B05E48900CC3F92 /* YPLCardScan.m */,
+				0E9BEC111B05E5EB00CC3F92 /* YPLCardScanFacade.m */,
+				0E9BEC131B05E60500CC3F92 /* YPLCardScanConversionRoutines.h */,
+				0E9BEC141B05E60500CC3F92 /* YPLCardScanConversionRoutines.m */,
 			);
 			path = CardScan;
 			sourceTree = "<group>";
 		};
-		0E69FD231AFCFBC9009BA544 /* Supporting Files */ = {
+		0E9BEC061B05E48900CC3F92 /* CardScanTests */ = {
 			isa = PBXGroup;
 			children = (
-				0E69FD241AFCFBF8009BA544 /* FlashRuntimeExtensions.h */,
+				0E9BEC071B05E48900CC3F92 /* Supporting Files */,
+			);
+			path = CardScanTests;
+			sourceTree = "<group>";
+		};
+		0E9BEC071B05E48900CC3F92 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E9BEC081B05E48900CC3F92 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EF0BA1A38118BC11E5FECBDB /* Frameworks */ = {
+		0E9BEC171B05E63900CC3F92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				461EA3174CA01E23EC63D32F /* libPods.a */,
+				0E9BEC161B05E63500CC3F92 /* FlashRuntimeExtensions.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2DB2796C32954DEB7F389747 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74564E92EC161F7EDFAD24CF /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65C047C0E6EFDC68D2D7A064 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83D93746B528F6DD79E32DC1 /* Pods.debug.xcconfig */,
+				6E589A0C2AF6827E5D6C1968 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0E69FD081AFCF820009BA544 /* CardScan */ = {
+		0E9BEBF61B05E48900CC3F92 /* CardScan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0E69FD1D1AFCF820009BA544 /* Build configuration list for PBXNativeTarget "CardScan" */;
+			buildConfigurationList = 0E9BEC0B1B05E48900CC3F92 /* Build configuration list for PBXNativeTarget "CardScan" */;
 			buildPhases = (
-				5C5D12596D1AFCC73E78DDA9 /* Check Pods Manifest.lock */,
-				0E69FD051AFCF820009BA544 /* Sources */,
-				0E69FD061AFCF820009BA544 /* Frameworks */,
-				0E69FD071AFCF820009BA544 /* CopyFiles */,
-				E5C2E5096FBD1B3DD90E8627 /* Copy Pods Resources */,
+				8D6A454CE239E271E4CF5876 /* Check Pods Manifest.lock */,
+				0E9BEBF31B05E48900CC3F92 /* Sources */,
+				0E9BEBF41B05E48900CC3F92 /* Frameworks */,
+				0E9BEBF51B05E48900CC3F92 /* CopyFiles */,
+				39CD182E2C5F75ADC622FDE9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = CardScan;
-			productName = CardIO;
-			productReference = 0E69FD091AFCF820009BA544 /* libCardScan.a */;
+			productName = CardScan;
+			productReference = 0E9BEBF71B05E48900CC3F92 /* libCardScan.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		0E9BEC011B05E48900CC3F92 /* CardScanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E9BEC0E1B05E48900CC3F92 /* Build configuration list for PBXNativeTarget "CardScanTests" */;
+			buildPhases = (
+				0E9BEBFE1B05E48900CC3F92 /* Sources */,
+				0E9BEBFF1B05E48900CC3F92 /* Frameworks */,
+				0E9BEC001B05E48900CC3F92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E9BEC051B05E48900CC3F92 /* PBXTargetDependency */,
+			);
+			name = CardScanTests;
+			productName = CardScanTests;
+			productReference = 0E9BEC021B05E48900CC3F92 /* CardScanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0E69FD011AFCF820009BA544 /* Project object */ = {
+		0E9BEBEF1B05E48800CC3F92 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = YPL;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = yeaply.com;
 				TargetAttributes = {
-					0E69FD081AFCF820009BA544 = {
+					0E9BEBF61B05E48900CC3F92 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					0E9BEC011B05E48900CC3F92 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 0E69FD041AFCF820009BA544 /* Build configuration list for PBXProject "CardScan" */;
+			buildConfigurationList = 0E9BEBF21B05E48800CC3F92 /* Build configuration list for PBXProject "CardScan" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 0E69FD001AFCF820009BA544;
-			productRefGroup = 0E69FD0A1AFCF820009BA544 /* Products */;
+			mainGroup = 0E9BEBEE1B05E48800CC3F92;
+			productRefGroup = 0E9BEBF81B05E48900CC3F92 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0E69FD081AFCF820009BA544 /* CardScan */,
+				0E9BEBF61B05E48900CC3F92 /* CardScan */,
+				0E9BEC011B05E48900CC3F92 /* CardScanTests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5C5D12596D1AFCC73E78DDA9 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
+/* Begin PBXResourcesBuildPhase section */
+		0E9BEC001B05E48900CC3F92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
 		};
-		E5C2E5096FBD1B3DD90E8627 /* Copy Pods Resources */ = {
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39CD182E2C5F75ADC622FDE9 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -191,23 +249,53 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8D6A454CE239E271E4CF5876 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0E69FD051AFCF820009BA544 /* Sources */ = {
+		0E9BEBF31B05E48900CC3F92 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E69FD291AFD00C5009BA544 /* YPLCardScanConversionRoutines.m in Sources */,
-				0E69FD0F1AFCF820009BA544 /* YPLCardScan.m in Sources */,
-				0E69FD261AFCFC8C009BA544 /* YPLCardScanFacade.m in Sources */,
+				0E9BEC121B05E5EB00CC3F92 /* YPLCardScanFacade.m in Sources */,
+				0E9BEC151B05E60500CC3F92 /* YPLCardScanConversionRoutines.m in Sources */,
+				0E9BEBFD1B05E48900CC3F92 /* YPLCardScan.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E9BEBFE1B05E48900CC3F92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0E9BEC051B05E48900CC3F92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E9BEBF61B05E48900CC3F92 /* CardScan */;
+			targetProxy = 0E9BEC041B05E48900CC3F92 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		0E69FD1B1AFCF820009BA544 /* Debug */ = {
+		0E9BEC091B05E48900CC3F92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,12 +332,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		0E69FD1C1AFCF820009BA544 /* Release */ = {
+		0E9BEC0A1B05E48900CC3F92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -280,54 +368,94 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		0E69FD1E1AFCF820009BA544 /* Debug */ = {
+		0E9BEC0C1B05E48900CC3F92 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 824B19A8BC45FE7908411BCA /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 83D93746B528F6DD79E32DC1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = CardScan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		0E69FD1F1AFCF820009BA544 /* Release */ = {
+		0E9BEC0D1B05E48900CC3F92 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC609EB4C165B6B2259F96E8 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 6E589A0C2AF6827E5D6C1968 /* Pods.release.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = CardScan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		0E9BEC0F1B05E48900CC3F92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CardScanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0E9BEC101B05E48900CC3F92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CardScanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0E69FD041AFCF820009BA544 /* Build configuration list for PBXProject "CardScan" */ = {
+		0E9BEBF21B05E48800CC3F92 /* Build configuration list for PBXProject "CardScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0E69FD1B1AFCF820009BA544 /* Debug */,
-				0E69FD1C1AFCF820009BA544 /* Release */,
+				0E9BEC091B05E48900CC3F92 /* Debug */,
+				0E9BEC0A1B05E48900CC3F92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0E69FD1D1AFCF820009BA544 /* Build configuration list for PBXNativeTarget "CardScan" */ = {
+		0E9BEC0B1B05E48900CC3F92 /* Build configuration list for PBXNativeTarget "CardScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0E69FD1E1AFCF820009BA544 /* Debug */,
-				0E69FD1F1AFCF820009BA544 /* Release */,
+				0E9BEC0C1B05E48900CC3F92 /* Debug */,
+				0E9BEC0D1B05E48900CC3F92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E9BEC0E1B05E48900CC3F92 /* Build configuration list for PBXNativeTarget "CardScanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E9BEC0F1B05E48900CC3F92 /* Debug */,
+				0E9BEC101B05E48900CC3F92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0E69FD011AFCF820009BA544 /* Project object */;
+	rootObject = 0E9BEBEF1B05E48800CC3F92 /* Project object */;
 }
