@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Air Native Extension Build Scripts" default="all">
+    
+    <property name="name" value="cardscan" />
 
-    <property name="ane.name" value="card.io" />
-    <property name="project.name" value="card.io-ane" />
+    <property name="ios.project.dir" value="../${name}-ios/CardScan" />
+    <property name="air.project.dir" value="../${name}-air/${name}" />
+    <property name="air-default.project.dir" value="../${name}-air/${name}-default" />
+    <property name="air-debug.project.dir" value="../${name}-air/${name}-debug" />
 
 	<property file="build.properties"/>
 		
@@ -15,12 +19,12 @@
         <mkdir dir="temp/ios/build/"/>
 
         <!-- Installs Pods dependencies (loads CardIO.a library from repository) -->
-		<exec executable="pod" dir="../card.io-ane-ios/CardIO">
+		<exec executable="pod" dir="${ios.project.dir}">
 			<arg value="install"/>
 		</exec>
 
         <!-- Build iOS part of the extension -->
-		<exec executable="xcodebuild" failonerror="true" dir="../${project.name}-ios/CardIO">
+		<exec executable="xcodebuild" failonerror="true" dir="${ios.project.dir}">
 			<arg line='-workspace CardScan.xcworkspace'/>
 			<arg line='-scheme CardScan'/>
 			<arg line='-sdk iphoneos' />
@@ -32,7 +36,7 @@
 		<copy file="temp/ios/build/Release-iphoneos/libCardScan.a" todir="temp/ios" overwrite="true"/>
 
         <!-- Copy CardIO library from Pods -->
-        <copy file="../${project.name}-ios/CardIO/Pods/CardIO/CardIO/libCardIO.a" todir="temp/ios" overwrite="true"/>
+        <copy file="${ios.project.dir}/Pods/CardIO/CardIO/libCardIO.a" todir="temp/ios" overwrite="true"/>
 
         <!-- Remove temporary directory for iOS artifacts -->
 		<delete dir="temp/ios/build/"/>
@@ -62,7 +66,7 @@
 	<target name="air" description="Build swc library">
 		<mkdir dir="temp/swc/build/"/>
 		
-		<fileset dir="../${project.name}-air/card.io/src" casesensitive="yes" id="classfiles">
+		<fileset dir="${air.project.dir}/src" casesensitive="yes" id="classfiles">
 			<include name="**/*.as"/>
 		</fileset>
 
@@ -71,14 +75,14 @@
 		</pathconvert>
 		
 		<exec executable="${sdk.home}/bin/compc${bin.ext}" failonerror="true">
-			<arg line='-source-path ../${project.name}-air/card.io/src'/>
-			<arg line='-output temp/swc/${ane.name}.swc'/>
+			<arg line='-source-path ${air.project.dir}/src'/>
+			<arg line='-output temp/swc/${name}.swc'/>
 			<arg line='-swf-version=13'/>
 			<arg line='-external-library-path+="${sdk.home}/frameworks/libs/air/airglobal.swc"'/>
 			<arg line='-include-classes ${classlist}'/>
 		</exec>
 
-		<unzip src="temp/swc/${ane.name}.swc" dest="temp/swc/build" overwrite="true"/>
+		<unzip src="temp/swc/${name}.swc" dest="temp/swc/build" overwrite="true"/>
 		<copy file="temp/swc/build/library.swf" todir="temp/ios" overwrite="true"/>
 		<copy file="temp/swc/build/library.swf" todir="temp/android" overwrite="true"/>
 
@@ -88,7 +92,7 @@
 	<target name="default" description="Build default swc library">
 		<mkdir dir="temp/default/"/>
 		
-		<fileset dir="../${project.name}-air/card.io-default/src" casesensitive="yes" id="classfiles2">
+		<fileset dir="${air-default.project.dir}/src" casesensitive="yes" id="classfiles2">
 			<include name="**/*.as"/>
 		</fileset>
 
@@ -97,14 +101,14 @@
 		</pathconvert>
 		
 		<exec executable="${sdk.home}/bin/compc${bin.ext}" failonerror="true">
-			<arg line='-source-path ../${project.name}-air/card.io-default/src'/>
-			<arg line='-output temp/default/${ane.name}.swc'/>
+			<arg line='-source-path ${air-default.project.dir}/src'/>
+			<arg line='-output temp/default/${name}.swc'/>
 			<arg line='-swf-version=13'/>
 			<arg line='-external-library-path+="${sdk.home}/frameworks/libs/air/airglobal.swc"'/>
 			<arg line='-include-classes ${classlist-default}'/>
 		</exec>
 
-		<unzip src="temp/default/${ane.name}.swc" dest="temp/default/swc" overwrite="true"/>
+		<unzip src="temp/default/${name}.swc" dest="temp/default/swc" overwrite="true"/>
 		<copy file="temp/default/swc/library.swf" todir="temp/default" overwrite="true"/>
 		<delete dir="temp/default/swc"/>
 	</target>
@@ -120,19 +124,19 @@
 			<arg value="${keystore.password}"/>
 			<arg value="-target"/>
 			<arg value="ane"/>
-			<arg value="${ane.name}.ane"/>
+			<arg value="${name}.ane"/>
 			<arg value="../extension.xml"/>
-			<arg line="-swc swc/${ane.name}.swc"/>
+			<arg line="-swc swc/${name}.swc"/>
 			<arg line="-platform iPhone-ARM -platformoptions ../platform-ios.xml -C ios/ ."/>
 			<!--<arg line="-platform Android-ARM -C android/ ."/>-->
 			<!--<arg line="-platform Android-x86 -C android/ ."/>-->
 			<arg line="-platform default -C default/ ."/>
 		</exec>
 		
-		<move file="temp/${ane.name}.ane" todir="../bin"/>
-		<move file="temp/default/${ane.name}.swc" todir="../bin"/>
+		<move file="temp/${name}.ane" todir="../bin"/>
+		<move file="temp/default/${name}.swc" todir="../bin"/>
 		<delete dir="temp"/>
-        <copy file="../bin/${ane.name}.ane" todir="../card.io-ane-air/card.io-debug/ane" overwrite="true" />
+        <copy file="../bin/${name}.ane" todir="${air-debug.project.dir}/ane" overwrite="true" />
 	</target>
 
 </project> 	
