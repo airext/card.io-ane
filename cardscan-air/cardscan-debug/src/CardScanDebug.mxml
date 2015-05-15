@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+
+    <fx:Script>
+        <![CDATA[
+        import com.yuppablee.cardscan.CardScan;
+        import com.yuppablee.cardscan.data.CreditCard;
+        import com.yuppablee.cardscan.events.CardScanEvent;
+
+        import spark.components.Alert;
+
+        [Bindable]
+        public var card:CreditCard;
+
+        private function isSupported():void
+        {
+            Alert.show(String(CardScan.isSupported()));
+        }
+
+        private function libraryVersion():void
+        {
+            Alert.show(String(CardScan.libraryVersion));
+        }
+
+        private function scanForPayment():void
+        {
+            CardScan.getInstance().addEventListener(CardScanEvent.SCAN_COMPLETE,
+                function(event:CardScanEvent):void
+                {
+                    card = event.info;
+
+                    trace(event.info);
+                });
+
+            CardScan.getInstance().addEventListener(Event.CANCEL,
+                function(event:Event):void
+                {
+                    trace("cancelled");
+                });
+
+            CardScan.getInstance().scanForPayment(null);
+        }
+
+        ]]>
+    </fx:Script>
+
+    <fx:Declarations>
+
+    </fx:Declarations>
+
+    <s:layout>
+        <s:VerticalLayout horizontalAlign="justify" gap="30" paddingTop="30" />
+    </s:layout>
+
+    <s:Button label="Is Supported" click="isSupported();" />
+    <s:Button label="Card.IO version" click="libraryVersion();" />
+    <s:Button label="Scan for Payment" click="scanForPayment();" />
+
+    <s:HGroup>
+        <s:Label text="{card.cardType.getDisplayName('en_US')}" />
+        <s:Image source="{card.cardType.logo}" />
+    </s:HGroup>
+    <s:TextInput width="100%" text="{card.cardNumber}" />
+    <s:TextInput width="100%" text="{card.redactedCardNumber}" />
+    <s:HGroup>
+        <s:TextInput width="50%" text="{card.expiryMonth}/{card.expiryYear}" />
+        <s:TextInput width="50%" text="{card.cvv}" />
+    </s:HGroup>
+
+</s:Application>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cardscan/cardscan.iml" filepath="$PROJECT_DIR$/cardscan/cardscan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cardscan-debug/cardscan-debug.iml" filepath="$PROJECT_DIR$/cardscan-debug/cardscan-debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cardscan-default/cardscan-default.iml" filepath="$PROJECT_DIR$/cardscan-default/cardscan-default.iml" />
+    </modules>
+  </component>
+</project>
