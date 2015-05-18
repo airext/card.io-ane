@@ -3,6 +3,8 @@
  */
 package com.yuppablee.cardscan
 {
+import com.yuppablee.cardscan.data.CardScanOptions;
+
 import flash.events.ErrorEvent;
 import flash.events.Event;
 
@@ -126,9 +128,9 @@ public class CardScan extends EventDispatcher
     //
     //--------------------------------------------------------------------------
 
-    public function scanForPayment(options:Object):void
+    public function scanForPayment(options:CardScanOptions):void
     {
-        context.call("scanForPayment");
+        context.call("scanForPayment", options);
     }
 
     //--------------------------------------------------------------------------
