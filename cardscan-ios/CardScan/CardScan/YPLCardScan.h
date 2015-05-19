@@ -33,6 +33,6 @@ typedef void (^ANXCardIOScanForPaymentCompletion)(CardIOCreditCardInfo* info, NS
 
 +(NSString*) getDisplayNameForCardType: (CardIOCreditCardType) cardType singLanguageOrLocale: (NSString*) languageOrLocale;
 
--(void) scanForPayment: (FREObject) object completion: (ANXCardIOScanForPaymentCompletion) completion;
+-(void) scanForPayment: (NSDictionary*) options completion: (ANXCardIOScanForPaymentCompletion) completion;
 
 @end

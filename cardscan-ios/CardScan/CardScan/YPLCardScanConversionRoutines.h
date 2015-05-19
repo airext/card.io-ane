@@ -20,11 +20,30 @@
 
 +(FREObject) convertNSUIntegerToFREObject:(NSUInteger) integer;
 
++(NSInteger) convertFREObjectToNSInteger:(FREObject) object;
+
++(BOOL) convertFREObjectToBOOL: (FREObject) object;
+
+#pragma mark Read properties from object
+
++(NSString*) getStringFrom: (FREObject) object forProperty: (NSString*) property;
+
++(NSNumber*) getBooleanFrom: (FREObject) object forProperty: (NSString*) property;
+
++(UIColor*) getColorFrom: (FREObject) object forProperty: (NSString*) property;
+
++(NSNumber*) getIntegerFrom: (FREObject) object forProperty: (NSString*) property;
+
+#pragma mark Convert types
+
 +(NSString*) convertCreditCardInfoToJSON: (CardIOCreditCardInfo*) info error: (NSError**) error;
 
 +(NSString*) convertCreditCardTypeToNSString: (CardIOCreditCardType) type;
 +(CardIOCreditCardType) convertFREObjectToCreditCardType: (FREObject) object;
 
 +(FREObject) convertUIImageToFREObject: (UIImage*) image;
+
++(NSDictionary*) convertCardScanOptionsToNSDictionary: (FREObject) object;
+
 
 @end

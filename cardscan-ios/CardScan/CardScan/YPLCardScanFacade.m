@@ -72,9 +72,14 @@ FREObject YPLCardScanGetDisplayNameForCardType(FREContext context, void* functio
 
 FREObject YPLCardScanScanForPayment(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
-    NSLog(@"YPLCardScanScanForPayment");
+    NSDictionary* options = nil;
     
-    [[YPLCardScan sharedInstance] scanForPayment:NULL completion:^(CardIOCreditCardInfo *info, NSError *error)
+    if (argc > 0)
+    {
+        options = [YPLCardScanConversionRoutines convertCardScanOptionsToNSDictionary:argv[0]];
+    }
+    
+    [[YPLCardScan sharedInstance] scanForPayment:options completion:^(CardIOCreditCardInfo *info, NSError *error)
     {
         NSLog(@"YPLCardScanScanForPayment.callback()");
         

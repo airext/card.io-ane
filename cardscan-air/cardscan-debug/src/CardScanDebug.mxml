@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:local="*">
 
     <fx:Script>
         <![CDATA[
         import com.yuppablee.cardscan.CardScan;
+        import com.yuppablee.cardscan.data.CardScanOptions;
         import com.yuppablee.cardscan.data.CreditCard;
         import com.yuppablee.cardscan.events.CardScanEvent;
 
@@ -38,13 +39,66 @@
                     trace("cancelled");
                 });
 
-            CardScan.getInstance().scanForPayment(null);
+            var options:CardScanOptions = new CardScanOptions();
+            options.hideLogo = true;
+
+            CardScan.getInstance().scanForPayment(options);
+
         }
 
         ]]>
     </fx:Script>
 
     <fx:Declarations>
+        <fx:Component className="ScanForPaymentPopup">
+            <s:SkinnablePopUpContainer verticalCenter="0" horizontalCenter="0">
+                <fx:Script>
+                    <![CDATA[
+                    import com.yuppablee.cardscan.CardScan;
+                    import com.yuppablee.cardscan.data.CardScanOptions;
+                    import com.yuppablee.cardscan.events.CardScanEvent;
+
+                    [Bindable]
+                    private var options:CardScanOptions = new CardScanOptions();
+
+                    private function scan():void
+                    {
+                        CardScan.getInstance().addEventListener(CardScanEvent.SCAN_COMPLETE,
+                            function(event:CardScanEvent):void
+                            {
+                                close(false, event.info);
+                            });
+
+                        CardScan.getInstance().addEventListener(Event.CANCEL,
+                            function(event:Event):void
+                            {
+                                close(false, null);
+                            });
+
+                        CardScan.getInstance().scanForPayment(options);
+                    }
+
+                    ]]>
+                </fx:Script>
+                <s:TitleWindow title="Scan for Payment" close="close()">
+                    <s:VGroup width="100%">
+                        <s:HGroup width="100%">
+                            <s:Label width="20%" text="languageOrLocale" />
+                            <s:TextInput text="{options.languageOrLocale}" change="options.languageOrLocale = event.target.text;" />
+                        </s:HGroup>
+                        <s:HGroup width="100%">
+                            <s:Label width="20%" text="guideColor" />
+                            <s:TextInput text="{options.guideColor ? options.guideColor.toString(16) : ''}" change="options.guideColor = parseInt(event.target.text, 16);" />
+                        </s:HGroup>
+                        <s:HGroup width="100%">
+                            <s:Label width="20%" text="hideLogo" />
+                            <s:CheckBox selected="{options.hideLogo}" change="options.hideLogo = event.target.selected;" />
+                        </s:HGroup>
+                        <s:Button label="Scan" click="scan();" />
+                    </s:VGroup>
+                </s:TitleWindow>
+            </s:SkinnablePopUpContainer>
+        </fx:Component>
 
     </fx:Declarations>
 

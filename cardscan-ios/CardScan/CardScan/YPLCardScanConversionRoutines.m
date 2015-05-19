@@ -58,6 +58,88 @@
     return value;
 }
 
++(NSInteger) convertFREObjectToNSInteger:(FREObject) object
+{
+    int32_t value;
+    FREResult result = FREGetObjectAsInt32(object, &value);
+    
+    if (result != FRE_OK)
+        return 0;
+    
+    return value;
+}
+
++(BOOL) convertFREObjectToBOOL: (FREObject) object
+{
+    uint32_t value;
+    
+    FREResult result = FREGetObjectAsBool(object, &value);
+    
+    if (result != FRE_OK)
+        return NO;
+    
+    return value;
+}
+
+#pragma mark Read properties from object
+
++(NSString*) getStringFrom: (FREObject) object forProperty: (NSString*) property
+{
+    FREObject propertyValue;
+    FREResult result = FREGetObjectProperty(object, (const uint8_t*) [property UTF8String], &propertyValue, NULL);
+    
+    if (result != FRE_OK)
+        return nil;
+    
+    return [self convertFREObjectToNSString:propertyValue];
+}
+
++(NSNumber*) getBooleanFrom: (FREObject) object forProperty: (NSString*) property
+{
+    FREObject propertyValue;
+    FREResult result = FREGetObjectProperty(object, (const uint8_t*) [property UTF8String], &propertyValue, NULL);
+    
+    if (result != FRE_OK)
+        return nil;
+    
+    return [NSNumber numberWithBool:[self convertFREObjectToBOOL:propertyValue]];
+}
+
++(UIColor*) getColorFrom: (FREObject) object forProperty: (NSString*) property
+{
+    FREObject propertyValue;
+    FREResult result = FREGetObjectProperty(object, (const uint8_t*) [property UTF8String], &propertyValue, NULL);
+    
+    if (result != FRE_OK)
+        return nil;
+    
+    uint32_t rgb;
+    result  = FREGetObjectAsUint32(propertyValue, &rgb);
+    
+    if (result != FRE_OK)
+        return nil;
+    
+    CGFloat r = ((rgb & 0xFF0000) >> 16) / 255.0;
+    CGFloat g = ((rgb & 0xFF00) >> 8) / 255.0;
+    CGFloat b = (rgb & 0xFF) / 255.0;
+    
+    return [UIColor colorWithRed:r green:g blue:b alpha:1.0];
+}
+
++(NSNumber*) getIntegerFrom: (FREObject) object forProperty: (NSString*) property
+{
+    FREObject propertyValue;
+    FREResult result = FREGetObjectProperty(object, (const uint8_t*) [property UTF8String], &propertyValue, NULL);
+    
+    if (result != FRE_OK)
+        return nil;
+    
+    return [NSNumber numberWithInteger:[self convertFREObjectToNSInteger:propertyValue]];
+}
+
+#pragma mark Convert types
+
+
 +(NSString*) convertCreditCardInfoToJSON: (CardIOCreditCardInfo*) info error: (NSError**) error
 {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
@@ -244,6 +326,124 @@
     // free the the memory we allocated
     
     return bitmapDataInstance;
+}
+
++(NSDictionary*) convertCardScanOptionsToNSDictionary: (FREObject) object
+{
+    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc] init];
+    
+    if (object)
+    {
+        // guideColor
+        
+        UIColor *guideColor = [self getColorFrom:object forProperty:@"guideColor"];
+        
+        if (guideColor)
+        {
+            [dictionary setValue:guideColor forKey:@"guideColor"];
+        }
+        
+        // languageOrLocale
+        
+        NSString* languageOrLocale = [self getStringFrom:object forProperty:@"languageOrLocale"];
+        
+        if (languageOrLocale)
+        {
+            [dictionary setValue:languageOrLocale forKey:@"languageOrLocale"];
+        }
+        
+        // suppressScanConfirmation
+        
+        NSNumber *suppressScanConfirmation = [self getBooleanFrom:object forProperty:@"suppressScanConfirmation"];
+        
+        if (suppressScanConfirmation)
+        {
+            [dictionary setValue:suppressScanConfirmation forKey:@"suppressScanConfirmation"];
+        }
+        
+        // scanInstructions
+        
+        NSString *scanInstructions = [self getStringFrom:object forProperty:@"scanInstructions"];
+        
+        if (scanInstructions)
+        {
+            [dictionary setValue:scanInstructions forKey:@"scanInstructions"];
+        }
+        
+        // hideLogo
+        
+        NSNumber* hideLogo = [self getBooleanFrom:object forProperty:@"hideLogo"];
+        
+        if (hideLogo)
+        {
+            [dictionary setValue:hideLogo forKey:@"hideLogo"];
+        }
+        
+        // requireExpiry
+        
+        NSNumber *requireExpiry = [self getBooleanFrom:object forProperty:@"requireExpiry"];
+        
+        if (requireExpiry)
+        {
+            [dictionary setValue:requireExpiry forKey:@"requireExpiry"];
+        }
+        
+        // requireCVV
+        
+        NSNumber *requireCVV = [self getBooleanFrom:object forProperty:@"requireCVV"];
+        
+        if (requireCVV)
+        {
+            [dictionary setValue:requireCVV forKey:@"requireCVV"];
+        }
+        
+        // requirePostalCode
+        
+        NSNumber* requirePostalCode = [self getBooleanFrom:object forProperty:@"requirePostalCode"];
+        
+        if (requirePostalCode)
+        {
+            [dictionary setValue:requirePostalCode forKey:@"requirePostalCode"];
+        }
+        
+        // scanExpiry
+        
+        NSNumber *scanExpiry = [self getBooleanFrom:object forProperty:@"scanExpiry"];
+        
+        if (scanExpiry)
+        {
+            [dictionary setValue:scanExpiry forKey:@"scanExpiry"];
+        }
+        
+        // useCardIOLogo
+        
+        NSNumber *useCardIOLogo = [self getBooleanFrom:object forProperty:@"useCardIOLogo"];
+        
+        if (useCardIOLogo)
+        {
+            [dictionary setValue:useCardIOLogo forKey:@"useCardIOLogo"];
+        }
+        
+        // suppressManualEntry
+        
+        NSNumber *suppressManualEntry = [self getBooleanFrom:object forProperty:@"suppressManualEntry"];
+        
+        if (suppressManualEntry)
+        {
+            [dictionary setValue:suppressManualEntry forKey:@"suppressManualEntry"];
+        }
+        
+        // detectionMode
+        
+        NSNumber *detectionMode = [self getIntegerFrom:object forProperty:@"detectionMode"];
+        
+        if (detectionMode)
+        {
+            [dictionary setValue:detectionMode forKey:@"detectionMode"];
+        }
+    }
+    
+    return dictionary;
 }
 
 @end

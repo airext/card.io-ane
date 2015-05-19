@@ -3,8 +3,96 @@
  */
 package com.yuppablee.cardscan.data
 {
+import com.yuppablee.cardscan.enum.CardScanDetectionMode;
+
 public class CardScanOptions
 {
+    //--------------------------------------------------------------------------
+    //
+    //  Class constants
+    //
+    //--------------------------------------------------------------------------
+
+    //-------------------------------------
+    //  Class constants: iOS specific keys
+    //-------------------------------------
+
+    /**
+     * Boolean property.
+     *
+     * If YES, the status bar's style will be kept as whatever your app has set it to.
+     * If NO, the status bar style will be set to the default style.
+     * Defaults to NO.
+     */
+    public static const IOS_KEEP_STATUS_BAR_STYLE:String = "keepStatusBarStyle";
+
+    /**
+     * UIBarStyle property.
+     *
+     * The default appearance of the navigation bar is navigationBarStyle == UIBarStyleDefault;
+     * tintColor == nil (pre-iOS 7), barTintColor == nil (iOS 7).
+     * Set either or both of these properties if you want to override these defaults.
+     * @see navigationBarTintColor
+     */
+    public static const IOS_NAVIGATION_BAR_STYLE:String = "navigationBarStyle";
+
+    /**
+     * Number property.
+     *
+     * The default appearance of the navigation bar is navigationBarStyle == UIBarStyleDefault;
+     * tintColor == nil (pre-iOS 7), barTintColor == nil (iOS 7).
+     * Set either or both of these properties if you want to override these defaults.
+     * @see navigationBarStyle
+     */
+    public static const IOS_NAVIGATION_BAR_TINT_COLOR:String = "navigationBarTintColor";
+
+    /**
+     * Boolean property.
+     *
+     * Normally, card.io blurs the screen when the app is backgrounded,
+     * to obscure card details in the iOS-saved screenshot.
+     * If your app already does its own blurring upon backgrounding,
+     * you might choose to disable this behavior.
+     * Defaults to NO.
+     */
+    public static const IOS_DISABLE_BLUR_WHEN_BACKGROUNDING:String = "disableBlurWhenBackgrounding";
+
+    /**
+     * Boolean property.
+     *
+     * If YES, instead of displaying the image of the scanned card,
+     * present the manual entry screen with the scanned card number prefilled.
+     * Defaults to NO.
+     */
+    public static const IOS_SUPPRESS_SCANNED_CARD_IMAGE:String = "suppressScannedCardImage";
+
+    /**
+     * Boolean property.
+     *
+     * Mask the card number digits as they are manually entered by the user. Defaults to NO.
+     */
+    public static const IOS_MASK_MANUAL_ENTRY_DIGITS:String = "maskManualEntryDigits";
+
+    /**
+     * Unsupported feature.
+     */
+    public static const IOS_SCAN_OVERLAY_VIEW:String = "scanOverlayView"; // Unsupported feature
+
+    /**
+     * Boolean property.
+     * 
+     * By default, in camera view the card guide and the buttons always rotate to match the device's orientation.
+     *   All four orientations are permitted, regardless of any app or viewcontroller constraints.
+     * If you wish, the card guide and buttons can instead obey standard iOS constraints, including
+     *   the UISupportedInterfaceOrientations settings in your app's plist.
+     * Set to NO to follow standard iOS constraints. Defaults to YES. (Does not affect the manual entry screen.)
+     */
+    public static const IOS_ALLOW_FREELY_ROTATING_CARD_GUIDE:String = "allowFreelyRotatingCardGuide";
+
+    //-------------------------------------
+    //  Class constants: Android specific keys
+    //-------------------------------------
+
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -21,6 +109,20 @@ public class CardScanOptions
     //  Properties
     //
     //--------------------------------------------------------------------------
+    
+    private var properties:Object = {};
+
+    //--------------------------------------------------------------------------
+    //
+    //  Properties
+    //
+    //--------------------------------------------------------------------------
+
+    //-------------------------------------
+    //  languageOrLocale
+    //-------------------------------------
+
+    private var _languageOrLocale:String = null;
 
     /**
      * The preferred language for all strings appearing in the user interface.
@@ -37,63 +139,223 @@ public class CardScanOptions
      * These localizations are currently included:
      * ar,da,de,en,en_AU,en_GB,es,es_MX,fr,he,is,it,ja,ko,ms,nb,nl,pl,pt,pt_BR,ru,sv,th,tr,zh-Hans,zh-Hant,zh-Hant_TW.
      */
-    public var languageOrLocale:String = null;
+    public function get languageOrLocale():String
+    {
+        return _languageOrLocale;
+    }
+
+    public function set languageOrLocale(value:String):void
+    {
+        _languageOrLocale = value;
+        
+        setProperty("languageOrLocale", value);
+    }
+
+    //-------------------------------------
+    //  guideColor
+    //-------------------------------------
+
+    private var _guideColor:int = -1;
 
     /**
      * Alter the card guide (bracket) color. Opaque colors recommended.
      * Defaults to -1; if -1, will use card.io green.
      */
-    public var guideColor:int = -1;
+    public function get guideColor():int
+    {
+        return _guideColor;
+    }
+
+    public function set guideColor(value:int):void
+    {
+        _guideColor = value;
+
+        setProperty("guideColor", value);
+    }
+
+    //-------------------------------------
+    //  suppressScanConfirmation
+    //-------------------------------------
+
+    private var _suppressScanConfirmation:Boolean = false;
 
     /**
      * If <code>true</code>, don't have the user confirm the scanned card, just return the results immediately.
      * Defaults to <code>false</code>.
      */
-    public var suppressScanConfirmation:Boolean = false;
+    public function get suppressScanConfirmation():Boolean
+    {
+        return _suppressScanConfirmation;
+    }
+
+    public function set suppressScanConfirmation(value:Boolean):void
+    {
+        _suppressScanConfirmation = value;
+
+        setProperty("suppressScanConfirmation", value);
+    }
+
+    //-------------------------------------
+    //  scanInstructions
+    //-------------------------------------
+
+    private var _scanInstructions:String = null;
 
     /**
      * Set the scan instruction text. If nil, use the default text. Defaults to nil.
      * Use newlines as desired to control the wrapping of text onto multiple lines.
      */
-    public var scanInstructions:String = null;
+    public function get scanInstructions():String
+    {
+        return _scanInstructions;
+    }
+
+    public function set scanInstructions(value:String):void
+    {
+        _scanInstructions = value;
+
+        setProperty("scanInstructions", value);
+    }
+
+    //-------------------------------------
+    //  hideLogo
+    //-------------------------------------
+
+    private var _hideLogo:Boolean = false;
 
     /**
      * Hide the PayPal or card.io logo in the scan view.
      * Defaults to <code>false</code>.
      */
-    public var hideLogo:Boolean = false;
+    public function get hideLogo():Boolean
+    {
+        return _hideLogo;
+    }
+
+    public function set hideLogo(value:Boolean):void
+    {
+        _hideLogo = value;
+
+        setProperty("hideLogo", value);
+    }
+
+    //-------------------------------------
+    //  requireExpiry
+    //-------------------------------------
+
+    private var _requireExpiry:Boolean = true;
 
     /**
      * Set to <code>false</code> if you don't need to collect the card expiration.
      * Defaults to <code>true</code>.
      */
-    public var requireExpiry:Boolean = true;
+    public function get requireExpiry():Boolean
+    {
+        return _requireExpiry;
+    }
+
+    public function set requireExpiry(value:Boolean):void
+    {
+        _requireExpiry = value;
+
+        setProperty("requireExpiry", value);
+    }
+
+    //-------------------------------------
+    //  requireCVV
+    //-------------------------------------
+
+    private var _requireCVV:Boolean = true;
 
     /**
      * Set to <code>false</code> if you don't need to collect the cvv from the user.
      * Defaults to <code>true</code>.
      */
-    public var requireCVV:Boolean = true;
+    public function get requireCVV():Boolean
+    {
+        return _requireCVV;
+    }
+
+    public function set requireCVV(value:Boolean):void
+    {
+        _requireCVV = value;
+
+        setProperty("requireCVV", value);
+    }
+
+    //-------------------------------------
+    //  requirePostalCode
+    //-------------------------------------
+
+    private var _requirePostalCode:Boolean = false;
 
     /**
      *
      * Set to <code>true</code> if you need to collect the billing postal code.
      * Defaults to <code>false</code>.
      */
-    public var requirePostalCode:Boolean = false;
+    public function get requirePostalCode():Boolean
+    {
+        return _requirePostalCode;
+    }
+
+    public function set requirePostalCode(value:Boolean):void
+    {
+        _requirePostalCode = value;
+
+        setProperty("requirePostalCode", value);
+    }
+
+    //-------------------------------------
+    //  scanExpiry
+    //-------------------------------------
+
+    private var _scanExpiry:Boolean = true;
 
     /**
      * Set to <code>false</code> if you don't want the camera to try to scan the
      * card expiration. Applies only if collectExpiry is also YES.
      * Defaults to <code>true</code>.
      */
-    public var scanExpiry:Boolean = true;
+    public function get scanExpiry():Boolean
+    {
+        return _scanExpiry;
+    }
+
+    public function set scanExpiry(value:Boolean):void
+    {
+        _scanExpiry = value;
+
+        setProperty("scanExpiry", value);
+    }
+
+    //-------------------------------------
+    //  useCardIOLogo
+    //-------------------------------------
+
+    private var _useCardIOLogo:Boolean = false;
 
     /**
      * Set to <code>true</code> to show the card.io logo over the camera view instead of the PayPal logo.
      * Defaults to <code>false</code>.
      */
-    public var useCardIOLogo:Boolean = false;
+    public function get useCardIOLogo():Boolean
+    {
+        return _useCardIOLogo;
+    }
+
+    public function set useCardIOLogo(value:Boolean):void
+    {
+        _useCardIOLogo = value;
+
+        setProperty("useCardIOLogo", value);
+    }
+
+    //-------------------------------------
+    //  suppressManualEntry
+    //-------------------------------------
+
+    private var _suppressManualEntry:Boolean = false;
 
     /**
      * Set to <code>true</code> to prevent card.io from showing its "Enter Manually" button.
@@ -104,7 +366,54 @@ public class CardScanOptions
      *       Therefore, if you want to prevent users from *ever* seeing card.io's manual entry screen,
      *       you should first check [CardIOUtilities canReadCardWithCamera] before initing the view controller.
      */
-    public var suppressManualEntry:Boolean = false;
+    public function get suppressManualEntry():Boolean
+    {
+        return _suppressManualEntry;
+    }
+
+    public function set suppressManualEntry(value:Boolean):void
+    {
+        _suppressManualEntry = value;
+        
+        setProperty("suppressManualEntry", value);
+    }
+
+    //-------------------------------------
+    //  detectionMode
+    //-------------------------------------
+
+    private var _detectionMode:CardScanDetectionMode;
+
+    /**
+     * CardScanDetectionMode.CardImageAndNumber: the scanner must successfully identify the card number.
+     * CardScanDetectionMode.CardImageOnly: don't scan the card, just detect a credit-card-shaped card.
+     * CardScanDetectionMode.Automatic: start as CardScanDetectionMode.CardImageAndNumber, but fall back to
+     *        CardScanDetectionMode.CardImageOnly if scanning has not succeeded within a reasonable time.
+     * Defaults to CardScanDetectionMode.CardImageAndNumber.
+     *
+     * @note Images returned in CardScanDetectionMode.CardImageOnly mode may be less focused, to accomodate scanning
+     *       cards that are dominantly white (e.g., the backs of drivers licenses), and thus
+     *       hard to calculate accurate focus scores for.
+     */
+    public function get detectionMode():CardScanDetectionMode
+    {
+        return _detectionMode;
+    }
+
+    public function set detectionMode(value:CardScanDetectionMode):void
+    {
+        _detectionMode = value;
+
+        if (value != null)
+        {
+            setProperty("detectionMode", value.value);
+        }
+        else
+        {
+            properties["detectionMode"] = null;
+            delete properties["detectionMode"];
+        }
+    }
 
     //--------------------------------------------------------------------------
     //
@@ -112,5 +421,19 @@ public class CardScanOptions
     //
     //--------------------------------------------------------------------------
 
+    public function setProperty(name:String, value:Object):void
+    {
+        properties[name] = value;
+    }
+
+    public function getProperty(name:String):*
+    {
+        return properties[name];
+    }
+
+    public function toJSON(k:*):*
+    {
+        return properties;
+    }
 }
 }
