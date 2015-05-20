@@ -49,11 +49,103 @@ static YPLCardScan* _sharedInstance = nil;
     return [CardIOCreditCardInfo displayStringForCardType:cardType usingLanguageOrLocale:languageOrLocale];
 }
 
--(void) scanForPayment: (FREObject) object completion: (ANXCardIOScanForPaymentCompletion) completion
+-(void) scanForPayment: (NSDictionary*) options completion: (ANXCardIOScanForPaymentCompletion) completion
 {
     NSLog(@"Start scan for payment.");
     
     CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
+    
+    if ([options objectForKey:@"languageOrLocale"])
+    {
+        scanViewController.languageOrLocale = [options valueForKey:@"languageOrLocale"];
+    }
+    
+    if ([options objectForKey:@"guideColor"])
+    {
+        scanViewController.guideColor = [options valueForKey:@"guideColor"];
+    }
+    
+    if ([options objectForKey:@"suppressScanConfirmation"])
+    {
+        scanViewController.suppressScanConfirmation = [[options valueForKey:@"suppressScanConfirmation"] boolValue];
+    }
+    
+    if ([options objectForKey:@"scanInstructions"])
+    {
+        scanViewController.scanInstructions = [options valueForKey:@"scanInstructions"];
+    }
+    
+    if ([options objectForKey:@"hideLogo"])
+    {
+        scanViewController.hideCardIOLogo = [[options valueForKey:@"hideLogo"] boolValue];
+    }
+    
+    if ([options objectForKey:@"requireExpiry"])
+    {
+        scanViewController.collectExpiry = [[options valueForKey:@"requireExpiry"] boolValue];
+    }
+    
+    if ([options objectForKey:@"requireCVV"])
+    {
+        scanViewController.collectCVV = [[options valueForKey:@"requireCVV"] boolValue];
+    }
+    
+    if ([options objectForKey:@"requirePostalCode"])
+    {
+        scanViewController.collectPostalCode = [[options valueForKey:@"requirePostalCode"] boolValue];
+    }
+    
+    if ([options objectForKey:@"scanExpiry"])
+    {
+        scanViewController.scanExpiry = [[options valueForKey:@"scanExpiry"] boolValue];
+    }
+    
+    if ([options objectForKey:@"useCardIOLogo"])
+    {
+        scanViewController.useCardIOLogo = [[options valueForKey:@"useCardIOLogo"] boolValue];
+    }
+    
+    if ([options objectForKey:@"suppressManualEntry"])
+    {
+        scanViewController.disableManualEntryButtons = [[options valueForKey:@"suppressManualEntry"] boolValue];
+    }
+    
+    if ([options objectForKey:@"detectionMode"])
+    {
+        scanViewController.detectionMode = [[options valueForKey:@"detectionMode"] integerValue];
+    }
+    
+    if ([options objectForKey:@"keepStatusBarStyle"])
+    {
+        scanViewController.keepStatusBarStyle = [[options valueForKey:@"keepStatusBarStyle"] integerValue];
+    }
+    
+    if ([options objectForKey:@"navigationBarTintColor"])
+    {
+        scanViewController.navigationBarTintColor = [options valueForKey:@"navigationBarTintColor"];
+    }
+    
+    if ([options objectForKey:@"disableBlurWhenBackgrounding"])
+    {
+        scanViewController.disableBlurWhenBackgrounding = [[options valueForKey:@"disableBlurWhenBackgrounding"] boolValue];
+    }
+    
+    if ([options objectForKey:@"suppressScannedCardImage"])
+    {
+        scanViewController.suppressScannedCardImage = [[options valueForKey:@"suppressScannedCardImage"] boolValue];
+    }
+    
+    if ([options objectForKey:@"maskManualEntryDigits"])
+    {
+        scanViewController.maskManualEntryDigits = [[options valueForKey:@"maskManualEntryDigits"] boolValue];
+    }
+    
+    if ([options objectForKey:@"allowFreelyRotatingCardGuide"])
+    {
+        scanViewController.allowFreelyRotatingCardGuide = [[options valueForKey:@"allowFreelyRotatingCardGuide"] boolValue];
+    }
+    
+    NSLog(@"Options: %@", options);
     
     scanViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     

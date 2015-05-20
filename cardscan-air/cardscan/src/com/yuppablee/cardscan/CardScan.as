@@ -3,6 +3,8 @@
  */
 package com.yuppablee.cardscan
 {
+import com.yuppablee.cardscan.data.CardScanOptions;
+
 import flash.events.ErrorEvent;
 import flash.events.Event;
 
@@ -11,7 +13,6 @@ import flash.events.EventDispatcher;
 import flash.events.StatusEvent;
 
 import flash.external.ExtensionContext;
-import flash.net.registerClassAlias;
 
 import com.yuppablee.cardscan.core.card_scan;
 import com.yuppablee.cardscan.core.assembler.CreditCardDTO;
@@ -126,9 +127,9 @@ public class CardScan extends EventDispatcher
     //
     //--------------------------------------------------------------------------
 
-    public function scanForPayment(options:Object):void
+    public function scanForPayment(options:CardScanOptions):void
     {
-        context.call("scanForPayment");
+        context.call("scanForPayment", options ? options.toDTO() : null);
     }
 
     //--------------------------------------------------------------------------
