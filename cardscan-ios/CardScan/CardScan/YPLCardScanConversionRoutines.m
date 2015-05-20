@@ -75,6 +75,8 @@
     
     FREResult result = FREGetObjectAsBool(object, &value);
     
+    NSLog(@"-> %u", result);
+    
     if (result != FRE_OK)
         return NO;
     
@@ -91,6 +93,12 @@
     if (result != FRE_OK)
         return nil;
     
+    FREObjectType propertyType;
+    result = FREGetObjectType(propertyValue, &propertyType);
+    
+    if (result != FRE_OK || propertyType == FRE_TYPE_NULL)
+        return nil;
+    
     return [self convertFREObjectToNSString:propertyValue];
 }
 
@@ -102,6 +110,12 @@
     if (result != FRE_OK)
         return nil;
     
+    FREObjectType propertyType;
+    result = FREGetObjectType(propertyValue, &propertyType);
+    
+    if (result != FRE_OK || propertyType == FRE_TYPE_NULL)
+        return nil;
+    
     return [NSNumber numberWithBool:[self convertFREObjectToBOOL:propertyValue]];
 }
 
@@ -111,6 +125,12 @@
     FREResult result = FREGetObjectProperty(object, (const uint8_t*) [property UTF8String], &propertyValue, NULL);
     
     if (result != FRE_OK)
+        return nil;
+    
+    FREObjectType propertyType;
+    result = FREGetObjectType(propertyValue, &propertyType);
+    
+    if (result != FRE_OK || propertyType == FRE_TYPE_NULL)
         return nil;
     
     uint32_t rgb;
@@ -132,6 +152,12 @@
     FREResult result = FREGetObjectProperty(object, (const uint8_t*) [property UTF8String], &propertyValue, NULL);
     
     if (result != FRE_OK)
+        return nil;
+    
+    FREObjectType propertyType;
+    result = FREGetObjectType(propertyValue, &propertyType);
+    
+    if (result != FRE_OK || propertyType == FRE_TYPE_NULL)
         return nil;
     
     return [NSNumber numberWithInteger:[self convertFREObjectToNSInteger:propertyValue]];
@@ -440,6 +466,64 @@
         if (detectionMode)
         {
             [dictionary setValue:detectionMode forKey:@"detectionMode"];
+        }
+        
+        // extra
+        
+        // keepStatusBarStyle
+        
+        NSNumber *keepStatusBarStyle = [self getIntegerFrom:object forProperty:@"keepStatusBarStyle"];
+        
+        if (keepStatusBarStyle)
+        {
+            [dictionary setValue:keepStatusBarStyle forKey:@"keepStatusBarStyle"];
+        }
+        
+        // navigationBarTintColor
+        
+        UIColor *navigationBarTintColor = [self getColorFrom:object forProperty:@"navigationBarTintColor"];
+        
+        if (navigationBarTintColor)
+        {
+            [dictionary setValue:navigationBarTintColor forKey:@"navigationBarTintColor"];
+        }
+        
+        // disableBlurWhenBackgrounding
+        
+        NSNumber *disableBlurWhenBackgrounding = [self getBooleanFrom:object forProperty:@"disableBlurWhenBackgrounding"];
+        
+        if (disableBlurWhenBackgrounding)
+        {
+            [dictionary setValue:disableBlurWhenBackgrounding forKey:@"disableBlurWhenBackgrounding"];
+        }
+        
+        // suppressScannedCardImage
+        
+        NSNumber *suppressScannedCardImage = [self getBooleanFrom:object forProperty:@"suppressScannedCardImage"];
+        
+        if (suppressScannedCardImage)
+        {
+            [dictionary setValue:suppressScannedCardImage forKey:@"suppressScannedCardImage"];
+        }
+        
+        // maskManualEntryDigits
+        
+        NSNumber *maskManualEntryDigits = [self getBooleanFrom:object forProperty:@"maskManualEntryDigits"];
+        
+        if (maskManualEntryDigits)
+        {
+            [dictionary setValue:maskManualEntryDigits forKey:@"maskManualEntryDigits"];
+        }
+        
+        // allowFreelyRotatingCardGuide
+        
+        NSNumber *allowFreelyRotatingCardGuide = [self getBooleanFrom:object forProperty:@"allowFreelyRotatingCardGuide"];
+        
+        NSLog(@"allowFreelyRotatingCardGuide: %@", allowFreelyRotatingCardGuide);
+        
+        if (allowFreelyRotatingCardGuide)
+        {
+            [dictionary setValue:allowFreelyRotatingCardGuide forKey:@"allowFreelyRotatingCardGuide"];
         }
     }
     

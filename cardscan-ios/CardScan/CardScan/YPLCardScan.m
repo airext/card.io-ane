@@ -115,6 +115,38 @@ static YPLCardScan* _sharedInstance = nil;
         scanViewController.detectionMode = [[options valueForKey:@"detectionMode"] integerValue];
     }
     
+    if ([options objectForKey:@"keepStatusBarStyle"])
+    {
+        scanViewController.keepStatusBarStyle = [[options valueForKey:@"keepStatusBarStyle"] integerValue];
+    }
+    
+    if ([options objectForKey:@"navigationBarTintColor"])
+    {
+        scanViewController.navigationBarTintColor = [options valueForKey:@"navigationBarTintColor"];
+    }
+    
+    if ([options objectForKey:@"disableBlurWhenBackgrounding"])
+    {
+        scanViewController.disableBlurWhenBackgrounding = [[options valueForKey:@"disableBlurWhenBackgrounding"] boolValue];
+    }
+    
+    if ([options objectForKey:@"suppressScannedCardImage"])
+    {
+        scanViewController.suppressScannedCardImage = [[options valueForKey:@"suppressScannedCardImage"] boolValue];
+    }
+    
+    if ([options objectForKey:@"maskManualEntryDigits"])
+    {
+        scanViewController.maskManualEntryDigits = [[options valueForKey:@"maskManualEntryDigits"] boolValue];
+    }
+    
+    if ([options objectForKey:@"allowFreelyRotatingCardGuide"])
+    {
+        scanViewController.allowFreelyRotatingCardGuide = [[options valueForKey:@"allowFreelyRotatingCardGuide"] boolValue];
+    }
+    
+    NSLog(@"Options: %@", options);
+    
     scanViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     
     UIViewController *currentRootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];

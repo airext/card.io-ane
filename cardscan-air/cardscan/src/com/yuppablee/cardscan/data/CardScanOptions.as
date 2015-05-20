@@ -3,6 +3,7 @@
  */
 package com.yuppablee.cardscan.data
 {
+import com.yuppablee.cardscan.core.card_scan;
 import com.yuppablee.cardscan.enum.CardScanDetectionMode;
 
 public class CardScanOptions
@@ -423,6 +424,8 @@ public class CardScanOptions
 
     public function setProperty(name:String, value:Object):void
     {
+        trace(name, "=", value);
+
         properties[name] = value;
     }
 
@@ -431,8 +434,13 @@ public class CardScanOptions
         return properties[name];
     }
 
-    public function toJSON(k:*):*
+    card_scan function toDTO():Object
     {
+        for (var p:* in properties)
+        {
+            trace(p, ":", properties[p]);
+        }
+
         return properties;
     }
 }
