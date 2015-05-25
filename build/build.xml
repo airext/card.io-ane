@@ -7,6 +7,7 @@
     <property name="air.project.dir" value="../${name}-air/${name}" />
     <property name="air-default.project.dir" value="../${name}-air/${name}-default" />
     <property name="air-debug.project.dir" value="../${name}-air/${name}-debug" />
+    <property name="android.project.dir" value="../${name}-android" />
 
 	<property file="build.properties"/>
 		
@@ -42,7 +43,7 @@
 		<delete dir="temp/ios/build/"/>
 	</target>
 		
-	<target name="android" description="Build android Library">
+	<target name="android-orig" description="Build android Library">
 		<delete dir="../android/temp"/>
 		<mkdir dir="../android/temp/classes"/>
 
@@ -61,6 +62,14 @@
 		<mkdir dir="../temp/android/"/>
 		<jar basedir="../android/temp/classes" destfile="../temp/android/${name}AndroidExtension.jar"/>
 		<delete dir="../android/temp"/>
+	</target>
+
+	<target name="android" description="Build android Library">
+		<exec executable="gradle" failonerror="true" dir="${android.project.dir}">
+			<arg line="build" />
+			<arg line="--info" />
+			<!--<arg line="&#45;&#45;debug" />-->
+		</exec>
 	</target>
 		
 	<target name="air" description="Build swc library">
