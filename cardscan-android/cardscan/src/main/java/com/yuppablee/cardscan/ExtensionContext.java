@@ -3,6 +3,7 @@ package com.yuppablee.cardscan;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.yuppablee.cardscan.functions.IsSupportedFunction;
+import com.yuppablee.cardscan.functions.LibraryVersionFunction;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +19,7 @@ public class ExtensionContext extends FREContext
         Map<String, FREFunction> functions = new HashMap<String, FREFunction>();
 
         functions.put("isSupported", new IsSupportedFunction());
+        functions.put("libraryVersion", new LibraryVersionFunction());
 
         return functions;
     }
