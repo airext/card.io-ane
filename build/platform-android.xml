@@ -1,0 +1,27 @@
+<platform xmlns="http://ns.adobe.com/air/extension/4.0">
+    <description></description> 
+    <packagedDependencies>
+        <packagedDependency>card.io.jar</packagedDependency>
+        <packagedDependency>gson-2.3.1.jar</packagedDependency>
+        <packagedDependency>maxstub.jar</packagedDependency>
+
+        <!--<packagedDependency>libcardioDecider.so</packagedDependency>-->
+        <!--<packagedDependency>libcardioRecognizer_tegra2.so</packagedDependency>-->
+        <!--<packagedDependency>libcardioRecognizer.so</packagedDependency>-->
+        <!--<packagedDependency>libopencv_core.so</packagedDependency>-->
+        <!--<packagedDependency>libopencv_imgproc.so</packagedDependency>-->
+
+        <!--<packagedDependency>libs/arm64-v8a/libcardioDecider.so</packagedDependency>-->
+        <!--<packagedDependency>libs/armeabi/libcardioDecider.so</packagedDependency>-->
+        <!--<packagedDependency>libs/armeabi-v7a/libcardioDecider.so</packagedDependency>-->
+        <!--<packagedDependency>libs/mips/libcardioDecider.so</packagedDependency>-->
+        <!--<packagedDependency>libs/mips64/libcardioDecider.so</packagedDependency>-->
+        <!--<packagedDependency>libs/x86/libcardioDecider.so</packagedDependency>-->
+        <!--<packagedDependency>libs/x86_64/libcardioDecider.so</packagedDependency>-->
+    </packagedDependencies>
+    <!--<packagedDependencies>-->
+        <!--<packagedDependency>-->
+            <!--<folderName></folderName>-->
+        <!--</packagedDependency>-->
+    <!--</packagedDependencies>-->
+</platform>

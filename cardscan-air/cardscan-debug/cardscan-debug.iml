@@ -9,12 +9,40 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="4.14.1" />
+          <sdk name="4.14.1-air-18.0" />
         </dependencies>
         <compiler-options />
         <packaging-air-desktop />
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/CardScanDebug-app.xml" package-file-name="CardScanDebug" />
         <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/CardScanDebug-app.xml" package-file-name="CardScanDebug" />
+      </configuration>
+      <configuration name="facebook-sample" target-platform="Mobile" pure-as="true" main-class="AirFacebookSample" output-file="facebook-sample.swf" output-folder="$MODULE_DIR$/bin-debug">
+        <dependencies>
+          <entries>
+            <entry library-id="e137f392-5b95-4236-bc51-6de6bbba7764">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="4.14.1" />
+        </dependencies>
+        <compiler-options />
+        <packaging-air-desktop />
+        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/AirFacebookSample-app.xml" package-file-name="facebook-sample" />
+        <packaging-ios use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/AirFacebookSample-app.xml" package-file-name="facebook-sample" />
+      </configuration>
+      <configuration name="cardscan-simple" target-platform="Mobile" pure-as="true" main-class="CardScanSimple" output-file="cardscan-simple.swf" output-folder="$MODULE_DIR$/bin-debug">
+        <dependencies>
+          <entries>
+            <entry library-id="d6a0e220-484d-4b08-b863-aaa00cce6bbe">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="17.0.0.105" />
+        </dependencies>
+        <compiler-options />
+        <packaging-air-desktop />
+        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/CardScanSimple-app.xml" package-file-name="cardscan-simple" />
+        <packaging-ios package-file-name="cardscan-simple" />
       </configuration>
     </configurations>
     <compiler-options />
@@ -24,11 +52,33 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="4.14.1" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="4.14.1-air-18.0&#9;4.14.1&#9;17.0.0.105" jdkType="__CompositeFlexSdk__" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
         <properties id="3538fecf-f9a9-445d-873f-5b456b15d86e" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/ane" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/ane" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="e137f392-5b95-4236-bc51-6de6bbba7764" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/ane" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/ane" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="d6a0e220-484d-4b08-b863-aaa00cce6bbe" />
         <CLASSES>
           <root url="file://$MODULE_DIR$/ane" />
         </CLASSES>
