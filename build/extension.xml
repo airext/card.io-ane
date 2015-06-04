@@ -10,8 +10,22 @@
         <finalizer>YPLCardScanFinalizer</finalizer>
       </applicationDeployment>
     </platform>
+    <platform name="Android-ARM">
+      <applicationDeployment>
+        <nativeLibrary>cardscan.jar</nativeLibrary>
+        <initializer>com.yuppablee.cardscan.CardScan</initializer>
+        <finalizer>com.yuppablee.cardscan.CardScan</finalizer>
+      </applicationDeployment>
+    </platform>
+    <!--<platform name="Android-x86">-->
+      <!--<applicationDeployment>-->
+        <!--<nativeLibrary>cardscan.jar</nativeLibrary>-->
+        <!--<initializer>com.yuppablee.cardscan.CardScan</initializer>-->
+  </platforms>
+</extension>
+        <!--<finalizer>com.yuppablee.cardscan.CardScan</finalizer>-->
+      <!--</applicationDeployment>-->
+    <!--</platform>-->
     <platform name="default">
       <applicationDeployment />
     </platform>
-  </platforms>
-</extension>
