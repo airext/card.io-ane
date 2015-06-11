@@ -43,3 +43,5 @@ build.properties
 #
 build/launch/*
 build/build.config
+*.apk
+*.ipa
