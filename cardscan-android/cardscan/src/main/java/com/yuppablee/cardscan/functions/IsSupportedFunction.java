@@ -14,7 +14,7 @@ import io.card.payment.CardType;
 public class IsSupportedFunction implements FREFunction
 {
     @Override
-    public FREObject call(FREContext freContext, FREObject[] freObjects)
+    public FREObject call(FREContext freContext, FREObject[] args)
     {
         try
         {

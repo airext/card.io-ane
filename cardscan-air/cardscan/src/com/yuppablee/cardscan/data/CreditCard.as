@@ -152,7 +152,6 @@ public class CreditCard
                 'redactedCardNumber="' + redactedCardNumber + '"' +
                 'expiryMonth="' + expiryMonth + '"' +
                 'expiryYear="' + expiryYear + '"' +
-                'expiryYear="' + expiryYear + '"' +
                 'postalCode="' + postalCode + '"' +
                 'scanned="' + scanned + '"' +
                 'cardType="' + cardType + '"'

@@ -94,6 +94,50 @@ public class CardScanOptions
     //  Class constants: Android specific keys
     //-------------------------------------
 
+    /**
+     * Boolean extra. Optional. Defaults to <code>false</code>. If set, the card will not be scanned
+     * with the camera.
+     */
+    public static const ANDROID_NO_CAMERA:String = "io.card.payment.noCamera";
+
+    /**
+     * Boolean extra. Optional. Once a card image has been captured but before it has been
+     * processed, this value will determine whether to continue processing as usual. If the value is
+     * <code>true</code> the {@link CardIOActivity} will finish with a {@link #RESULT_SCAN_SUPPRESSED} result code.
+     */
+    public static const ANDROID_SUPPRESS_SCAN:String = "io.card.payment.suppressScan";
+
+        /**
+         * String extra. If {@link #ANDROID_RETURN_CARD_IMAGE} is set to <code>true</code>, the data intent passed to your
+         * {@link android.app.Activity} will have the card image stored as a JPEG formatted byte array in this extra.
+         */
+        public static const ANDROID_CAPTURED_CARD_IMAGE:String = "io.card.payment.capturedCardImage";
+
+        /**
+         * Boolean extra. Optional. If this value is set to <code>true</code> the card image will be passed as an
+         * extra in the data intent that is returned to your {@link android.app.Activity} using the
+         * {@link #ANDROID_CAPTURED_CARD_IMAGE} key.
+         */
+        public static const ANDROID_RETURN_CARD_IMAGE:String = "io.card.payment.returnCardImage";
+
+        /**
+         * Integer extra. Optional. If this value is provided the view will be inflated and will overlay
+         * the camera during the scan process. The integer value must be the id of a valid layout
+         * resource.
+         */
+        public static const ANDROID_SCAN_OVERLAY_LAYOUT_ID:String = "io.card.payment.scanOverlayLayoutId";
+
+    /**
+     * Boolean extra. Optional. Use the PayPal icon in the ActionBar.
+     */
+    public static const ANDROID_USE_PAYPAL_ACTIONBAR_ICON:String = "io.card.payment.intentSenderIsPayPal";
+
+    /**
+     * Boolean extra. Optional. If this value is set to <code>true</code>, and the application has a theme,
+     * the theme for the card.io {@link android.app.Activity}s will be set to the theme of the application.
+     */
+    public static const ANDROID_KEEP_APPLICATION_THEME:String = "io.card.payment.keepApplicationTheme";
+
     //--------------------------------------------------------------------------
     //
     //  Constructor

@@ -39,11 +39,11 @@ task clearJar(type: Delete) {
     delete 'build/cardscan.jar'
 }
 
-task jar(type: Copy) {
-    from('build/intermediates/bundles/release/')
-    into('build/')
-    include('classes.jar')
-    rename ('classes.jar', 'cardscan.jar')
+task jar(type: Jar) {
+    from zipTree('build/intermediates/bundles/release/classes.jar') // add original content
+    from(file("src/main/AndroidManifest.xml")) {   // add new content
+//        into "META-INF"
+    }
 }
 
 jar.dependsOn(clearJar, build)

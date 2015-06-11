@@ -2,8 +2,7 @@ package com.yuppablee.cardscan;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
-import com.yuppablee.cardscan.functions.IsSupportedFunction;
-import com.yuppablee.cardscan.functions.LibraryVersionFunction;
+import com.yuppablee.cardscan.functions.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +19,9 @@ public class ExtensionContext extends FREContext
 
         functions.put("isSupported", new IsSupportedFunction());
         functions.put("libraryVersion", new LibraryVersionFunction());
+        functions.put("scanForPayment", new ScanForPaymentFunction());
+        functions.put("getLogoForCardType", new GetLogoForCardTypeFunction());
+        functions.put("getDisplayNameForCardType", new GetDisplayNameForCardTypeFunction());
 
         return functions;
     }

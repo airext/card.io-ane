@@ -8,6 +8,23 @@ import com.adobe.fre.FREExtension;
  */
 public class CardScan implements FREExtension
 {
+    //--------------------------------------------------------------------------
+    //
+    //  Class properties
+    //
+    //--------------------------------------------------------------------------
+
+    private static FREContext context;
+
+    public static FREContext getContext()
+    {
+        return context;
+    }
+    //--------------------------------------------------------------------------
+    //
+    //  Overridden methods
+    //
+    //--------------------------------------------------------------------------
 
     @Override
     public void initialize()
@@ -18,7 +35,9 @@ public class CardScan implements FREExtension
     @Override
     public FREContext createContext(String s)
     {
-        return new ExtensionContext();
+        context = new ExtensionContext();
+
+        return context;
     }
 
     @Override
