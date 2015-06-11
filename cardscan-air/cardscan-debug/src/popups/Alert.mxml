@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+  Created by mobitile on 6/10/15.
+-->
+<s:SkinnablePopUpContainer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" skinClass="skins.AlertSkin">
+    <fx:Script>
+		<![CDATA[
+        public static function show(owner:DisplayObjectContainer, message:String, width:Number = NaN, height:Number = NaN):void
+        {
+            var popup:Alert = new Alert();
+            popup.message = message;
+            popup.width = isNaN(width) ? owner.stage.stageWidth - 40 : width;
+            popup.height = isNaN(height) ? owner.stage.stageHeight - 40 : height;
+            popup.x = ((isNaN(width) ? owner.stage.stageWidth : owner.width) - popup.width) / 2;
+            popup.y = ((isNaN(height) ? owner.stage.stageHeight : owner.height) - popup.height) / 2;
+
+            popup.open(owner, true);
+        }
+
+        [Bindable]
+        public var message:String;
+
+        private function onClick(commit:Boolean):void
+        {
+            super.close(commit);
+        }
+        ]]>
+	</fx:Script>
+
+    <s:layout>
+        <s:VerticalLayout gap="20" paddingBottom="10" paddingLeft="30" paddingRight="30" paddingTop="30" horizontalAlign="center"/>
+    </s:layout>
+
+    <s:Label text="{message}" width="100%" textAlign="center"/>
+
+    <s:Button label="OK" width="50%" click="onClick(true)"/>
+
+</s:SkinnablePopUpContainer>

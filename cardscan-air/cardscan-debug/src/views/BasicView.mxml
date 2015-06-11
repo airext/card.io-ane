@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+  Created by mobitile on 6/10/15.
+-->
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:s="library://ns.adobe.com/flex/spark" title="Basic Functionality">
+
+    <fx:Script>
+        <![CDATA[
+        import com.yuppablee.cardscan.CardScan;
+
+        import popups.Alert;
+
+        private function isSupported():void
+        {
+            Alert.show(this, String(CardScan.isSupported()), 500, 200);
+        }
+
+        private function libraryVersion():void
+        {
+            Alert.show(this, String(CardScan.libraryVersion), 500, 200);
+        }
+
+        ]]>
+    </fx:Script>
+
+    <fx:Declarations>
+
+    </fx:Declarations>
+
+    <s:layout>
+        <s:VerticalLayout horizontalAlign="justify" gap="30" paddingTop="30" />
+    </s:layout>
+
+    <s:Button label="Is Supported" click="isSupported();" />
+    <s:Button label="Card.IO version" click="libraryVersion();" />
+
+</s:View>

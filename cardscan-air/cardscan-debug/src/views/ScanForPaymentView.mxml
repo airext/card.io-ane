@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!--
+  Created by mobitile on 6/10/15.
+-->
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:s="library://ns.adobe.com/flex/spark" title="Scan Options">
+
+    <fx:Script>
+        <![CDATA[
+        import com.yuppablee.cardscan.CardScan;
+        import com.yuppablee.cardscan.data.CardScanOptions;
+        import com.yuppablee.cardscan.data.ios.UIBarStyle;
+        import com.yuppablee.cardscan.enum.CardScanDetectionMode;
+        import com.yuppablee.cardscan.events.CardScanEvent;
+
+        import popups.CreditCardPopup;
+
+        [Bindable]
+        private var options:CardScanOptions = new CardScanOptions();
+
+        private function scan():void
+        {
+            var self:ScanForPaymentView = this;
+
+            var scanComplete:Function = function (event:CardScanEvent):void
+            {
+                CardScan.getInstance().removeEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
+                CardScan.getInstance().removeEventListener(Event.CANCEL, scanCanceled);
+
+                CreditCardPopup.show(self, event.info, 500, 300);
+
+                trace(event.info);
+            };
+
+            var scanCanceled:Function = function scanCancelled(event:Event):void
+            {
+                CardScan.getInstance().removeEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
+                CardScan.getInstance().removeEventListener(Event.CANCEL, scanCanceled);
+
+                trace("Cancelled");
+            };
+
+            CardScan.getInstance().addEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
+            CardScan.getInstance().addEventListener(Event.CANCEL, scanCanceled);
+
+            CardScan.getInstance().scanForPayment(options);
+        }
+
+        ]]>
+    </fx:Script>
+
+    <fx:Declarations>
+    </fx:Declarations>
+
+    <s:layout>
+        <s:VerticalLayout horizontalAlign="justify" gap="30" paddingTop="30" />
+    </s:layout>
+
+    <!-- Options Form -->
+
+    <s:Scroller width="100%" height="100%">
+        <s:VGroup horizontalAlign="justify" width="100%">
+            <s:Form width="100%" defaultButton="{scanButton}" textAlign="center">
+                <s:FormItem width="100%" label="languageOrLocale" backgroundColor="#EEEEEE">
+                    <s:TextInput width="100%" text="{options.languageOrLocale}" change="options.languageOrLocale = event.target.text;" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="guideColor" backgroundColor="#EEEEEE">
+                    <s:TextInput width="100%" text="{options.guideColor ? options.guideColor.toString(16) : ''}" change="options.guideColor = parseInt(event.target.text, 16);" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="suppressScanConfirmation" backgroundColor="#EEEEEE">
+                    <s:CheckBox selected="{options.suppressScanConfirmation}" change="options.suppressScanConfirmation = event.target.selected;" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="scanInstructions" backgroundColor="#EEEEEE">
+                    <s:TextInput width="100%" text="{options.scanInstructions}" change="options.scanInstructions = event.target.text;" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="hideLogo" backgroundColor="#EEEEEE">
+                    <s:CheckBox selected="{options.hideLogo}" change="options.hideLogo = event.target.selected;" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="requireExpiry" backgroundColor="#EEEEEE">
+                    <s:CheckBox selected="{options.requireExpiry}" change="options.requireExpiry = event.target.selected;" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="requireCVV" backgroundColor="#EEEEEE">
+                    <s:CheckBox selected="{options.requireCVV}" change="options.requireCVV = event.target.selected;" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="requirePostalCode" backgroundColor="#EEEEEE">
+                    <s:CheckBox selected="{options.requirePostalCode}" change="options.requirePostalCode = event.target.selected;" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="scanExpiry" backgroundColor="#EEEEEE">
+                    <s:CheckBox selected="{options.scanExpiry}" change="options.scanExpiry = event.target.selected;" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="useCardIOLogo" backgroundColor="#EEEEEE">
+                    <s:CheckBox selected="{options.useCardIOLogo}" change="options.useCardIOLogo = event.target.selected;" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="suppressManualEntry" backgroundColor="#EEEEEE">
+                    <s:CheckBox selected="{options.suppressManualEntry}" change="options.suppressManualEntry = event.target.selected;" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="detectionMode" backgroundColor="#EEEEEE">
+                    <s:SpinnerList height="200" labelField="name" selectedItem="{options.detectionMode}" change="options.detectionMode = event.target.selectedItem">
+                        <s:dataProvider>
+                            <s:ArrayCollection source="{[CardScanDetectionMode.CardImageAndNumber, CardScanDetectionMode.CardImageOnly, CardScanDetectionMode.Automatic]}" />
+                        </s:dataProvider>
+                    </s:SpinnerList>
+                </s:FormItem>
+
+                <s:Line width="100%" height="2">
+                    <s:stroke>
+                        <s:Stroke color="0x0000AA" />
+                    </s:stroke>
+                </s:Line>
+
+                <s:Label text="iOS specific properties" />
+
+                <s:FormItem width="100%" label="keepStatusBarStyle" backgroundColor="#EEEEFF">
+                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.IOS_KEEP_STATUS_BAR_STYLE)}" change="options.setProperty(CardScanOptions.IOS_KEEP_STATUS_BAR_STYLE, event.target.selected);" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="navigationBarStyle" backgroundColor="#EEEEFF">
+                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.IOS_NAVIGATION_BAR_STYLE)}" change="options.setProperty(CardScanOptions.IOS_NAVIGATION_BAR_STYLE, event.target.selected ? UIBarStyle.UIBarStyleBlack : UIBarStyle.UIBarStyleDefault);" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="navigationBarTintColor" backgroundColor="#EEEEFF">
+                    <s:TextInput width="100%" text="{options.getProperty(CardScanOptions.IOS_NAVIGATION_BAR_TINT_COLOR)}" change="options.setProperty(CardScanOptions.IOS_NAVIGATION_BAR_TINT_COLOR, parseInt(event.target.text, 16));" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="disableBlurWhenBackground" backgroundColor="#EEEEFF">
+                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.IOS_DISABLE_BLUR_WHEN_BACKGROUNDING)}" change="options.setProperty(CardScanOptions.IOS_DISABLE_BLUR_WHEN_BACKGROUNDING, event.target.selected);" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="suppressScannedCardImage" backgroundColor="#EEEEFF">
+                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.IOS_SUPPRESS_SCANNED_CARD_IMAGE)}" change="options.setProperty(CardScanOptions.IOS_SUPPRESS_SCANNED_CARD_IMAGE, event.target.selected);" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="maskManualEntryDigits" backgroundColor="#EEEEFF">
+                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.IOS_MASK_MANUAL_ENTRY_DIGITS)}" change="options.setProperty(CardScanOptions.IOS_MASK_MANUAL_ENTRY_DIGITS, event.target.selected);" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="allowFreelyRotatingCardGuide" backgroundColor="#EEEEFF">
+                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.IOS_ALLOW_FREELY_ROTATING_CARD_GUIDE)}" change="options.setProperty(CardScanOptions.IOS_ALLOW_FREELY_ROTATING_CARD_GUIDE, event.target.selected);" />
+                </s:FormItem>
+
+                <s:Line width="100%" height="2">
+                    <s:stroke>
+                        <s:Stroke color="0xAA0000" />
+                    </s:stroke>
+                </s:Line>
+
+                <s:Label text="Android specific properties" />
+
+                <s:FormItem width="100%" label="noCamera" backgroundColor="#FFEEEE">
+                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.ANDROID_NO_CAMERA)}" change="options.setProperty(CardScanOptions.ANDROID_NO_CAMERA, event.target.selected);" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="suppressScan" backgroundColor="#FFEEEE">
+                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.ANDROID_SUPPRESS_SCAN)}" change="options.setProperty(CardScanOptions.ANDROID_SUPPRESS_SCAN, event.target.selected);" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="intentSenderIsPayPal" backgroundColor="#FFEEEE">
+                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.ANDROID_USE_PAYPAL_ACTIONBAR_ICON)}" change="options.setProperty(CardScanOptions.ANDROID_USE_PAYPAL_ACTIONBAR_ICON, event.target.selected);" />
+                </s:FormItem>
+
+                <s:FormItem width="100%" label="keepApplicationTheme" backgroundColor="#FFEEEE">
+                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.ANDROID_KEEP_APPLICATION_THEME)}" change="options.setProperty(CardScanOptions.ANDROID_KEEP_APPLICATION_THEME, event.target.selected);" />
+                </s:FormItem>
+
+                <s:Button id="scanButton" label="Scan for Payment" click="scan();" />
+            </s:Form>
+        </s:VGroup>
+    </s:Scroller>
+
+</s:View>

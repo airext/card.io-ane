@@ -252,6 +252,7 @@
                     <!-- Activities responsible for gathering payment info -->
                     <activity android:name="io.card.payment.CardIOActivity" android:configChanges="keyboardHidden|orientation" />
                     <activity android:name="io.card.payment.DataEntryActivity" />
+                    <activity android:name="com.yuppablee.cardscan.activities.CardScanActivity" />
                     <!--<activity android:excludeFromRecents="false">-->
                         <!--<intent-filter>-->
                             <!--<action android:name="android.intent.action.MAIN"/>-->

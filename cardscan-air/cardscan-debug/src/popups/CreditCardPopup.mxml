@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+  Created by mobitile on 6/10/15.
+-->
+<s:SkinnablePopUpContainer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" skinClass="skins.AlertSkin">
+    <fx:Script>
+        <![CDATA[
+        import com.yuppablee.cardscan.data.CreditCard;
+
+        public static function show(owner:DisplayObjectContainer, card:CreditCard, width:Number=NaN, height:Number=NaN):void
+        {
+            var popup:CreditCardPopup = new CreditCardPopup();
+            popup.card = card;
+            popup.width = isNaN(width) ? owner.stage.stageWidth - 40 : width;
+            popup.height = isNaN(height) ? owner.stage.stageHeight - 40 : height;
+            popup.x = ((isNaN(width) ? owner.stage.stageWidth : owner.width) - popup.width) / 2;
+            popup.y = ((isNaN(height) ? owner.stage.stageHeight : owner.height) - popup.height) / 2;
+
+            popup.open(owner, true);
+        }
+
+        [Bindable]
+        public var card:CreditCard;
+
+        ]]>
+    </fx:Script>
+
+    <s:layout>
+        <s:VerticalLayout horizontalAlign="justify"/>
+    </s:layout>
+
+    <s:HGroup>
+        <s:Label text="{card.cardType.getDisplayName('en_US')}" />
+        <s:Image source="{card.cardType.logo}" />
+    </s:HGroup>
+    <s:TextInput width="100%" text="{card.cardNumber}" />
+    <s:TextInput width="100%" text="{card.redactedCardNumber}" />
+    <s:HGroup>
+        <s:TextInput width="50%" text="{card.expiryMonth}/{card.expiryYear}" />
+        <s:TextInput width="50%" text="{card.cvv}" />
+    </s:HGroup>
+
+    <s:Button label="OK" width="100%" click="this.close()"/>
+
+</s:SkinnablePopUpContainer>
