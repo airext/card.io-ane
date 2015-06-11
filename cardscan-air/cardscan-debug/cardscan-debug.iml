@@ -5,7 +5,7 @@
       <configuration name="cardscan-debug" target-platform="Mobile" main-class="CardScanDebug" output-file="CardScanDebug.swf" output-folder="$MODULE_DIR$/bin-debug">
         <dependencies target-player="17.0">
           <entries>
-            <entry library-id="3538fecf-f9a9-445d-873f-5b456b15d86e">
+            <entry library-id="d541eec8-09ad-426a-95d4-5f55af204ce7">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -44,7 +44,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="3538fecf-f9a9-445d-873f-5b456b15d86e" />
+        <properties id="d6a0e220-484d-4b08-b863-aaa00cce6bbe" />
         <CLASSES>
           <root url="file://$MODULE_DIR$/ane" />
         </CLASSES>
@@ -55,13 +55,12 @@
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="d6a0e220-484d-4b08-b863-aaa00cce6bbe" />
+        <properties id="d541eec8-09ad-426a-95d4-5f55af204ce7" />
         <CLASSES>
-          <root url="file://$MODULE_DIR$/ane" />
+          <root url="jar://$MODULE_DIR$/../../bin/cardscan.ane!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/ane" recursive="false" />
       </library>
     </orderEntry>
   </component>
