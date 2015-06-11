@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Air Native Extension Build Scripts" default="all">
-    
+
+    <!--=====================================================================-->
+    <!--                             Properties                              -->
+    <!--=====================================================================-->
+
     <property name="name" value="cardscan" />
 
     <property name="ios.project.dir" value="../${name}-ios/CardScan" />
@@ -10,15 +14,23 @@
     <property name="android.project.dir" value="../${name}-android" />
 
 	<property file="build.properties"/>
-		
-	<target name="all" depends="ios,android,air,default,package" description="Full build of extension"/>
+
+    <!--=====================================================================-->
+    <!--                             Build All                               -->
+    <!--=====================================================================-->
+
+    <target name="all" depends="ios,android,air,default,package" description="Full build of extension"/>
+
+    <!--=====================================================================-->
+    <!--                          Build iOS Library                          -->
+    <!--=====================================================================-->
 
 	<target name="ios" description="Build iOS Library">
 
         <!-- Create temporary directory for iOS artifacts -->
         <mkdir dir="temp/ios/build/"/>
 
-        <!-- Installs Pods dependencies (loads CardIO.a library from repository) -->
+        <!-- Install Pods dependencies (loads CardIO.a library from repository) -->
 		<exec executable="pod" dir="${ios.project.dir}">
 			<arg value="install"/>
 		</exec>
@@ -42,8 +54,13 @@
 		<delete dir="temp/ios/build/"/>
 	</target>
 
+    <!--=====================================================================-->
+    <!--                        Build Android Library                        -->
+    <!--=====================================================================-->
+
 	<target name="android" description="Build android Library">
 
+        <!-- Builds Android part of the extension -->
 		<!-- Resolves dependencies and downloads card.io' SDK from Maven repo -->
 		<!-- Compiles Android project and makes .JAR -->
 		<exec executable="gradle" failonerror="true" dir="${android.project.dir}/cardscan">
@@ -52,26 +69,37 @@
 		</exec>
 
 		<!-- Copy Android build artifacts to temporary build folder -->
-		<copy file="${android.project.dir}/cardscan/build/cardscan.jar" todir="temp/android" overwrite="true"/>
+		<copy file="${android.project.dir}/cardscan/build/libs/cardscan.jar" todir="temp/android" overwrite="true"/>
 
-		<!-- Copy CardIO library from exploded-aar -->
+		<!-- Copy CardIO library as .JAR file from exploded-aar directory -->
 		<copy file="${android.project.dir}/cardscan/build/intermediates/exploded-aar/io.card/android-sdk/5.0.0/jars/classes.jar" tofile="temp/android/card.io.jar" overwrite="true"/>
 
+        <!-- Copy CardIO JNI libraries from exploded-aar directory -->
 		<copydir src="${android.project.dir}/cardscan/build/intermediates/exploded-aar/io.card/android-sdk/5.0.0/jni" dest="temp/android/libs" forceoverwrite="true"/>
 
+        <!-- Copy manifest to include it into ANE file -->
+        <copy file="${android.project.dir}/cardscan/src/main/AndroidManifest.xml" todir="temp/android" overwrite="true"/>
+
 	</target>
-		
-	<target name="air" description="Build swc library">
+
+    <!--=====================================================================-->
+    <!--                         Build AIR Library                           -->
+    <!--=====================================================================-->
+
+    <target name="air" description="Build swc library">
+
+        <!-- Create temporary directory -->
 		<mkdir dir="temp/swc/build/"/>
-		
+
+        <!-- Gather classes for the library -->
 		<fileset dir="${air.project.dir}/src" casesensitive="yes" id="classfiles">
 			<include name="**/*.as"/>
 		</fileset>
-
 		<pathconvert property="classlist" refid="classfiles" pathsep=" " dirsep=".">
 			<regexpmapper from=".*src.(.*)\.as" to="\1"/>
 		</pathconvert>
 
+        <!-- Compile .SWC library -->
         <exec executable="java" failonerror="true">
             <arg line='-jar ${air.sdk}/lib/compc-cli.jar' />
             <arg line='-source-path ${air.project.dir}/src'/>
@@ -80,33 +108,38 @@
             <arg line='-external-library-path+="${air.sdk}/frameworks/libs/air/airglobal.swc"'/>
             <arg line='-include-classes ${classlist}'/>
         </exec>
-		
-		<!--<exec executable="${air.sdk}/bin/compc${bin.ext}" failonerror="true">-->
-			<!--<arg line='-source-path ${air.project.dir}/src'/>-->
-			<!--<arg line='-output temp/swc/${name}.swc'/>-->
-			<!--<arg line='-swf-version=13'/>-->
-			<!--<arg line='-external-library-path+="${air.sdk}/frameworks/libs/air/airglobal.swc"'/>-->
-			<!--<arg line='-include-classes ${classlist}'/>-->
-		<!--</exec>-->
 
+        <!-- Unzip .SWC to copy internal library.swf file to corresponded platfom folders -->
 		<unzip src="temp/swc/${name}.swc" dest="temp/swc/build" overwrite="true"/>
+
+        <!-- Copy library.swf to iOS platform folder -->
 		<copy file="temp/swc/build/library.swf" todir="temp/ios" overwrite="true"/>
+
+        <!-- Copy library.swf to Android platform folder -->
 		<copy file="temp/swc/build/library.swf" todir="temp/android" overwrite="true"/>
 
+        <!-- Remove temporary folder -->
 		<delete dir="temp/swc/build/"/>
 	</target>
-	
-	<target name="default" description="Build default swc library">
+
+    <!--=====================================================================-->
+    <!--                     Build AIR Default Library                       -->
+    <!--=====================================================================-->
+
+    <target name="default" description="Build default swc library">
+
+        <!-- Create temporary folder -->
 		<mkdir dir="temp/default/"/>
-		
+
+        <!-- Gather classes for default .SWC library -->
 		<fileset dir="${air-default.project.dir}/src" casesensitive="yes" id="classfiles2">
 			<include name="**/*.as"/>
 		</fileset>
-
 		<pathconvert property="classlist-default" refid="classfiles2" pathsep=" " dirsep=".">
 			<regexpmapper from=".*src.(.*)\.as" to="\1"/>
 		</pathconvert>
 
+        <!-- Compile default .SWC library -->
         <exec executable="java" failonerror="true">
             <arg line='-jar ${air.sdk}/lib/compc-cli.jar' />
             <arg line='-source-path ${air-default.project.dir}/src'/>
@@ -115,21 +148,24 @@
             <arg line='-external-library-path+="${air.sdk}/frameworks/libs/air/airglobal.swc"'/>
             <arg line='-include-classes ${classlist-default}'/>
         </exec>
-		
-		<!--<exec executable="${air.sdk}/bin/compc${bin.ext}" failonerror="true">-->
-			<!--<arg line='-source-path ${air-default.project.dir}/src'/>-->
-			<!--<arg line='-output temp/default/${name}.swc'/>-->
-			<!--<arg line='-swf-version=13'/>-->
-			<!--<arg line='-external-library-path+="${air.sdk}/frameworks/libs/air/airglobal.swc"'/>-->
-			<!--<arg line='-include-classes ${classlist-default}'/>-->
-		<!--</exec>-->
 
+        <!-- Unzip .SWC to copy internal library.swf file to default platform folder -->
 		<unzip src="temp/default/${name}.swc" dest="temp/default/swc" overwrite="true"/>
+
+        <!-- Copy library.swf to default platform folder -->
 		<copy file="temp/default/swc/library.swf" todir="temp/default" overwrite="true"/>
+
+        <!-- Remove temporary folder -->
 		<delete dir="temp/default/swc"/>
 	</target>
 
+    <!--=====================================================================-->
+    <!--                         Package ANE file                            -->
+    <!--=====================================================================-->
+
     <target name="package" description="Create the extension package">
+
+        <!-- Package ANE file-->
         <exec executable="${air.sdk}/bin/adt${bin.ext}" failonerror="true" dir="temp">
             <arg value="-package"/>
             <arg value="-storetype"/>
@@ -149,13 +185,19 @@
             <arg line="-platform default -C default/ ."/>
         </exec>
 
+        <!-- Move packaged .ANE file to /bin directory -->
         <move file="temp/${name}.ane" todir="../bin"/>
+
+        <!-- Move default .SWC library to /bin directory -->
         <move file="temp/default/${name}.swc" todir="../bin"/>
+
+        <!-- Remove temporary directory -->
         <delete dir="temp"/>
-        <copy file="../bin/${name}.ane" todir="${air-debug.project.dir}/ane" overwrite="true" />
     </target>
 
-    <!--Extra targets-->
+    <!--=====================================================================-->
+    <!--                Extra targets for development purpose                    -->
+    <!--=====================================================================-->
 
     <target name="air.debug">
 

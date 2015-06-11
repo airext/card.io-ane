@@ -2,8 +2,6 @@
     <description></description> 
     <packagedDependencies>
         <packagedDependency>card.io.jar</packagedDependency>
-        <packagedDependency>gson-2.3.1.jar</packagedDependency>
-        <packagedDependency>maxstub.jar</packagedDependency>
 
         <!--<packagedDependency>libcardioDecider.so</packagedDependency>-->
         <!--<packagedDependency>libcardioRecognizer_tegra2.so</packagedDependency>-->
