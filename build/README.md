@@ -25,61 +25,59 @@ Using Android SDK Manager tool you need to install:
 ## Building
 
 0. For first time you need to clone remote repository using git, go to folder where you want to have repository:
-    ~~~    
-        $ cd /path/to/repo
-    ~~~
+~~~    
+    $ cd /path/to/repo
+~~~
     replace `{USERNAME}` with your username on bitbucket.org and run git clone command, note that it will ask for you password:
-    ~~~
-        $ git clone https://{USERNAME}@bitbucket.org/max.rozdobudko/card.io-ane.git cardscan
-    ~~~
+~~~
+    $ git clone https://{USERNAME}@bitbucket.org/max.rozdobudko/card.io-ane.git cardscan
+~~~
 
 0. Receive latest changes from the remote repository (it optional if you cloned repo just now) using git:
-    ~~~
-        $ cd /path/to/repo/cardscan
-        $ git pull 
-    ~~~
+~~~
+    $ cd /path/to/repo/cardscan
+    $ git pull 
+~~~
 
 0. Then you should configure build script, go to cardscan's `build/` directory:
-    ~~~
-        $ cd /path/to/repo/cardscan/build
-    ~~~
+~~~
+    $ cd /path/to/repo/cardscan/build
+~~~
     copy `example.buil.properties` to `build.properties`:
-    ~~~
-        $ cp example.build.properties build.properties
-    ~~~
+~~~
+    $ cp example.build.properties build.properties
+~~~
     and edit `build.properties` file to have like this:
-    ~~~
-        bin.ext =
-        
-        # The location of the .p12 certificate file
-        keystore.file=/path/to/your/certificate/selfSignedTestCert.p12
-        # The password of the .p12 certificate file
-        keystore.password=selfSignedTestPassword
-        
-        # Location of the Android SDK
-        android.sdk=/Users/{USERNAME}/sdks/android
-        
-        # Location of the AIR SDK
-        air.sdk=/Users/{USERNAME}/sdks/air/18.0.0.142
-    ~~~
+~~~
+    bin.ext =
+    
+    # The location of the .p12 certificate file
+    keystore.file=/path/to/your/certificate/selfSignedTestCert.p12
+    # The password of the .p12 certificate file
+    keystore.password=selfSignedTestPassword
+    
+    # Location of the Android SDK
+    android.sdk=/Users/{USERNAME}/sdks/android
+    
+    # Location of the AIR SDK
+    air.sdk=/Users/{USERNAME}/sdks/air/18.0.0.142
+~~~
 
 0. Then configure gradle `local.properties` (**Note**: this is not required step if you have `ANDROID_HOME` enviornement variable), go to `cardscan-android/` directory:
-    ~~~
-        $ cd /path/to/repo/cardscan/cardscan-android
-    ~~~
+~~~
+    $ cd /path/to/repo/cardscan/cardscan-android
+~~~
     copy `example.local.properties` to `local.properties`
-    ~~~
-        $ cp example.local.properties local.properties
-    ~~~
+~~~
+    $ cp example.local.properties local.properties
+~~~
     and provide location of your Android SDK:
-    ~~~
-        sdk.dir=/Users/{USERNAME}/sdks/android
-    ~~~
+~~~
+    sdk.dir=/Users/{USERNAME}/sdks/android
+~~~
 
 0. And run `ant`:
-    ~~~
-        $ ant
-    ~~~
-    
-    
+~~~
+    $ ant
+~~~
 Then you finish, built `cardscane.ane` file will be located in `bin\` directory.
