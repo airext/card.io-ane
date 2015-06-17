@@ -25,6 +25,7 @@ Using Android SDK Manager tool you need to install:
 ## Building
 
 0. For first time you need to clone remote repository using git, go to folder where you want to have repository:
+
     ~~~    
         $ cd /path/to/repo
     ~~~
@@ -34,12 +35,14 @@ Using Android SDK Manager tool you need to install:
     ~~~
 
 0. Receive latest changes from the remote repository (it optional if you cloned repo just now) using git:
+
     ~~~
         $ cd /path/to/repo/cardscan
         $ git pull 
     ~~~
 
 0. Then you should configure build script, go to cardscan's `build/` directory:
+
     ~~~
         $ cd /path/to/repo/cardscan/build
     ~~~
@@ -64,6 +67,7 @@ Using Android SDK Manager tool you need to install:
     ~~~
 
 0. Then configure gradle `local.properties` (**Note**: this is not required step if you have `ANDROID_HOME` enviornement variable), go to `cardscan-android/` directory:
+
     ~~~
         $ cd /path/to/repo/cardscan/cardscan-android
     ~~~
@@ -77,6 +81,7 @@ Using Android SDK Manager tool you need to install:
     ~~~
 
 0. And run `ant`:
+
     ~~~
         $ ant
     ~~~
