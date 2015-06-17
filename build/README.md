@@ -5,7 +5,7 @@ Build scripts and other tools for packaging ANE
 * **OS X 10.9+**
 * **Xcode 6+** 
 * **git 2.3.2+**
-To install git on osx simple run ``$ git`` from Terminal, usually git is coming along with Xcode. For more info see this page - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+To install git on osx simple run `$ git` from Terminal, usually git is coming along with Xcode. For more info see this page - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 * **AIR SDK 18.0+**
 You can download it from Adobe http://www.adobe.com/devnet/air/air-sdk-download.html
 * **Java 1.7+ (JDK)** 
@@ -19,7 +19,7 @@ Using Android SDK Manager tool you need to install:
     - Android 5.1.1 (API 22)  (or higher)
     - Extras/Android Support Repository 15+
 * **gradle 2.4+** You can install it using package manager such as [Homebrew](http://brew.sh) `$ brew install gradle` or do it manually as described here - https://docs.gradle.org/current/userguide/installation.html
-* **cocoapods** To install it run in Terminal ``$ sudo gem install cocoapods`` https://cocoapods.org/
+* **cocoapods** To install it run in Terminal `$ sudo gem install cocoapods` https://cocoapods.org/
 * **Apache ANT 1.9.5+** You can install it using package manager such as [Homebrew](http://brew.sh) `$ brew install ant` or do this manually as described here - http://ant.apache.org/manual/install.html
 
 ## Building
@@ -46,7 +46,7 @@ copy `example.buil.properties` to `build.properties`:
 $ cp example.build.properties build.properties
 ```
 and edit `build.properties` file to have like this:
-    ```
+```
     bin.ext =
     
     # The location of the .p12 certificate file
@@ -59,7 +59,7 @@ and edit `build.properties` file to have like this:
     
     # Location of the AIR SDK
     air.sdk=/Users/{USERNAME}/sdks/air/18.0.0.142
-    ```
+```
 0. Then configure gradle `local.properties` (**Note**: this is not required step if you have `ANDROID_HOME` enviornement variable), go to `cardscan-android/` directory:
 ```
 $ cd /path/to/repo/cardscan/cardscan-android
