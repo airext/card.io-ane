@@ -9,21 +9,10 @@
 /* Begin PBXBuildFile section */
 		0E9BEBFB1B05E48900CC3F92 /* YPLCardScan.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0E9BEBFA1B05E48900CC3F92 /* YPLCardScan.h */; };
 		0E9BEBFD1B05E48900CC3F92 /* YPLCardScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9BEBFC1B05E48900CC3F92 /* YPLCardScan.m */; };
-		0E9BEC031B05E48900CC3F92 /* libCardScan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9BEBF71B05E48900CC3F92 /* libCardScan.a */; };
 		0E9BEC121B05E5EB00CC3F92 /* YPLCardScanFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9BEC111B05E5EB00CC3F92 /* YPLCardScanFacade.m */; };
 		0E9BEC151B05E60500CC3F92 /* YPLCardScanConversionRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9BEC141B05E60500CC3F92 /* YPLCardScanConversionRoutines.m */; };
 		65ED74BACA51281D4660034F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74564E92EC161F7EDFAD24CF /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0E9BEC041B05E48900CC3F92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0E9BEBEF1B05E48800CC3F92 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0E9BEBF61B05E48900CC3F92;
-			remoteInfo = CardScan;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		0E9BEBF51B05E48900CC3F92 /* CopyFiles */ = {
@@ -42,8 +31,6 @@
 		0E9BEBF71B05E48900CC3F92 /* libCardScan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCardScan.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E9BEBFA1B05E48900CC3F92 /* YPLCardScan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YPLCardScan.h; sourceTree = "<group>"; };
 		0E9BEBFC1B05E48900CC3F92 /* YPLCardScan.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLCardScan.m; sourceTree = "<group>"; };
-		0E9BEC021B05E48900CC3F92 /* CardScanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardScanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E9BEC081B05E48900CC3F92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E9BEC111B05E5EB00CC3F92 /* YPLCardScanFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPLCardScanFacade.m; sourceTree = "<group>"; };
 		0E9BEC131B05E60500CC3F92 /* YPLCardScanConversionRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPLCardScanConversionRoutines.h; sourceTree = "<group>"; };
 		0E9BEC141B05E60500CC3F92 /* YPLCardScanConversionRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPLCardScanConversionRoutines.m; sourceTree = "<group>"; };
@@ -62,14 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E9BEBFF1B05E48900CC3F92 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0E9BEC031B05E48900CC3F92 /* libCardScan.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -77,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				0E9BEBF91B05E48900CC3F92 /* CardScan */,
-				0E9BEC061B05E48900CC3F92 /* CardScanTests */,
 				0E9BEBF81B05E48900CC3F92 /* Products */,
 				65C047C0E6EFDC68D2D7A064 /* Pods */,
 				2DB2796C32954DEB7F389747 /* Frameworks */,
@@ -88,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				0E9BEBF71B05E48900CC3F92 /* libCardScan.a */,
-				0E9BEC021B05E48900CC3F92 /* CardScanTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,22 +81,6 @@
 				0E9BEC141B05E60500CC3F92 /* YPLCardScanConversionRoutines.m */,
 			);
 			path = CardScan;
-			sourceTree = "<group>";
-		};
-		0E9BEC061B05E48900CC3F92 /* CardScanTests */ = {
-			isa = PBXGroup;
-			children = (
-				0E9BEC071B05E48900CC3F92 /* Supporting Files */,
-			);
-			path = CardScanTests;
-			sourceTree = "<group>";
-		};
-		0E9BEC071B05E48900CC3F92 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0E9BEC081B05E48900CC3F92 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		0E9BEC171B05E63900CC3F92 /* Supporting Files */ = {
@@ -169,24 +130,6 @@
 			productReference = 0E9BEBF71B05E48900CC3F92 /* libCardScan.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		0E9BEC011B05E48900CC3F92 /* CardScanTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0E9BEC0E1B05E48900CC3F92 /* Build configuration list for PBXNativeTarget "CardScanTests" */;
-			buildPhases = (
-				0E9BEBFE1B05E48900CC3F92 /* Sources */,
-				0E9BEBFF1B05E48900CC3F92 /* Frameworks */,
-				0E9BEC001B05E48900CC3F92 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0E9BEC051B05E48900CC3F92 /* PBXTargetDependency */,
-			);
-			name = CardScanTests;
-			productName = CardScanTests;
-			productReference = 0E9BEC021B05E48900CC3F92 /* CardScanTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -198,9 +141,6 @@
 				ORGANIZATIONNAME = yeaply.com;
 				TargetAttributes = {
 					0E9BEBF61B05E48900CC3F92 = {
-						CreatedOnToolsVersion = 6.3.1;
-					};
-					0E9BEC011B05E48900CC3F92 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
@@ -218,20 +158,9 @@
 			projectRoot = "";
 			targets = (
 				0E9BEBF61B05E48900CC3F92 /* CardScan */,
-				0E9BEC011B05E48900CC3F92 /* CardScanTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		0E9BEC001B05E48900CC3F92 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		39CD182E2C5F75ADC622FDE9 /* Copy Pods Resources */ = {
@@ -277,22 +206,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E9BEBFE1B05E48900CC3F92 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0E9BEC051B05E48900CC3F92 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0E9BEBF61B05E48900CC3F92 /* CardScan */;
-			targetProxy = 0E9BEC041B05E48900CC3F92 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0E9BEC091B05E48900CC3F92 /* Debug */ = {
@@ -393,38 +307,6 @@
 			};
 			name = Release;
 		};
-		0E9BEC0F1B05E48900CC3F92 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CardScanTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		0E9BEC101B05E48900CC3F92 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CardScanTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -442,15 +324,6 @@
 			buildConfigurations = (
 				0E9BEC0C1B05E48900CC3F92 /* Debug */,
 				0E9BEC0D1B05E48900CC3F92 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0E9BEC0E1B05E48900CC3F92 /* Build configuration list for PBXNativeTarget "CardScanTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0E9BEC0F1B05E48900CC3F92 /* Debug */,
-				0E9BEC101B05E48900CC3F92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
