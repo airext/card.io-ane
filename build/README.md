@@ -25,12 +25,15 @@ Using Android SDK Manager tool you need to install:
 ## Building
 
 0. For first time you need to clone remote repository using git, go to folder where you want to have repository:
-
+~~~
     $ cd /path/to/repo
+~~~
 
 replace `{USERNAME}` with your username on bitbucket.org and run git clone command, note that it will ask for you password:
 
+~~~
     $ git clone https://{USERNAME}@bitbucket.org/max.rozdobudko/card.io-ane.git cardscan
+~~~
 
 0. Receive latest changes from the remote repository (it optional if you cloned repo just now) using git:
 
