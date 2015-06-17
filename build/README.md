@@ -32,13 +32,15 @@ replace `{USERNAME}` with your username on bitbucket.org and run git clone comma
 ~~~
     $ git clone https://{USERNAME}@bitbucket.org/max.rozdobudko/card.io-ane.git cardscan
 ~~~
+
 0. Receive latest changes from the remote repository (it optional if you cloned repo just now) using git:
 ~~~
     $ cd /path/to/repo/cardscan
     $ git pull 
 ~~~
+
 0. Then you should configure build script, go to cardscan's `build/` directory:
-~~`
+~~~
     $ cd /path/to/repo/cardscan/build
 ~~~
 copy `example.buil.properties` to `build.properties`:
@@ -60,6 +62,7 @@ and edit `build.properties` file to have like this:
     # Location of the AIR SDK
     air.sdk=/Users/{USERNAME}/sdks/air/18.0.0.142
 ~~~
+
 0. Then configure gradle `local.properties` (**Note**: this is not required step if you have `ANDROID_HOME` enviornement variable), go to `cardscan-android/` directory:
 ~~~
     $ cd /path/to/repo/cardscan/cardscan-android
@@ -72,7 +75,8 @@ and provide location of your Android SDK:
 ~~~
     sdk.dir=/Users/{USERNAME}/sdks/android
 ~~~
-5. And run `ant`:
+
+0. And run `ant`:
 ~~~
     $ ant
 ~~~
