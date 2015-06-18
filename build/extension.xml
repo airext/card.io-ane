@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension xmlns="http://ns.adobe.com/air/extension/4.0">
-  <id>com.yuppablee.cardscan.CardScan</id>
-  <versionNumber>0.0.2</versionNumber>
+  <id>com.yuppablee.cardscan</id>
+  <versionNumber>0.1.0</versionNumber>
   <platforms>
     <platform name="iPhone-ARM">
       <applicationDeployment>

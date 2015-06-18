@@ -42,7 +42,7 @@
 
     <!-- Identifies the ActionScript extensions used by an application. -->
     <extensions>
-        <extensionID>com.yuppablee.cardscan.CardScan</extensionID>
+        <extensionID>com.yuppablee.cardscan</extensionID>
     </extensions>
 
     <!-- Settings for the application's initial window. Required. -->

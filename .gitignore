@@ -39,6 +39,10 @@ bin-release/
 #
 build.properties
 
+# Gradle
+#
+local.properties
+
 # AirExt
 #
 build/launch/*

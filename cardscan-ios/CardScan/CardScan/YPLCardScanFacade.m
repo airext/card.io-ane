@@ -39,13 +39,22 @@ FREObject YPLCardScanLibraryVersion(FREContext context, void* functionData, uint
 
 FREObject YPLCardScanGetLogoForCardType(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
+    NSLog(@"YPLCardScanGetLogoForCardType");
+    
     if (argc > 0)
     {
         CardIOCreditCardType cardType = [YPLCardScanConversionRoutines convertFREObjectToCreditCardType:argv[0]];
         
-        UIImage* logo = [YPLCardScan getLogoForCardType: cardType];
-        
-        return [YPLCardScanConversionRoutines convertUIImageToFREObject:logo];
+        if (cardType == CardIOCreditCardTypeAmbiguous || cardType == CardIOCreditCardTypeUnrecognized)
+        {
+            return NULL;
+        }
+        else
+        {
+            UIImage* logo = [YPLCardScan getLogoForCardType: cardType];
+            
+            return [YPLCardScanConversionRoutines convertUIImageToFREObject:logo];
+        }
     }
     else
     {
@@ -55,6 +64,8 @@ FREObject YPLCardScanGetLogoForCardType(FREContext context, void* functionData, 
 
 FREObject YPLCardScanGetDisplayNameForCardType(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
+    NSLog(@"YPLCardScanGetDisplayNameForCardType");
+    
     if (argc > 1)
     {
         CardIOCreditCardType cardType = [YPLCardScanConversionRoutines convertFREObjectToCreditCardType:argv[0]];
@@ -72,6 +83,8 @@ FREObject YPLCardScanGetDisplayNameForCardType(FREContext context, void* functio
 
 FREObject YPLCardScanScanForPayment(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
+    NSLog(@"YPLCardScanScanForPayment");
+    
     NSDictionary* options = nil;
     
     if (argc > 0)
@@ -91,19 +104,27 @@ FREObject YPLCardScanScanForPayment(FREContext context, void* functionData, uint
 
             if (serializationError != nil)
             {
+                NSLog(@"CardScan.ScanForPayment.Failed");
+                
                 dispatchEvent(@"CardScan.ScanForPayment.Failed", [serializationError localizedDescription]);
             }
             else
             {
+                NSLog(@"CardScan.ScanForPayment.Complete: %@", json);
+                
                 dispatchEvent(@"CardScan.ScanForPayment.Complete", json);
             }
         }
         else if (error != nil)
         {
+            NSLog(@"CardScan.ScanForPayment.Failed");
+            
             dispatchEvent(@"CardScan.ScanForPayment.Failed", [error localizedDescription]);
         }
         else
         {
+            NSLog(@"CardScan.ScanForPayment.Canceled");
+            
             dispatchEvent(@"CardScan.ScanForPayment.Canceled", @"status");
         }
     }];
