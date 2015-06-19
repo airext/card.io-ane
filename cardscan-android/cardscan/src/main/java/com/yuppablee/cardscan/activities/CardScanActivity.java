@@ -37,29 +37,42 @@ public class CardScanActivity extends Activity
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent)
     {
-        super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, intent);
 
         if (requestCode == SCAN_FOR_PAYMENT_REQUEST_CODE)
         {
-            String resultDisplayStr;
-
-            if (data != null && data.hasExtra(CardIOActivity.EXTRA_SCAN_RESULT))
+            if (intent != null)
             {
                 try
                 {
-                    CreditCard scanResult = data.getParcelableExtra(CardIOActivity.EXTRA_SCAN_RESULT);
+                    Log.i("CardScan", "Intent:" + intent.getExtras());
 
-                    JSONObject json = ConversionRoutines.convertCreditCardToObject(scanResult);
+                    if (intent.hasExtra(CardIOActivity.EXTRA_SCAN_RESULT))
+                    {
+                        CreditCard scanResult = intent.getParcelableExtra(CardIOActivity.EXTRA_SCAN_RESULT);
 
-                    CardScan.getContext().dispatchStatusEventAsync("CardScan.ScanForPayment.Complete", json.toString());
+                        JSONObject json = ConversionRoutines.convertCreditCardToObject(scanResult);
+
+                        CardScan.getContext().dispatchStatusEventAsync("CardScan.ScanForPayment.Complete", json.toString());
+                    }
+                    else if (intent.hasExtra(CardIOActivity.EXTRA_CAPTURED_CARD_IMAGE))
+                    {
+                        Log.i("CardScan", "Image:" + CardIOActivity.getCapturedCardImage(intent));
+
+                        CardScan.getContext().dispatchStatusEventAsync("CardScan.ScanForPayment.Complete", "{}");
+                    }
+                    else
+                    {
+                        CardScan.getContext().dispatchStatusEventAsync("CardScan.ScanForPayment.Canceled", "status");
+                    }
                 }
-                catch (JSONException e)
+                catch (Exception e)
                 {
-                    CardScan.getContext().dispatchStatusEventAsync("CardScan.ScanForPayment.Failed", e.toString());
-
                     e.printStackTrace();
+
+                    CardScan.getContext().dispatchStatusEventAsync("CardScan.ScanForPayment.Failed", e.toString());
                 }
             }
             else

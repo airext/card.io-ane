@@ -35,7 +35,7 @@ public class CardScan extends EventDispatcher
     //
     //--------------------------------------------------------------------------
 
-    card_scan static const EXTENSION_ID:String = "com.yuppablee.cardscan.CardScan";
+    card_scan static const EXTENSION_ID:String = "com.yuppablee.cardscan";
 
     //--------------------------------------------------------------------------
     //

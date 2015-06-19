@@ -111,10 +111,32 @@ public class ScanForPaymentFunction implements FREFunction
 
 //                // detectionMode
 //
-//                if (options.containsKey("detectionMode"))
-//                {
-//                    intent.putExtra(CardIOActivity.MODE, (boolean) options.get("detectionMode"));
-//                }
+                if (options.containsKey("detectionMode"))
+                {
+                    int detectionMode = (Integer) options.get("detectionMode");
+
+                    switch (detectionMode)
+                    {
+                        case 0 /* CardImageAndNumber */ :
+
+                            intent.putExtra(CardIOActivity.EXTRA_SUPPRESS_SCAN, false);
+
+                            break;
+
+                        case 1 /* CardImageOnly */ :
+
+                            intent.putExtra(CardIOActivity.EXTRA_SUPPRESS_SCAN, true);
+                            intent.putExtra(CardIOActivity.EXTRA_RETURN_CARD_IMAGE, true);
+
+                            break;
+
+                        case 2 /* Automatic */ :
+
+                            // N/A
+
+                            break;
+                    }
+                }
 
                 // Android specific
 

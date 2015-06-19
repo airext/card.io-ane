@@ -468,8 +468,6 @@ public class CardScanOptions
 
     public function setProperty(name:String, value:Object):void
     {
-        trace(name, "=", value);
-
         properties[name] = value;
     }
 
@@ -480,11 +478,6 @@ public class CardScanOptions
 
     card_scan function toDTO():Object
     {
-        for (var p:* in properties)
-        {
-            trace(p, ":", properties[p]);
-        }
-
         return properties;
     }
 }
