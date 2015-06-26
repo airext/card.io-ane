@@ -100,26 +100,6 @@ public class CardScanOptions
      */
     public static const ANDROID_NO_CAMERA:String = "io.card.payment.noCamera";
 
-    /**
-     * Boolean extra. Optional. Once a card image has been captured but before it has been
-     * processed, this value will determine whether to continue processing as usual. If the value is
-     * <code>true</code> the {@link CardIOActivity} will finish with a {@link #RESULT_SCAN_SUPPRESSED} result code.
-     */
-    public static const ANDROID_SUPPRESS_SCAN:String = "io.card.payment.suppressScan";
-
-        /**
-         * String extra. If {@link #ANDROID_RETURN_CARD_IMAGE} is set to <code>true</code>, the data intent passed to your
-         * {@link android.app.Activity} will have the card image stored as a JPEG formatted byte array in this extra.
-         */
-        public static const ANDROID_CAPTURED_CARD_IMAGE:String = "io.card.payment.capturedCardImage";
-
-        /**
-         * Boolean extra. Optional. If this value is set to <code>true</code> the card image will be passed as an
-         * extra in the data intent that is returned to your {@link android.app.Activity} using the
-         * {@link #ANDROID_CAPTURED_CARD_IMAGE} key.
-         */
-        public static const ANDROID_RETURN_CARD_IMAGE:String = "io.card.payment.returnCardImage";
-
         /**
          * Integer extra. Optional. If this value is provided the view will be inflated and will overlay
          * the camera during the scan process. The integer value must be the id of a valid layout

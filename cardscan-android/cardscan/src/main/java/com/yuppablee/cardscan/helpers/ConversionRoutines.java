@@ -218,14 +218,15 @@ public class ConversionRoutines
         }
         catch (Exception e) {}
 
-//                // detectionMode
-//
-//                FREObject detectionMode = options.getProperty("detectionMode");
-//
-//                if (detectionMode != null)
-//                {
-//                    intent.putExtra(CardIOActivity.MODE, hideLogo.getAsBool());
-//                }
+        // detectionMode
+
+        try
+        {
+            FREObject suppressManualEntry = options.getProperty("detectionMode");
+
+            map.put("detectionMode", suppressManualEntry.getAsInt());
+        }
+        catch (Exception e) {}
 
         // Android specific
 

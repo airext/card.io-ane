@@ -7,133 +7,133 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10F95D2D1F112282E7DBD945 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964E60CAEF834E59F0F2E3 /* Pods-dummy.m */; };
-		E2B1D4A1A8AF1EFBD15E30A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E47204543FDC7526339C7D6 /* Foundation.framework */; };
+		736E1956AC9F22AB4912616C /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04F0C17728D27AE5625A09 /* Pods-dummy.m */; };
+		C8FCACCE72B2747803728E00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4066323BD190D7B138E2E0 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		07964E60CAEF834E59F0F2E3 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		4640F24CFC52F0E584B90B40 /* CardIOView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOView.h; path = CardIO/CardIOView.h; sourceTree = "<group>"; };
-		4793A26F58F75ABF378D4295 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		601FF7F25972D31D3BD5873B /* CardIOPaymentViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOPaymentViewController.h; path = CardIO/CardIOPaymentViewController.h; sourceTree = "<group>"; };
-		62A0C584CF59BBAF9FC22736 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		6C1F2CC3799762C0F0D9602B /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7077FCFE1EBA99AF79F3C34D /* CardIODetectionMode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIODetectionMode.h; path = CardIO/CardIODetectionMode.h; sourceTree = "<group>"; };
-		714DA2950067DDCA407D41CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		891ADB916E752228FBB3C88D /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		8E47204543FDC7526339C7D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		90F90A55B334D39E6D935CD6 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		93C3111C318058A34432925A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		9DD227F29F40C2BE25F84BCD /* CardIOPaymentViewControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOPaymentViewControllerDelegate.h; path = CardIO/CardIOPaymentViewControllerDelegate.h; sourceTree = "<group>"; };
-		BA8481CD8335E303063703DE /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOCreditCardInfo.h; path = CardIO/CardIOCreditCardInfo.h; sourceTree = "<group>"; };
-		D683A29D6391B21EE0D27B1A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		DD07F5A59D8A78C87700AD8D /* CardIOUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOUtilities.h; path = CardIO/CardIOUtilities.h; sourceTree = "<group>"; };
-		F2276ED20722BDD9F470B6F8 /* CardIO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIO.h; path = CardIO/CardIO.h; sourceTree = "<group>"; };
-		FEB0032BD89D232E89A45B01 /* CardIOViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOViewDelegate.h; path = CardIO/CardIOViewDelegate.h; sourceTree = "<group>"; };
+		045B7B005A0B47FF6B3E996A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		3EA4E2FCAB305C41EBCBDEDE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4502179DBDE74F11F687C1C7 /* CardIODetectionMode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIODetectionMode.h; path = CardIO/CardIODetectionMode.h; sourceTree = "<group>"; };
+		5A2F89A27286DA798411E6B1 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		613B807B4B5B2E1169CD6F50 /* CardIOUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOUtilities.h; path = CardIO/CardIOUtilities.h; sourceTree = "<group>"; };
+		6850A2AD7C440E0DC2B91B24 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		68A244E2462D68594C5B2EA4 /* CardIOPaymentViewControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOPaymentViewControllerDelegate.h; path = CardIO/CardIOPaymentViewControllerDelegate.h; sourceTree = "<group>"; };
+		6E04F0C17728D27AE5625A09 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		6E61EAA4B25BA08424AF17CF /* CardIO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIO.h; path = CardIO/CardIO.h; sourceTree = "<group>"; };
+		7522D838C9ADC23FA0190B11 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		88043C4882B94FB78EA9977F /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		8E8DD68073EE90635775A5A1 /* CardIOPaymentViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOPaymentViewController.h; path = CardIO/CardIOPaymentViewController.h; sourceTree = "<group>"; };
+		9F4066323BD190D7B138E2E0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A2EF6A43B4E7D550D64D7804 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		B41AB6DED1BABC738F5F87F9 /* CardIOView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOView.h; path = CardIO/CardIOView.h; sourceTree = "<group>"; };
+		BD1870D6FE98BEFF2735C043 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		D5A46BCE493FD771C58FAAC5 /* CardIOViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOViewDelegate.h; path = CardIO/CardIOViewDelegate.h; sourceTree = "<group>"; };
+		E54368CA63BAA369B927D32E /* CardIOCreditCardInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CardIOCreditCardInfo.h; path = CardIO/CardIOCreditCardInfo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		64E1D85F20921E5B46A33D34 /* Frameworks */ = {
+		263F227B98D1F73814B4FEAC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2B1D4A1A8AF1EFBD15E30A6 /* Foundation.framework in Frameworks */,
+				C8FCACCE72B2747803728E00 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07A38031E1C67A62C634AFD2 /* Pods */ = {
+		0270691B718A0D206FEC5993 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6C1F2CC3799762C0F0D9602B /* Pods-acknowledgements.markdown */,
-				90F90A55B334D39E6D935CD6 /* Pods-acknowledgements.plist */,
-				07964E60CAEF834E59F0F2E3 /* Pods-dummy.m */,
-				891ADB916E752228FBB3C88D /* Pods-environment.h */,
-				4793A26F58F75ABF378D4295 /* Pods-resources.sh */,
-				93C3111C318058A34432925A /* Pods.debug.xcconfig */,
-				D683A29D6391B21EE0D27B1A /* Pods.release.xcconfig */,
+				B624F76916942ADAF1520FC2 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		22CC4C660D0C4A4D42772117 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E966484CCB6CCB07A0B0D8BE /* CardIO */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2A28C59C0FF51B518A28FE04 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5A90DD969D699E96323627DD /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5A90DD969D699E96323627DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7522D838C9ADC23FA0190B11 /* Pods-acknowledgements.markdown */,
+				A2EF6A43B4E7D550D64D7804 /* Pods-acknowledgements.plist */,
+				6E04F0C17728D27AE5625A09 /* Pods-dummy.m */,
+				6850A2AD7C440E0DC2B91B24 /* Pods-environment.h */,
+				88043C4882B94FB78EA9977F /* Pods-resources.sh */,
+				045B7B005A0B47FF6B3E996A /* Pods.debug.xcconfig */,
+				BD1870D6FE98BEFF2735C043 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		2A5D40D7B324DBAA8896CD9D /* Pods */ = {
+		5B1720BEDA144841F3760335 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB41955A577E1ED8019971BF /* CardIO */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		4406F93FAEC0421BB64749A8 = {
-			isa = PBXGroup;
-			children = (
-				62A0C584CF59BBAF9FC22736 /* Podfile */,
-				6187B8E3B57848C2F77717D7 /* Frameworks */,
-				2A5D40D7B324DBAA8896CD9D /* Pods */,
-				BF3D57782EFEFEAC1A7B0BDE /* Products */,
-				95E1F0B679A4DAA653A76687 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		6187B8E3B57848C2F77717D7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CFF04103BFA417C497B32A3C /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		95E1F0B679A4DAA653A76687 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				07A38031E1C67A62C634AFD2 /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		AB41955A577E1ED8019971BF /* CardIO */ = {
-			isa = PBXGroup;
-			children = (
-				F2276ED20722BDD9F470B6F8 /* CardIO.h */,
-				BA8481CD8335E303063703DE /* CardIOCreditCardInfo.h */,
-				7077FCFE1EBA99AF79F3C34D /* CardIODetectionMode.h */,
-				601FF7F25972D31D3BD5873B /* CardIOPaymentViewController.h */,
-				9DD227F29F40C2BE25F84BCD /* CardIOPaymentViewControllerDelegate.h */,
-				DD07F5A59D8A78C87700AD8D /* CardIOUtilities.h */,
-				4640F24CFC52F0E584B90B40 /* CardIOView.h */,
-				FEB0032BD89D232E89A45B01 /* CardIOViewDelegate.h */,
-			);
-			path = CardIO;
-			sourceTree = "<group>";
-		};
-		BF3D57782EFEFEAC1A7B0BDE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				714DA2950067DDCA407D41CC /* libPods.a */,
+				3EA4E2FCAB305C41EBCBDEDE /* libPods.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CFF04103BFA417C497B32A3C /* iOS */ = {
+		7960FD9AA870EE440A9FB733 = {
 			isa = PBXGroup;
 			children = (
-				8E47204543FDC7526339C7D6 /* Foundation.framework */,
+				5A2F89A27286DA798411E6B1 /* Podfile */,
+				0270691B718A0D206FEC5993 /* Frameworks */,
+				22CC4C660D0C4A4D42772117 /* Pods */,
+				5B1720BEDA144841F3760335 /* Products */,
+				2A28C59C0FF51B518A28FE04 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		B624F76916942ADAF1520FC2 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9F4066323BD190D7B138E2E0 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		E966484CCB6CCB07A0B0D8BE /* CardIO */ = {
+			isa = PBXGroup;
+			children = (
+				6E61EAA4B25BA08424AF17CF /* CardIO.h */,
+				E54368CA63BAA369B927D32E /* CardIOCreditCardInfo.h */,
+				4502179DBDE74F11F687C1C7 /* CardIODetectionMode.h */,
+				8E8DD68073EE90635775A5A1 /* CardIOPaymentViewController.h */,
+				68A244E2462D68594C5B2EA4 /* CardIOPaymentViewControllerDelegate.h */,
+				613B807B4B5B2E1169CD6F50 /* CardIOUtilities.h */,
+				B41AB6DED1BABC738F5F87F9 /* CardIOView.h */,
+				D5A46BCE493FD771C58FAAC5 /* CardIOViewDelegate.h */,
+			);
+			path = CardIO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6EFC9AAA137E4F3555ED6C20 /* Pods */ = {
+		26464A5A901850CA07EC4A7D /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D9540C30D8D19B3A1A1CB538 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = C739BE471DAE368A0C5526B5 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				08C5A202D7D855DC4087C888 /* Sources */,
-				64E1D85F20921E5B46A33D34 /* Frameworks */,
+				581D1F3D3EB78D6CD6997B68 /* Sources */,
+				263F227B98D1F73814B4FEAC /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,47 +141,47 @@
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 714DA2950067DDCA407D41CC /* libPods.a */;
+			productReference = 3EA4E2FCAB305C41EBCBDEDE /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6C743E290A91F8445D7C2D1B /* Project object */ = {
+		6278AA92678C801BA951C10D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 36D6DD69A0521EA85A4C808D /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = C9FA69E4ACF4A68DD77C1C5A /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 4406F93FAEC0421BB64749A8;
-			productRefGroup = BF3D57782EFEFEAC1A7B0BDE /* Products */;
+			mainGroup = 7960FD9AA870EE440A9FB733;
+			productRefGroup = 5B1720BEDA144841F3760335 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6EFC9AAA137E4F3555ED6C20 /* Pods */,
+				26464A5A901850CA07EC4A7D /* Pods */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		08C5A202D7D855DC4087C888 /* Sources */ = {
+		581D1F3D3EB78D6CD6997B68 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10F95D2D1F112282E7DBD945 /* Pods-dummy.m in Sources */,
+				736E1956AC9F22AB4912616C /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		349B3DEFA49EFB09C97EC5D2 /* Release */ = {
+		3E346B00BF9672BE0222F995 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -215,7 +215,23 @@
 			};
 			name = Release;
 		};
-		9620F2AD253B740E6F3CA175 /* Debug */ = {
+		B141C852750F27E7791EE70B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD1870D6FE98BEFF2735C043 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D66E2F321434F0916BF6CAC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -254,25 +270,9 @@
 			};
 			name = Debug;
 		};
-		CC3DE7A60EF3FB73234259D9 /* Release */ = {
+		F30BAD8E21575A3F213B8220 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D683A29D6391B21EE0D27B1A /* Pods.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		F5D14616983A63D3B92E03A5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93C3111C318058A34432925A /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 045B7B005A0B47FF6B3E996A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -289,25 +289,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		36D6DD69A0521EA85A4C808D /* Build configuration list for PBXProject "Pods" */ = {
+		C739BE471DAE368A0C5526B5 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9620F2AD253B740E6F3CA175 /* Debug */,
-				349B3DEFA49EFB09C97EC5D2 /* Release */,
+				F30BAD8E21575A3F213B8220 /* Debug */,
+				B141C852750F27E7791EE70B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D9540C30D8D19B3A1A1CB538 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		C9FA69E4ACF4A68DD77C1C5A /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F5D14616983A63D3B92E03A5 /* Debug */,
-				CC3DE7A60EF3FB73234259D9 /* Release */,
+				D66E2F321434F0916BF6CAC0 /* Debug */,
+				3E346B00BF9672BE0222F995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6C743E290A91F8445D7C2D1B /* Project object */;
+	rootObject = 6278AA92678C801BA951C10D /* Project object */;
 }
