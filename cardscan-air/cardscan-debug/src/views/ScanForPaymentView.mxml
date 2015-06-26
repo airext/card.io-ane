@@ -161,10 +161,6 @@
                     <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.ANDROID_NO_CAMERA)}" change="options.setProperty(CardScanOptions.ANDROID_NO_CAMERA, event.target.selected);" />
                 </s:FormItem>
 
-                <s:FormItem width="100%" label="suppressScan" backgroundColor="#FFEEEE">
-                    <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.ANDROID_SUPPRESS_SCAN)}" change="options.setProperty(CardScanOptions.ANDROID_SUPPRESS_SCAN, event.target.selected);" />
-                </s:FormItem>
-
                 <s:FormItem width="100%" label="intentSenderIsPayPal" backgroundColor="#FFEEEE">
                     <s:CheckBox label="" selected="{options.getProperty(CardScanOptions.ANDROID_USE_PAYPAL_ACTIONBAR_ICON)}" change="options.setProperty(CardScanOptions.ANDROID_USE_PAYPAL_ACTIONBAR_ICON, event.target.selected);" />
                 </s:FormItem>
