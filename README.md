@@ -75,6 +75,10 @@ The `CardScan.sharedInstance().scanForPayment` method allow User scan (or manual
 	CardScan.sharedInstance().scanForPayment(new CardScanOptions());
 ```
 
+## Known issues and limitations
+ * not support scanned images for CreditCard, due to requirement do not store credit card data;
+ * changing scan overlay on Android is not tested;
+ * changing scan overlay on iOS is not supported.
 
 ## Public API
 
@@ -222,9 +226,24 @@ The `CardScan.sharedInstance().scanForPayment` method allow User scan (or manual
 	 */
 	public static const IOS_MASK_MANUAL_ENTRY_DIGITS:String = "maskManualEntryDigits";
 
-	/**
-	 * Unsupported feature.
-	 */
+    /**
+     * Unsupported feature.
+     * 
+     * A custom view that will be overlaid atop the entire scan view. Defaults to nil.
+     * If you set a scanOverlayView, be sure to:
+     *
+     *  * Consider rotation. Be sure to test on the iPad with rotation both enabled and disabled.
+     *    To make rotation synchronization easier, whenever a scanOverlayView is set, and card.io does an
+     *    in-place rotation (rotates its UI elements relative to their containers), card.io will generate
+     *    rotation notifications; see CardIOScanningOrientationDidChangeNotification
+     *    and associated userInfo key documentation below.
+     *    As with UIKit, the initial rotation is always UIInterfaceOrientationPortrait.
+     *
+     *  * Be sure to pass touches through to the superview as appropriate. Note that the entire camera
+     *    preview responds to touches (triggers refocusing). Test the light button and the toolbar buttons.
+     *
+     *  * Minimize animations, redrawing, or any other CPU/GPU/memory intensive activities
+     */
 	public static const IOS_SCAN_OVERLAY_VIEW:String = "scanOverlayView"; // Unsupported feature
 
 	/**
