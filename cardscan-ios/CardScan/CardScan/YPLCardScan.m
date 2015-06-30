@@ -34,6 +34,11 @@ static YPLCardScan* _sharedInstance = nil;
     return YES;
 }
 
++(void) preload
+{
+    [CardIOUtilities preload];
+}
+
 +(NSString*) libraryVersion
 {
     return [CardIOUtilities libraryVersion];
@@ -42,6 +47,20 @@ static YPLCardScan* _sharedInstance = nil;
 +(BOOL) canReadCardWithCamera
 {
     return [CardIOUtilities canReadCardWithCamera];
+}
+
++(UIImage*) blurredScrenImage
+{
+    UIImageView* imageView = [CardIOUtilities blurredScreenImageView];
+    
+    if (imageView != nil)
+    {
+        return imageView.image;
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 +(UIImage*) getLogoForCardType: (CardIOCreditCardType) cardType

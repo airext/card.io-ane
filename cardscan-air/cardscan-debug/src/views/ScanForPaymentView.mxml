@@ -24,8 +24,8 @@
 
             var scanComplete:Function = function (event:CardScanEvent):void
             {
-                CardScan.getInstance().removeEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
-                CardScan.getInstance().removeEventListener(Event.CANCEL, scanCanceled);
+                CardScan.sharedInstance().removeEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
+                CardScan.sharedInstance().removeEventListener(Event.CANCEL, scanCanceled);
 
                 CreditCardPopup.show(self, event.info, 500, 300);
 
@@ -34,16 +34,16 @@
 
             var scanCanceled:Function = function scanCancelled(event:Event):void
             {
-                CardScan.getInstance().removeEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
-                CardScan.getInstance().removeEventListener(Event.CANCEL, scanCanceled);
+                CardScan.sharedInstance().removeEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
+                CardScan.sharedInstance().removeEventListener(Event.CANCEL, scanCanceled);
 
                 trace("Cancelled");
             };
 
-            CardScan.getInstance().addEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
-            CardScan.getInstance().addEventListener(Event.CANCEL, scanCanceled);
+            CardScan.sharedInstance().addEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
+            CardScan.sharedInstance().addEventListener(Event.CANCEL, scanCanceled);
 
-            CardScan.getInstance().scanForPayment(options);
+            CardScan.sharedInstance().scanForPayment(options);
         }
 
         ]]>

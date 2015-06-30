@@ -5,6 +5,8 @@ package com.yuppablee.cardscan
 {
 import com.yuppablee.cardscan.data.CardScanOptions;
 
+import flash.display.BitmapData;
+
 import flash.events.ErrorEvent;
 import flash.events.Event;
 
@@ -134,6 +136,17 @@ public class CardScan extends EventDispatcher
     public static function canReadCardWithCamera():Boolean
     {
         return context.call("canReadCardWithCamera");
+    }
+
+    /**
+     * <i>iOS</i>: Returns a doubly Gaussian-blurred screenshot, intended for screenshots when backgrounding.
+     * @return Blurred screenshot.
+     *
+     * <i>Android</i>: N/A returns <code>null</code>.
+     */
+    public static function getBlurredScreenImage():BitmapData
+    {
+        return context.call("getBlurredScreenImage") as BitmapData;
     }
 
     //-------------------------------------

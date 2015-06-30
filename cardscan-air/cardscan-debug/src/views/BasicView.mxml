@@ -11,6 +11,9 @@
 
         import popups.Alert;
 
+        [Bindable]
+        private var blurredScreenImage:BitmapData;
+
         private function isSupported():void
         {
             Alert.show(this, String(CardScan.isSupported()), 500, 200);
@@ -21,6 +24,27 @@
             Alert.show(this, String(CardScan.libraryVersion), 500, 200);
         }
 
+        private function preload():void
+        {
+            CardScan.preload();
+        }
+
+        private function canReadCardWithCamera():void
+        {
+            Alert.show(this, String(CardScan.canReadCardWithCamera()));
+        }
+
+        private function getBlurredScreenImage():void
+        {
+            blurredScreenImage = CardScan.getBlurredScreenImage();
+
+            trace(blurredScreenImage);
+
+            if (blurredScreenImage != null)
+            {
+                trace(blurredScreenImage.width,"x", blurredScreenImage.height);
+            }
+        }
         ]]>
     </fx:Script>
 
@@ -33,6 +57,11 @@
     </s:layout>
 
     <s:Button label="Is Supported" click="isSupported();" />
+    <s:Button label="Preload" click="preload();" />
+    <s:Button label="CanReadCardWithCamera" click="canReadCardWithCamera();" />
     <s:Button label="Card.IO version" click="libraryVersion();" />
+    <s:Button label="GetBlurredScreenImage" click="getBlurredScreenImage();" />
+
+    <s:Image source="{blurredScreenImage}" width="320" height="480" />
 
 </s:View>

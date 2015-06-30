@@ -27,9 +27,13 @@ typedef void (^ANXCardIOScanForPaymentCompletion)(CardIOCreditCardInfo* info, NS
 
 +(BOOL) isSupported;
 
++(void) preload;
+
 +(NSString*) libraryVersion;
 
 +(BOOL) canReadCardWithCamera;
+
++(UIImage*) blurredScrenImage;
 
 +(UIImage*) getLogoForCardType: (CardIOCreditCardType) cardType;
 

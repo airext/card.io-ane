@@ -272,6 +272,9 @@
 
 +(FREObject) convertUIImageToFREObject: (UIImage*) image
 {
+    if (image == nil)
+        return NULL;
+    
     // drawing UIImage to BitmapData http://tyleregeto.com/article/drawing-ios-uiviews-to-as3-bitmapdata-via-air
     
     // Now we'll pull the raw pixels values out of the image data

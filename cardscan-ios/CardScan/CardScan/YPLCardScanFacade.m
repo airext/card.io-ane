@@ -32,13 +32,26 @@ FREObject YPLCardScanIsSupported(FREContext context, void* functionData, uint32_
     return result;
 }
 
+FREObject YPLPreload(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
+{
+    NSLog(@"YPLPreload");
+    
+    [YPLCardScan preload];
+    
+    return NULL;
+}
+
 FREObject YPLCardScanLibraryVersion(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
+    NSLog(@"YPLCardScanLibraryVersion");
+    
     return [YPLCardScanConversionRoutines convertNSStringToFREObject:[YPLCardScan libraryVersion]];
 }
 
 FREObject YPLCanReadCardWithCamera(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 {
+    NSLog(@"YPLCanReadCardWithCamera");
+    
     return [YPLCardScanConversionRoutines convertBOOLToFREObject:[YPLCardScan canReadCardWithCamera]];
 }
 
@@ -137,11 +150,18 @@ FREObject YPLCardScanScanForPayment(FREContext context, void* functionData, uint
     return NULL;
 }
 
+FREObject YPLBlurredScreenImage(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
+{
+    NSLog(@"YPLBlurredScreenImage");
+    
+    return [YPLCardScanConversionRoutines convertUIImageToFREObject:[YPLCardScan blurredScrenImage]];
+}
+
 #pragma mark ContextInitialize/ContextFinalizer
 
 void YPLCardScanContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
-    *numFunctionsToTest = 6;
+    *numFunctionsToTest = 8;
     
     FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * (*numFunctionsToTest));
     
@@ -149,25 +169,33 @@ void YPLCardScanContextInitializer(void* extData, const uint8_t* ctxType, FRECon
     func[0].functionData = NULL;
     func[0].function = &YPLCardScanIsSupported;
     
-    func[1].name = (const uint8_t*) "libraryVersion";
+    func[1].name = (const uint8_t*) "preload";
     func[1].functionData = NULL;
-    func[1].function = &YPLCardScanLibraryVersion;
+    func[1].function = &YPLPreload;
     
-    func[2].name = (const uint8_t*) "canReadCardWithCamera";
+    func[2].name = (const uint8_t*) "libraryVersion";
     func[2].functionData = NULL;
-    func[2].function = &YPLCanReadCardWithCamera;
-
-    func[3].name = (const uint8_t*) "scanForPayment";
+    func[2].function = &YPLCardScanLibraryVersion;
+    
+    func[3].name = (const uint8_t*) "canReadCardWithCamera";
     func[3].functionData = NULL;
-    func[3].function = &YPLCardScanScanForPayment;
-    
-    func[4].name = (const uint8_t*) "getLogoForCardType";
+    func[3].function = &YPLCanReadCardWithCamera;
+
+    func[4].name = (const uint8_t*) "scanForPayment";
     func[4].functionData = NULL;
-    func[4].function = &YPLCardScanGetLogoForCardType;
+    func[4].function = &YPLCardScanScanForPayment;
     
-    func[5].name = (const uint8_t*) "getDisplayNameForCardType";
+    func[5].name = (const uint8_t*) "getLogoForCardType";
     func[5].functionData = NULL;
-    func[5].function = &YPLCardScanGetDisplayNameForCardType;
+    func[5].function = &YPLCardScanGetLogoForCardType;
+    
+    func[6].name = (const uint8_t*) "getDisplayNameForCardType";
+    func[6].functionData = NULL;
+    func[6].function = &YPLCardScanGetDisplayNameForCardType;
+    
+    func[7].name = (const uint8_t*) "getBlurredScreenImage";
+    func[7].functionData = NULL;
+    func[7].function = &YPLBlurredScreenImage;
     
     *functionsToSet = func;
     

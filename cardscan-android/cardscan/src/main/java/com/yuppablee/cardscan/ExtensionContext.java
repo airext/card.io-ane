@@ -27,6 +27,8 @@ public class ExtensionContext extends FREContext
         functions.put("getLogoForCardType", new GetLogoForCardTypeFunction());
         functions.put("getDisplayNameForCardType", new GetDisplayNameForCardTypeFunction());
 
+        functions.put("getBlurredScreenImage", new GetBlurredScreenImageFunction());
+
         return functions;
     }
 
