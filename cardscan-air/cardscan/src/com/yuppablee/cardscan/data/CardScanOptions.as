@@ -76,8 +76,23 @@ public class CardScanOptions
 
     /**
      * Unsupported feature.
+     *
+     * A custom view that will be overlaid atop the entire scan view. Defaults to nil.
+     * If you set a scanOverlayView, be sure to:
+     *
+     *  * Consider rotation. Be sure to test on the iPad with rotation both enabled and disabled.
+     *    To make rotation synchronization easier, whenever a scanOverlayView is set, and card.io does an
+     *    in-place rotation (rotates its UI elements relative to their containers), card.io will generate
+     *    rotation notifications; see CardIOScanningOrientationDidChangeNotification
+     *    and associated userInfo key documentation below.
+     *    As with UIKit, the initial rotation is always UIInterfaceOrientationPortrait.
+     *
+     *  * Be sure to pass touches through to the superview as appropriate. Note that the entire camera
+     *    preview responds to touches (triggers refocusing). Test the light button and the toolbar buttons.
+     *
+     *  * Minimize animations, redrawing, or any other CPU/GPU/memory intensive activities
      */
-    public static const IOS_SCAN_OVERLAY_VIEW:String = "scanOverlayView"; // Unsupported feature
+    public static const IOS_SCAN_OVERLAY_VIEW:String = "scanOverlayView";
 
     /**
      * Boolean property.
@@ -100,12 +115,12 @@ public class CardScanOptions
      */
     public static const ANDROID_NO_CAMERA:String = "io.card.payment.noCamera";
 
-        /**
-         * Integer extra. Optional. If this value is provided the view will be inflated and will overlay
-         * the camera during the scan process. The integer value must be the id of a valid layout
-         * resource.
-         */
-        public static const ANDROID_SCAN_OVERLAY_LAYOUT_ID:String = "io.card.payment.scanOverlayLayoutId";
+    /**
+     * Integer extra. Optional. If this value is provided the view will be inflated and will overlay
+     * the camera during the scan process. The integer value must be the id of a valid layout
+     * resource.
+     */
+    public static const ANDROID_SCAN_OVERLAY_LAYOUT_ID:String = "io.card.payment.scanOverlayLayoutId";
 
     /**
      * Boolean extra. Optional. Use the PayPal icon in the ActionBar.

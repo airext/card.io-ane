@@ -37,13 +37,6 @@
         private function getBlurredScreenImage():void
         {
             blurredScreenImage = CardScan.getBlurredScreenImage();
-
-            trace(blurredScreenImage);
-
-            if (blurredScreenImage != null)
-            {
-                trace(blurredScreenImage.width,"x", blurredScreenImage.height);
-            }
         }
         ]]>
     </fx:Script>

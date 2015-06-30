@@ -109,8 +109,8 @@ public class ScanForPaymentFunction implements FREFunction
                     intent.putExtra(CardIOActivity.EXTRA_SUPPRESS_MANUAL_ENTRY, (Boolean) options.get("suppressManualEntry"));
                 }
 
-//                // detectionMode
-//
+                // detectionMode
+
                 if (options.containsKey("detectionMode"))
                 {
                     int detectionMode = (Integer) options.get("detectionMode");
@@ -165,6 +165,13 @@ public class ScanForPaymentFunction implements FREFunction
                 if (options.containsKey(CardIOActivity.EXTRA_KEEP_APPLICATION_THEME))
                 {
                     intent.putExtra(CardIOActivity.EXTRA_KEEP_APPLICATION_THEME, (Boolean) options.get(CardIOActivity.EXTRA_KEEP_APPLICATION_THEME));
+                }
+
+                // EXTRA_SCAN_OVERLAY_LAYOUT_ID
+
+                if (options.containsKey(CardIOActivity.EXTRA_SCAN_OVERLAY_LAYOUT_ID))
+                {
+                    intent.putExtra(CardIOActivity.EXTRA_SCAN_OVERLAY_LAYOUT_ID, (Integer) options.get(CardIOActivity.EXTRA_SCAN_OVERLAY_LAYOUT_ID));
                 }
             }
 

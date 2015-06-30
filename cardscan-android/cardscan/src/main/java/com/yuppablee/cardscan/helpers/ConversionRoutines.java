@@ -262,6 +262,14 @@ public class ConversionRoutines
         }
         catch (Exception e) {}
 
+        // ANDROID_SCAN_OVERLAY_LAYOUT_ID
+
+        try
+        {
+            map.put(CardIOActivity.EXTRA_SCAN_OVERLAY_LAYOUT_ID, options.getProperty(CardIOActivity.EXTRA_SCAN_OVERLAY_LAYOUT_ID).getAsInt());
+        }
+        catch (Exception e) {}
+
         return map;
     }
 }

@@ -32,7 +32,7 @@
                 trace(event.info);
             };
 
-            var scanCanceled:Function = function scanCancelled(event:Event):void
+            var scanCanceled:Function = function (event:Event):void
             {
                 CardScan.sharedInstance().removeEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
                 CardScan.sharedInstance().removeEventListener(Event.CANCEL, scanCanceled);
