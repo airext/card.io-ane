@@ -17,13 +17,13 @@ You can get latest cardscan.ane binary from bin directory or built it for yourse
 
 1. Edit `<manifestAdditions>` section of your application descriptor. We're going to add a few additional items in here:
 
-    ```xml
+```xml
     <uses-sdk android:minSdkVersion="8" />
-    ```
+```
 
 2. Also in your `<manifest>` element, make sure the following permissions and features are present:
 
-    ```xml
+```xml
     <!-- Permission to vibrate - recommended, allows vibration feedback on scan -->
     <uses-permission android:name="android.permission.VIBRATE" />
 
@@ -34,16 +34,16 @@ You can get latest cardscan.ane binary from bin directory or built it for yourse
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
     <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
-    ```
+```
 
 3. Within the `<application>` element, add activity entries:
 
-    ```xml
+```xml
     <!-- Activities responsible for gathering payment info -->
     <activity android:name="io.card.payment.CardIOActivity" android:configChanges="keyboardHidden|orientation" />
     <activity android:name="io.card.payment.DataEntryActivity" />
 	<activity android:name="com.yuppablee.cardscan.activities.CardScanActivity" />
-    ```
+```
 
 You can get more info about installation on Android from [card.io-Android-SDK](https://github.com/card-io/card.io-Android-SDK)' repository. 
 **Notice:** note that `CardScanActivity` is an internal CardScan's Activity that used for receive data from `CardIOActivity`.
