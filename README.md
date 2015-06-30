@@ -5,6 +5,49 @@ card.io-ane
 
 ScanCard is AIR native extension for [card.io](http://card.io) credit card scanning SDK.
 
+## Installation
+You can get latest cardscan.ane binary from bin directory or built it for yourself as described in build's readme. Next add cardscan.ane to your project ([more info](http://help.adobe.com/en_US/air/build/WS597e5dadb9cc1e0253f7d2fc1311b491071-8000.html)) and declare it in your application descriptor:
+```xml
+    <extensions>
+        <extensionID>com.yuppablee.cardscan</extensionID>
+    </extensions>
+```
+
+#### On Android you also need to modify your application descriptor
+
+1. Edit `<manifestAdditions>` section of your application descriptor. We're going to add a few additional items in here:
+
+    ```xml
+    <uses-sdk android:minSdkVersion="8" />
+    ```
+
+2. Also in your `<manifest>` element, make sure the following permissions and features are present:
+
+    ```xml
+    <!-- Permission to vibrate - recommended, allows vibration feedback on scan -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Permission to use camera - required -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Camera features - recommended -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+    ```
+
+3. Within the `<application>` element, add activity entries:
+
+    ```xml
+    <!-- Activities responsible for gathering payment info -->
+    <activity android:name="io.card.payment.CardIOActivity" android:configChanges="keyboardHidden|orientation" />
+    <activity android:name="io.card.payment.DataEntryActivity" />
+	<activity android:name="com.yuppablee.cardscan.activities.CardScanActivity" />
+    ```
+
+You can get more info about installation on Android from [card.io-Android-SDK](https://github.com/card-io/card.io-Android-SDK)' repository. 
+**Notice:** note that `CardScanActivity` is an internal CardScan's Activity that used for receive data from `CardIOActivity`.
+
 ## Scan For Payment
 The `CardScan.sharedInstance().scanForPayment` method allow User scan (or manually input) its credit card, when scanning is done you receive `CardScanEvent.SCAN_COMPLETE` event, or `Event.CANCEL` if scan process has been cancelled.
 
@@ -17,7 +60,7 @@ The `CardScan.sharedInstance().scanForPayment` method allow User scan (or manual
 		trace(event.info); // event.info contains CreditCard instance that describes scanned credit card.
 	};
 
-	var scanCanceled:Function = function scanCancelled(event:Event):void
+	var scanCanceled:Function = function (event:Event):void
 	{
 		CardScan.sharedInstance().removeEventListener(CardScanEvent.SCAN_COMPLETE, scanComplete);
 		CardScan.sharedInstance().removeEventListener(Event.CANCEL, scanCanceled);
@@ -30,7 +73,6 @@ The `CardScan.sharedInstance().scanForPayment` method allow User scan (or manual
 
 	CardScan.sharedInstance().scanForPayment(new CardScanOptions());
 ```
-
 
 
 ## Public API
