@@ -46,7 +46,8 @@ You can get latest cardscan.ane binary from bin directory or built it for yourse
 ```
 
 You can get more info about installation on Android from [card.io-Android-SDK](https://github.com/card-io/card.io-Android-SDK)' repository. 
-**Notice:** note that `CardScanActivity` is an internal CardScan's Activity that used for receive data from `CardIOActivity`.
+
+**Note** that `CardScanActivity` is an internal CardScan's Activity that used for receive data from `CardIOActivity` and it should be declared too.
 
 ## Scan For Payment
 The `CardScan.sharedInstance().scanForPayment` method allow User scan (or manually input) its credit card, when scanning is done you receive `CardScanEvent.SCAN_COMPLETE` event, or `Event.CANCEL` if scan process has been cancelled.
