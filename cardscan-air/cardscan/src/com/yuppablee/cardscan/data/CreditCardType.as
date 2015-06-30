@@ -36,6 +36,33 @@ public class CreditCardType
     //
     //--------------------------------------------------------------------------
 
+    private static const logosForCardType:Object = {};
+
+    /**
+     * Returns a 36x25 credit card logo, at a resolution appropriate for the device.
+     *
+     * @param cardType The card type.
+     * @return 36x25 credit card logo.
+     */
+    public static function logoForCardType(cardType:CreditCardType):BitmapData
+    {
+        if (cardType == null)
+            return null;
+
+        if (!logosForCardType.hasOwnProperty(cardType.name))
+        {
+            logosForCardType[cardType.name] = CardScan.context.call("getLogoForCardType", cardType.name);
+        }
+
+        return logosForCardType[cardType.name];
+    }
+
+    //--------------------------------------------------------------------------
+    //
+    //  Class methods
+    //
+    //--------------------------------------------------------------------------
+
     card_scan static function toCreditCardType(name:String):CreditCardType
     {
         switch (name)
@@ -93,7 +120,7 @@ public class CreditCardType
     {
         if (_logo == null)
         {
-            _logo = CardScan.context.call("getLogoForCardType", _name) as BitmapData;
+            _logo = logoForCardType(this);
         }
 
         return _logo;

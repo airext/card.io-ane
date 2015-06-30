@@ -151,6 +151,9 @@ public class CardScanOptions
 
     /**
      * The preferred language for all strings appearing in the user interface.
+     *
+     * <i>iOS</i>:
+     * The preferred language for all strings appearing in the user interface.
      * If not set, or if set to nil, defaults to the device's current language setting.
      *
      * Can be specified as a language code ("en", "fr", "zh-Hans", etc.) or as a locale ("en_AU", "fr_FR", "zh-Hant_HK", etc.).
@@ -163,6 +166,29 @@ public class CardScanOptions
      *
      * These localizations are currently included:
      * ar,da,de,en,en_AU,en_GB,es,es_MX,fr,he,is,it,ja,ko,ms,nb,nl,pl,pt,pt_BR,ru,sv,th,tr,zh-Hans,zh-Hant,zh-Hant_TW.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * String extra. Optional. The preferred language for all strings appearing in the user
+     * interface. If not set, or if set to null, defaults to the device's current language setting. <br/>
+     * <br/>
+     * Can be specified as a language code ("en", "fr", "zh-Hans", etc.) or as a locale ("en_AU",
+     * "fr_FR", "zh-Hant_TW", etc.). <br/>
+     * <br/>
+     * If the library does not contain localized strings for a specified locale, then will fall back
+     * to the language. E.g., "es_CO" -> "es". <br/>
+     * If the library does not contain localized strings for a specified language, then will fall
+     * back to American English. <br/>
+     * <br/>
+     * If you specify only a language code, and that code matches the device's currently preferred
+     * language, then the library will attempt to use the device's current region as well. E.g.,
+     * specifying "en" on a device set to "English" and "United Kingdom" will result in "en_GB". <br/>
+     * <br/>
+     * These localizations are currently included: <br/>
+     * <p/>
+     * da, de, en, en_AU, en_GB, es, es_MX, fr, he, is, it, ja, ko, nb, nl, pl, pt, pt_BR, ru,
+     * sv, tr, zh-Hans, zh-Hant, zh-Hant_TW.
      */
     public function get languageOrLocale():String
     {
@@ -183,8 +209,17 @@ public class CardScanOptions
     private var _guideColor:int = -1;
 
     /**
+     * Color of the guide overlay.
+     *
+     * <i>iOS</i>:
      * Alter the card guide (bracket) color. Opaque colors recommended.
      * Defaults to -1; if -1, will use card.io green.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Integer extra. Optional. Defaults to {@link Color#GREEN}. Changes the
+     * color of the guide overlay on the camera.
      */
     public function get guideColor():int
     {
@@ -205,8 +240,15 @@ public class CardScanOptions
     private var _suppressScanConfirmation:Boolean = false;
 
     /**
-     * If <code>true</code>, don't have the user confirm the scanned card, just return the results immediately.
-     * Defaults to <code>false</code>.
+     * <i>iOS</i>:
+     * If <code>true</code>, don't have the user confirm the scanned card, just
+     * return the results immediately. Defaults to <code>false</code>.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Boolean extra. Optional. If this value is set to <code>true</code> the
+     * user will not be prompted to confirm their card number after processing.
      */
     public function get suppressScanConfirmation():Boolean
     {
@@ -227,8 +269,15 @@ public class CardScanOptions
     private var _scanInstructions:String = null;
 
     /**
+     * <i>iOS</i>:
      * Set the scan instruction text. If nil, use the default text. Defaults to nil.
      * Use newlines as desired to control the wrapping of text onto multiple lines.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * String extra. Optional. Used to display instructions to the user while they are scanning
+     * their card.
      */
     public function get scanInstructions():String
     {
@@ -249,8 +298,15 @@ public class CardScanOptions
     private var _hideLogo:Boolean = false;
 
     /**
+     * <i>iOS</i>:
      * Hide the PayPal or card.io logo in the scan view.
      * Defaults to <code>false</code>.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Boolean extra. Optional. Defaults to <code>false</code>. When set to <code>true</code>
+     * the card.io logo will not be shown overlaid on the camera.
      */
     public function get hideLogo():Boolean
     {
@@ -271,8 +327,15 @@ public class CardScanOptions
     private var _requireExpiry:Boolean = true;
 
     /**
+     * <i>iOS</i>:
      * Set to <code>false</code> if you don't need to collect the card expiration.
      * Defaults to <code>true</code>.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Boolean extra. Optional. Defaults to <code>false</code>. If
+     * set to <code>false</code>, expiry information will not be required.
      */
     public function get requireExpiry():Boolean
     {
@@ -293,8 +356,15 @@ public class CardScanOptions
     private var _requireCVV:Boolean = true;
 
     /**
+     * <i>iOS</i>:
      * Set to <code>false</code> if you don't need to collect the cvv from the user.
      * Defaults to <code>true</code>.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Boolean extra. Optional. Defaults to <code>false</code>. If set, the user will be prompted
+     * for the card CVV.
      */
     public function get requireCVV():Boolean
     {
@@ -315,9 +385,15 @@ public class CardScanOptions
     private var _requirePostalCode:Boolean = false;
 
     /**
-     *
+     * <i>iOS</i>:
      * Set to <code>true</code> if you need to collect the billing postal code.
      * Defaults to <code>false</code>.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Boolean extra. Optional. Defaults to <code>false</code>. If set, the user will be prompted
+     * for the card billing postal code.
      */
     public function get requirePostalCode():Boolean
     {
@@ -338,9 +414,17 @@ public class CardScanOptions
     private var _scanExpiry:Boolean = true;
 
     /**
+     * <i>iOS</i>:
      * Set to <code>false</code> if you don't want the camera to try to scan the
      * card expiration. Applies only if collectExpiry is also YES.
      * Defaults to <code>true</code>.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Boolean extra. Optional. Defaults to <code>true</code>. If
+     * set to <code>true</code>, and {@link #EXTRA_REQUIRE_EXPIRY} is <code>true</code>,
+     * an attempt to extract the expiry from the card image will be made.
      */
     public function get scanExpiry():Boolean
     {
@@ -361,8 +445,15 @@ public class CardScanOptions
     private var _useCardIOLogo:Boolean = false;
 
     /**
+     * <i>iOS</i>:
      * Set to <code>true</code> to show the card.io logo over the camera view instead of the PayPal logo.
      * Defaults to <code>false</code>.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Boolean extra. Optional. Defaults to <code>false</code>. If set, the card.io logo will be
+     * shown instead of the PayPal logo.
      */
     public function get useCardIOLogo():Boolean
     {
@@ -383,6 +474,7 @@ public class CardScanOptions
     private var _suppressManualEntry:Boolean = false;
 
     /**
+     * <i>iOS</i>:
      * Set to <code>true</code> to prevent card.io from showing its "Enter Manually" button.
      * Defaults to <code>true</code>.
      *
@@ -390,6 +482,14 @@ public class CardScanOptions
      *       automatically display its manual entry screen.
      *       Therefore, if you want to prevent users from *ever* seeing card.io's manual entry screen,
      *       you should first check [CardIOUtilities canReadCardWithCamera] before initing the view controller.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Boolean extra. Optional. Defaults to <code>false</code>. Removes the keyboard button from the
+     * scan screen.
+     * <p/>
+     * If scanning is unavailable, the {@link android.app.Activity} result will be {@link #RESULT_SCAN_NOT_AVAILABLE}.
      */
     public function get suppressManualEntry():Boolean
     {
@@ -410,15 +510,26 @@ public class CardScanOptions
     private var _detectionMode:CardScanDetectionMode;
 
     /**
-     * CardScanDetectionMode.CardImageAndNumber: the scanner must successfully identify the card number.
-     * CardScanDetectionMode.CardImageOnly: don't scan the card, just detect a credit-card-shaped card.
-     * CardScanDetectionMode.Automatic: start as CardScanDetectionMode.CardImageAndNumber, but fall back to
-     *        CardScanDetectionMode.CardImageOnly if scanning has not succeeded within a reasonable time.
-     * Defaults to CardScanDetectionMode.CardImageAndNumber.
+     * Specifies detection mode.
      *
-     * @note Images returned in CardScanDetectionMode.CardImageOnly mode may be less focused, to accomodate scanning
+     * <i>iOS</i>:
+     * CardIODetectionModeCardImageAndNumber: the scanner must successfully identify the card number.
+     * CardIODetectionModeCardImageOnly: don't scan the card, just detect a credit-card-shaped card.
+     * CardIODetectionModeAutomatic: start as CardIODetectionModeCardImageAndNumber, but fall back to
+     *        CardIODetectionModeCardImageOnly if scanning has not succeeded within a reasonable time.
+     * Defaults to CardIODetectionModeCardImageAndNumber.
+     *
+     * @note Images returned in CardIODetectionModeCardImageOnly mode may be less focused, to accomodate scanning
      *       cards that are dominantly white (e.g., the backs of drivers licenses), and thus
      *       hard to calculate accurate focus scores for.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * On Android this option is simulated, for image only detection mode it
+     * sets CardIOActivity.EXTRA_SUPPRESS_SCAN and CardIOActivity.EXTRA_RETURN_CARD_IMAGE
+     * to <code>true</code>.
+     *
      */
     public function get detectionMode():CardScanDetectionMode
     {
@@ -446,11 +557,23 @@ public class CardScanOptions
     //
     //--------------------------------------------------------------------------
 
+    /**
+     * Sets option value
+     *
+     * @param name The name of option
+     * @param value The value to set
+     */
     public function setProperty(name:String, value:Object):void
     {
         properties[name] = value;
     }
 
+    /**
+     * Returns option value
+     *
+     * @param name The name of option
+     * @return The option value
+     */
     public function getProperty(name:String):*
     {
         return properties[name];

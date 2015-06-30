@@ -12,17 +12,34 @@ public class CardScanDetectionMode
     //--------------------------------------------------------------------------
 
     /**
-     * iOS: The scanner must successfully identify the card number.
+     * Scans for card image and number.
+     *
+     * <i>iOS</i>: the scanner must successfully identify the card number.
+     *
+     * <i>Android</i>: behaves as default
      */
     public static const CardImageAndNumber:CardScanDetectionMode = new CardScanDetectionMode(0, "CardImageAndNumber");
 
     /**
-     * iOS:  don't scan the card, just detect a credit-card-shaped card.
+     * Scan for card image only.
+     *
+     * <i>iOS</i>: don't scan the card, just detect a credit-card-shaped card.
+     *
+     * <i>Android</i>:
+     * sets CardIOActivity.EXTRA_SUPPRESS_SCAN and CardIOActivity.EXTRA_RETURN_CARD_IMAGE
+     * to <code>true</code> to simulated image only scan.
      */
     public static const CardImageOnly:CardScanDetectionMode = new CardScanDetectionMode(1, "CardImageOnly");
 
     /**
-     * iOS: start as CardImageAndNumber, but fall back to CardImageOnly if scanning has not succeeded within a reasonable time.
+     * Scan for card image and number, but could fallback to image only.
+     *
+     * <i>iOS</i>:
+     * start as CardIODetectionModeCardImageAndNumber, but fall back to
+     * CardIODetectionModeCardImageOnly if scanning has not succeeded within a
+     * reasonable time.
+     *
+     * <i>Android</i>: does nothing
      */
     public static const Automatic:CardScanDetectionMode = new CardScanDetectionMode(2, "Automatic");
 

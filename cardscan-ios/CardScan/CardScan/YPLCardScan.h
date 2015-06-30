@@ -29,6 +29,8 @@ typedef void (^ANXCardIOScanForPaymentCompletion)(CardIOCreditCardInfo* info, NS
 
 +(NSString*) libraryVersion;
 
++(BOOL) canReadCardWithCamera;
+
 +(UIImage*) getLogoForCardType: (CardIOCreditCardType) cardType;
 
 +(NSString*) getDisplayNameForCardType: (CardIOCreditCardType) cardType singLanguageOrLocale: (NSString*) languageOrLocale;

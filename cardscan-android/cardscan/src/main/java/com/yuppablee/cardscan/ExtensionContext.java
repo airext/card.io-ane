@@ -19,7 +19,11 @@ public class ExtensionContext extends FREContext
 
         functions.put("isSupported", new IsSupportedFunction());
         functions.put("libraryVersion", new LibraryVersionFunction());
+        functions.put("canReadCardWithCamera", new CanReadCardWithCameraFunction());
+        functions.put("preload", new PreloadFunction());
+
         functions.put("scanForPayment", new ScanForPaymentFunction());
+
         functions.put("getLogoForCardType", new GetLogoForCardTypeFunction());
         functions.put("getDisplayNameForCardType", new GetDisplayNameForCardTypeFunction());
 

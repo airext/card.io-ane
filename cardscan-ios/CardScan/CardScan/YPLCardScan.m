@@ -39,6 +39,11 @@ static YPLCardScan* _sharedInstance = nil;
     return [CardIOUtilities libraryVersion];
 }
 
++(BOOL) canReadCardWithCamera
+{
+    return [CardIOUtilities canReadCardWithCamera];
+}
+
 +(UIImage*) getLogoForCardType: (CardIOCreditCardType) cardType
 {
     return [CardIOCreditCardInfo logoForCardType:cardType];

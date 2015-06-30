@@ -83,6 +83,18 @@
     return value;
 }
 
++(FREObject) convertBOOLToFREObject: (BOOL) boolean
+{
+    FREObject value;
+    
+    FREResult result = FRENewObjectFromBool((uint32_t) boolean, &value);
+    
+    if (result != FRE_OK)
+        return NULL;
+    
+    return value;
+}
+
 #pragma mark Read properties from object
 
 +(NSString*) getStringFrom: (FREObject) object forProperty: (NSString*) property

@@ -23,6 +23,7 @@
 +(NSInteger) convertFREObjectToNSInteger:(FREObject) object;
 
 +(BOOL) convertFREObjectToBOOL: (FREObject) object;
++(FREObject) convertBOOLToFREObject: (BOOL) value;
 
 #pragma mark Read properties from object
 

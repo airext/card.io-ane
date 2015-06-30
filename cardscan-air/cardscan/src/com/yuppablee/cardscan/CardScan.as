@@ -63,6 +63,11 @@ public class CardScan extends EventDispatcher
     //  libraryVersion
     //-------------------------------------
 
+    /**
+     * Returns card.io library version.
+     *
+     * @return Human-readable version of card.io library.
+     */
     public static function get libraryVersion():String
     {
         return context.call("libraryVersion") as String;
@@ -74,19 +79,73 @@ public class CardScan extends EventDispatcher
     //
     //--------------------------------------------------------------------------
 
+    //-------------------------------------
+    //  isSupported
+    //-------------------------------------
+
+    /**
+     * Indicates it CardScan extension is supported on current platform.
+     *
+     * @return @return <code>true</code> if extension is supported. <code>false</code> otherwise.
+     */
     public static function isSupported():Boolean
     {
         return context != null && context.call("isSupported");
     }
 
+    //-------------------------------------
+    //  preload
+    //-------------------------------------
+
+    /**
+     * <i>iOS</i>:
+     * The preload method prepares card.io to launch faster. Calling preload is optional but suggested.
+     * On an iPhone 5S, for example, preloading makes card.io launch ~400ms faster.
+     * The best time to call preload is when displaying a view from which card.io might be launched;
+     * e.g., inside your view controller's viewWillAppear: method.
+     * preload works in the background; the call to preload returns immediately.
+     *
+     * <br />
+     *
+     * <i>Android</i>: Does nothing.
+     */
     public static function preload():void
     {
         context.call("preload");
     }
 
+    /**
+     * <i>iOS</i>:
+     * Determine whether this device supports camera-based card scanning, considering
+     * factors such as hardware support and OS version.
+     * card.io automatically provides manual entry of cards as a fallback,
+     * so it is not typically necessary for your app to check this.
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Determine if the device supports card scanning.
+     * <br><br>
+     * An ARM7 processor and Android SDK 8 or later are required. Additional checks for specific
+     * misbehaving devices may also be added.
+     *
+     * @return <code>true</code> if camera is supported. <code>false</code> otherwise.
+     */
+    public static function canReadCardWithCamera():Boolean
+    {
+        return context.call("canReadCardWithCamera");
+    }
+
+    //-------------------------------------
+    //  sharedInstance
+    //-------------------------------------
+
     private static var instance:CardScan;
 
-    public static function getInstance():CardScan
+    /**
+     * @return Shared instance.
+     */
+    public static function sharedInstance():CardScan
     {
         if (instance == null)
         {
@@ -127,6 +186,19 @@ public class CardScan extends EventDispatcher
     //
     //--------------------------------------------------------------------------
 
+    /**
+     * Initiates scan process.
+     *
+     * <i>iOS</i>:
+     * Starts scan with CardIOPaymentViewController
+     *
+     * <br />
+     *
+     * <i>Android</i>:
+     * Starts scan with CardIOActivity
+     *
+     * @param options
+     */
     public function scanForPayment(options:CardScanOptions):void
     {
         context.call("scanForPayment", options ? options.toDTO() : null);
