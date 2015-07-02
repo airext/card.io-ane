@@ -78,7 +78,8 @@ The `CardScan.sharedInstance().scanForPayment` method allow User scan (or manual
 ## Known issues and limitations
  * not support scanned images for CreditCard, due to requirement do not store credit card data;
  * changing scan overlay on Android is not tested;
- * changing scan overlay on iOS is not supported.
+ * changing scan overlay on iOS is not supported;
+ * scan with CardIOView on iOS is not supported.
 
 ## Public API
 
